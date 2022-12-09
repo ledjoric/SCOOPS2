@@ -1,0 +1,44 @@
+{
+    "name": "Vivian",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Would you like to buy some bread?",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "I'll have one, please."
+                },
+                {
+                    "target_id": 3,
+                    "choice_message": "Nope. I'm full."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 2,
+            "dialog_message": "Here you go. #*You ate some bread.*",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 3,
+            "dialog_message": "Okay then. See you.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+            
+        }
+    ]
+}

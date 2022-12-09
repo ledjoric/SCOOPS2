@@ -17,7 +17,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
 
         },
         {
@@ -36,7 +37,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
         },
         {
             "id": 3,
@@ -54,7 +56,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": "show_id"
+            "minigame": "show_id",
+            "path": ""
         },
         {
             "id": 4,
@@ -63,7 +66,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
         },
         {
             "id": 5,
@@ -72,7 +76,8 @@
             "article": 0,
             "objectives": "",
             "clues": "clue#HotshowBEEZ’s publications are mostly gossip and lack proof.",
-            "minigame": ""
+            "minigame": "",
+            "path": "JSON/NPC/V2/Stacy2"
         },
         {
             "id": 6,
@@ -81,7 +86,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
         }
     ]
 }

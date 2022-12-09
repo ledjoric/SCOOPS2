@@ -17,7 +17,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
 
         },
         {
@@ -33,10 +34,11 @@
                     "choice_message": "No. I would look for other sources."
                 }
             ],
-            "article": 4,
+            "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
 
         },
         {
@@ -46,7 +48,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
             
         },
         {
@@ -56,17 +59,19 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
             
         },
         {
             "id": 5,
             "dialog_message": "I would, too! As a security guard, it’s my job to be cautious at all times.",
             "choices": [],
-            "article": 0,
+            "article": 4,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": "JSON/NPC/V2/Barry2"
             
         }
     ]

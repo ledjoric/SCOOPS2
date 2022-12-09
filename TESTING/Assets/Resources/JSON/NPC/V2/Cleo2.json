@@ -1,0 +1,15 @@
+{
+    "name": "Cleo",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Wow, I didn’t know you were that good!",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        }
+    ]
+}

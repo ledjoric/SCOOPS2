@@ -1,0 +1,38 @@
+{
+    "name": "Alex",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Have you read the article I gave you?",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "Yes, I have."
+                },
+                {
+                    "target_id": 2,
+                    "choice_message": "Nope, I haven't."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": ""
+
+        },
+        {
+            "id": 2,
+            "dialog_message": "That's nice, see you!",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": ""
+        },
+        {
+            "id": 3,
+            "dialog_message": "You should try reading it.",
+            "article": 0,
+            "objectives": "",
+            "clues": ""
+        }
+    ]
+}

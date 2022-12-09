@@ -17,7 +17,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
 
         },
         {
@@ -27,7 +28,8 @@
             "article": 6,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": "JSON/NPC/V2/Ryan2"
 
         },
         {
@@ -37,7 +39,8 @@
             "article": 6,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": "JSON/NPC/V2/Ryan2"
 
         }
     ]

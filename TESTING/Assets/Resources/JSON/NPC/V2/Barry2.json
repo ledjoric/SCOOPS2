@@ -1,0 +1,40 @@
+{
+    "name": "Barry",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Did you find the sources that you are looking for?",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "Yes."
+                },
+                {
+                    "target_id": 3,
+                    "choice_message": "No, not yet."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        },
+        {
+            "id": 2,
+            "dialog_message": "That's nice, keep it up!",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        },
+        {
+            "id": 3,
+            "dialog_message": "Keep looking, I promise you it will be worth it.",
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""            
+        }
+    ]
+}

@@ -17,7 +17,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
         },
         {
             "id": 2,
@@ -34,7 +35,9 @@
             ],
             "article": 0,
             "objectives": "",
-            "clues": ""
+            "clues": "",
+            "minigame": "",
+            "path": ""
         },
         {
             "id": 3,
@@ -43,7 +46,8 @@
             "article": 1,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": "JSON/NPC/V2/Alex2"
         },
         {
             "id": 4,
@@ -52,7 +56,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
         }
     ]
 }

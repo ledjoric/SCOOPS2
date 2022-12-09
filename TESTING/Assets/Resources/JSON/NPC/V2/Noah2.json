@@ -1,0 +1,40 @@
+{
+    "name": "Noah",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Did you follow the diet that I recommended?",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "Yes, I did."
+                },
+                {
+                    "target_id": 3,
+                    "choice_message": "No, I didn't."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        },
+        {
+            "id": 2,
+            "dialog_message": "Nice, now we have the same diet routine. Hehe.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        },
+        {
+            "id": 3,
+            "dialog_message": "You should give it a try. Anyway, see you around.",
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""            
+        }
+    ]
+}

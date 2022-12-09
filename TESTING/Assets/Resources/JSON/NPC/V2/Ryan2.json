@@ -1,0 +1,44 @@
+{
+    "name": "Ryan",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Want some coffee?",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "Yes, please."
+                },
+                {
+                    "target_id": 3,
+                    "choice_message": "Nope, I'm ok."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 2,
+            "dialog_message": "Okay, take this. #*You take a sip of coffee.*",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 3,
+            "dialog_message": "No problem.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        }
+    ]
+}

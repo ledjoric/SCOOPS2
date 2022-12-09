@@ -1,0 +1,14 @@
+{
+    "name": "Denise",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Subscribe to HotShowBEEZ for more celebrity news issues!",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        }
+    ]
+}
