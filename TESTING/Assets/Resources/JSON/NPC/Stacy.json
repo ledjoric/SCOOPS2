@@ -1,0 +1,87 @@
+{
+    "name": "Stacy",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Ever heard the rumors about Buoyance’s mother? HotshowBEEZ’s publications are mostly gossip and lack proof.",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": ""
+                },
+                {
+                    "target_id": 2,
+                    "choice_message": "I don’t believe you."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 2,
+            "dialog_message": "I took journalism in college and worked in different publishing companies, one of them being on HotShowBEEZ. I left there because of the company’s way of informing people through their articles.#Would you like some proof?",
+            "choices": [
+                {
+                    "target_id": 3,
+                    "choice_message": "Yes, please."
+                }, 
+                {
+                    "target_id": 4,
+                    "choice_message": "Nope. I'm good."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        },
+        {
+            "id": 3,
+            "dialog_message": "Here. Have a look at my ID when I worked there.#Do you trust me now?",
+            "choices": [
+                {
+                    "target_id": 5,
+                    "choice_message": "Yes."
+                }, 
+                {
+                    "target_id": 6,
+                    "choice_message": "Still no."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": "show_id"
+        },
+        {
+            "id": 4,
+            "dialog_message": "Your choice.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        },
+        {
+            "id": 5,
+            "dialog_message": "Cool. Remember what I said.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "clue#HotshowBEEZ’s publications are mostly gossip and lack proof.",
+            "minigame": ""
+        },
+        {
+            "id": 6,
+            "dialog_message": "Okay then. Goodbye.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        }
+    ]
+}

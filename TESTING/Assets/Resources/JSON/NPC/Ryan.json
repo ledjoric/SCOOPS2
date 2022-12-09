@@ -1,0 +1,44 @@
+{
+    "name": "Ryan",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Does my facial hair look good?",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "It looks nice."
+                },
+                {
+                    "target_id": 3,
+                    "choice_message": "Doesn't look good to me."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 2,
+            "dialog_message": "Nice! I appreciate that.#I’ve seen an article about some celebrity’s mother hating his son-in-law for having weird facial hair! Look!#What if my girlfriend’s mother also hates me for this?",
+            "choices": [],
+            "article": 6,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 3,
+            "dialog_message": "Really? That worries me but okay.#I’ve seen an article about some celebrity’s mother hating his son-in-law for having weird facial hair! Look!#What if my girlfriend’s mother also hates me for this?",
+            "choices": [],
+            "article": 6,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        }
+    ]
+}

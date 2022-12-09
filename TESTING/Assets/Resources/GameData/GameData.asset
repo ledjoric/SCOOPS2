@@ -1,0 +1,257 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4630a22e9be72d64ca16d6ef669d0b80, type: 3}
+  m_Name: GameData
+  m_EditorClassIdentifier: 
+  playerName: jonathan
+  playerSexuality: Female
+  articlesJson:
+    articles:
+    - id: 1
+      title: "Jay C and Buoyanc\xE9 announces their new movie"
+      publisher:
+      - name: PIP.ph
+        type: Entertainment News Website
+        description: PIP.ph is an entertainment and lifestyle website that covers
+          everything about the showbiz industry. The website is known for its comprehensiveness
+          and credibility.
+        pub_photo: PublisherPhotos/P1
+      date: March 2020
+      body: "Celebrity couple Jay C and Buoyanc\xE9 announced through their social
+        media account that they will be having their new movie together, titled \u2018Hot
+        Love\u2019. The two take the leading roles of Anna and Mike, who fell in
+        love right before the sun collapsed into a supernova."
+      photo: ArticlePhotos/AP1
+      credibility: bad
+      r_score: 0
+      ca_score: 0
+    - id: 2
+      title: "List of Buoyanc\xE9's favorite healthy foods!"
+      publisher:
+      - name: RealCelebNews
+        type: Showbiz Website
+        description: RealCelebNews is a lifestyle website. RCN is also known for
+          its notoriety after publishing articles about famous celebrities that are
+          proven to be false stories.
+        pub_photo: PublisherPhotos/P2
+      date: December 2021
+      body: "Actress and singer Buoyanc\xE9 recently shared her strict healthy lifestyle.
+        Below are her favorite healthy foods, listed from least to most favorite:
+        almonds, beet, fish, and spinach. The celebrity even uploaded a video of
+        her cooking her favorite recipe, spinach soup!"
+      photo: ArticlePhotos/AP2
+      credibility: bad
+      r_score: 0
+      ca_score: 0
+    - id: 3
+      title: "Jay C denies accusations: \u201CNo, that\u2019s not true\u201D"
+      publisher:
+      - name: Dairy Mail
+        type: Daily Newspaper Company
+        description: The Dairy Mail is one of the many known circulating online news
+          sources. Known for publishing factually correct news articles, Dairy Mail
+          held on to its reputation.
+        pub_photo: PublisherPhotos/P3
+      date: November 2021
+      body: "Amidst the rumor between Jay C and her soon-to-be wife Buoyanc\xE9\u2019s
+        mother, the actor only has one message for those who believe in the rumors:
+        \u201CNo, that\u2019s not true\u201D, he said. Other than that statement,
+        the rapper has been silent ever since."
+      photo: ArticlePhotos/AP3
+      credibility: good
+      r_score: 10
+      ca_score: 20
+    - id: 4
+      title: Jay C makes detailed statement about rumors
+      publisher:
+      - name: BBZ News
+        type: News Broadcasting Company
+        description: "BBZ News is a news company responsible for broadcasting global
+          news. It is also an award-winning news source for having the \u201CExcellence
+          in Online Journalism\u201D award."
+        pub_photo: PublisherPhotos/P4
+      date: January 2022
+      body: "Following Jay C\u2019s interview from the Dairy Mail a few months ago,
+        the rapper shared more details regarding the rumors. \u201CI am on very good
+        terms with Mother Teresita, and we often meet during family occasions. She
+        was never against our upcoming wedding\u201D, he said."
+      photo: ArticlePhotos/AP4
+      credibility: good
+      r_score: 12
+      ca_score: 40
+    - id: 5
+      title: "Buoyanc\xE9's mother is reportedly telling other people how much she
+        hates Jay C to be her daughter\u2019s husband"
+      publisher:
+      - name: HotShowBEEZ
+        type: Celebrity Gossip Website
+        description: "HotShowBEEZ is a popular gossip website that rose immediately
+          in popularity after publishing celebrity scandals and hoaxes. HotShowBEEZ\u2019s
+          sources are questionable."
+        pub_photo: PublisherPhotos/P5
+      date: February 2022
+      body: "Today on HotShowBEEZ, Buoyanc\xE9's mother told our news outlet that
+        he hates his soon-to-be son-in-law! 'I didn't like him from the start. He
+        seems too much for my daughter, and I don\u2019t like that. That attitude
+        and character could ruin my daughter\u2019s [Buoyanc\xE9] future.'"
+      photo: ArticlePhotos/AP5
+      credibility: good
+      r_score: 8
+      ca_score: 20
+    - id: 6
+      title: "Buoyanc\xE9's mother admits she doesn't want her daughter marrying
+        Jay C because of his weird facial hair! :O"
+      publisher:
+      - name: ComedicTimes
+        type: Satire Website
+        description: ComedicTimes is a satirical website that focuses mainly on showbiz
+          entertainment. CT  mostly targets celebrities with the purpose of publishing
+          exaggerated humor.
+        pub_photo: PublisherPhotos/P6
+      date: October 2020
+      body: Rappers are known to have authentic and swaggy facial hairstyles that
+        are usually trendsetting. However, the case was different for popular rapper
+        Jay C. His soon-to-be mother-in-law finds this hairstyle weird and could
+        affect their upcoming marriage! Yikes!
+      photo: ArticlePhotos/AP6
+      credibility: bad
+      r_score: 0
+      ca_score: 0
+  mgArticlesJson:
+    mg_articles:
+    - id: 0
+      title: Barangay Captain proven guilty for corruption
+      mg_publisher:
+      - name: Bloomtown News
+        type: Business News Company
+        description: Bloomtown News is a credible news source from the city of Bloomtown.
+        pub_photo: MG_ArticlePhotos/MGP1
+      date: October 2022
+      description: "Bloomtown\u2019s Barangay Captain was found guilty of corruption
+        in federal court  today. The jury sentenced the government official to six
+        years in prison and a lifetime ban from holding political office after revealing
+        multiple cases of graft and fraud."
+      mg_photo: MG_ArticlePhotos/MGP1
+      credibility: Credible
+    - id: 1
+      title: City Mayor aids Typhoon Omar victims
+      mg_publisher:
+      - name: Real420 Corporation
+        type: Political Opinion News
+        description: Real420 Corporation is a startup website from an organization
+          with political biases.
+        pub_photo: MG_ArticlePhotos/MGP2
+      date: August 2022
+      description: The City Mayor of Bloomtown went to the victims of Typhoon Omar,
+        which brought floods and landslides throughout the city. The government official
+        reportedly donated relief goods, as well as first aid kits for the people
+        hit by the storm.
+      mg_photo: MG_ArticlePhotos/MGP2
+      credibility: NotCredible
+    - id: 2
+      title: New cryptocurrency made $200m minutes after launch
+      mg_publisher:
+      - name: CrpytoTokens.biz
+        type: Crypto Trading Website
+        description: CrpytoTokens, a business website that promotes questionable
+          cryptocurrencies.
+        pub_photo: MG_ArticlePhotos/MGP3
+      date: March 2021
+      description: A startup cryptocurrency launched its token today. Within the
+        first ten minutes, the crypto coin immediately increased its value tenfold,
+        valuing up to $200m. Investors were shocked after the jaw-dropping value
+        increase of the coin.
+      mg_photo: MG_ArticlePhotos/MGP3
+      credibility: NotCredible
+    - id: 3
+      title: "Pear\u2019s pPhone 16 releasing in June"
+      mg_publisher:
+      - name: TechBite
+        type: Online Tech Newspaper
+        description: TechBite, a global newspaper company that focuses mainly on
+          new technologies.
+        pub_photo: MG_ArticlePhotos/MGP4
+      date: December 2022
+      description: "Pear\u2019s newest PPhone 16 series, which was announced a few
+        days ago, has been reportedly releasing in June. The most recent PPhone generation
+        has three models: the PPhone 16, PPhone 16 Big, and PPhone 16 Very Big."
+      mg_photo: MG_ArticlePhotos/MGP4
+      credibility: Credible
+  articlesData: {fileID: 4900000, guid: c1174816b6ea87447ad8226b37ad97c8, type: 3}
+  mgArticlesData: {fileID: 4900000, guid: e245159cbbe387640b330b5c7c59b3cf, type: 3}
+  mgArticlesList: 
+  articlesMinigame: 1
+  mg_ArticleInterval: 2
+  idShown: 0
+  dialogActive: 0
+  loadedData: 1
+  win: 0
+  targetId_1: 0
+  targetId_2: 0
+  guardNPC: 0
+  customerNPC: 0
+  cashierNPC: 0
+  baristaNPC: 0
+  parkNPC: 1
+  vendorNPC: 1
+  storeOwnerNPC: 0
+  roadNPC: 0
+  isWatched: 1
+  cryptoDone: 0
+  articlesList: 0400000005000000
+  objectivesList: []
+  cluesList:
+  - clue#Dairy Mail is known for publishing articles that are factual.
+  storyProgress: 0
+  stage: 1
+  minigameProgress: 4
+  maxPoints: 100
+  currentPoints: 50
+  velocity: 0.0015935164
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0.4117647, b: 0.38039216, a: 1}
+    key1: {r: 0.99215686, g: 0.99215686, b: 0.5882353, a: 1}
+    key2: {r: 0.46666667, g: 0.8666667, b: 0.46666667, a: 0}
+    key3: {r: 0.46666667, g: 0.8666667, b: 0.46666667, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 19661
+    ctime1: 45887
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  totalPoints: 0
+  selectedLimit: 3
+  selectedArticles: 
+  selectedArticlesIndex: 
+  stageTwoArticles: 
+  viewArticleIndex: 5
+  viewedArticles: 0400000005000000
+  viewedClues: []
+  viewedFF: 1

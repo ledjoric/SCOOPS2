@@ -1,0 +1,72 @@
+{
+    "name": "Cleo",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Want to play a game? I’ll tell you something if you win.",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "Let's go!"
+                },
+                {
+                    "target_id": 4,
+                    "choice_message": "I'm not in the mood."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 2,
+            "dialog_message": "Alright then. Let’s see how good your eyesight is.",
+            "choices": [
+                {
+                    "target_id": 5,
+                    "choice_message": ""
+                },
+                {
+                    "target_id": 6,
+                    "choice_message": ""
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": "spot_object"
+
+        },
+        {
+            "id": 4,
+            "dialog_message": "Okay then, I’ll see you around.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 5,
+            "dialog_message": "Amazing! Hope that clue helps!",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "tip#It is always important to check the date",
+            "minigame": ""
+
+        },
+        {
+            "id": 6,
+            "dialog_message": "That's too bad. Try again.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        }
+    ]
+}

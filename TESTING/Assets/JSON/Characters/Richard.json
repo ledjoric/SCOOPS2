@@ -1,0 +1,105 @@
+{
+    "name": "Richard",
+    "age": 21,
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Tangina ka",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "Salamat"
+                },
+                {
+                    "target_id": 2,
+                    "choice_message": "Tangina mo rin"
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "firefacts": "",
+            "clues": ""
+        },
+        {
+            "id": 2,
+            "dialog_message": "KAHIT ANO MAGING SAGOT NYA SA UNA DITO TUTULOY",
+            "choices": [
+                {
+                    "target_id": 3,
+                    "choice_message": "TANGINA MO"
+                },
+                {
+                    "target_id": 4,
+                    "choice_message": "OO"
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "firefacts": "",
+            "clues": ""
+        },
+        {
+            "id": 3,
+            "dialog_message": "TANGINA MO DIN EDI WAG (MAGOUT NA UNG DIALOGUE)",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "firefacts": "",
+            "clues": ""
+        },
+        {
+            "id": 4,
+            "dialog_message": "TUTULOY DITO TAS MAY CHOICES",
+            "choices": [
+                {
+                    "target_id": 5,
+                    "choice_message": "boom1"
+                },
+                {
+                    "target_id": 6,
+                    "choice_message": "boom2"
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "firefacts": "",
+            "clues": ""
+        },
+        {
+            "id": 5,
+            "dialog_message": "BOOM1 RESPONSE DIALOGUE#BOOM1 RESPONSE PART2#BOOM1 RESPONSE PART3 END NA DIN DITO YUNG DIALOGUE",
+            "choices": [
+                {
+                    "target_id": 0,
+                    "choice_message": "bvooom"
+                },
+                {
+                    "target_id": 0,
+                    "choice_message": "bvooom2"
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "firefacts": "",
+            "clues": ""
+        },
+        {
+            "id": 6,
+            "dialog_message": "BOOM2 RESPONSE DIALOGUE#BOOM2 RESPONSE PART2",
+            "choices": [
+                {
+                    "target_id": 0,
+                    "choice_message": "ENDING"
+                },
+                {
+                    "target_id": 0,
+                    "choice_message": "ENDING DIN"
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "firefacts": "",
+            "clues": ""
+        }
+    ]
+}

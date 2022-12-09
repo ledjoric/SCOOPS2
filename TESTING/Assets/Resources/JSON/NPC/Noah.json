@@ -1,0 +1,63 @@
+{
+    "name": "Noah",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "I’m actually on a healthy diet.",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "That’s nice. What kind?"
+                },
+                {
+                    "target_id": 3,
+                    "choice_message": "Yeah sure."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 2,
+            "dialog_message": "I’m actually following Buoyance’s list of healthy foods! Would you like to see?",
+            "choices": [
+                {
+                    "target_id": 4,
+                    "choice_message": "Yes, I do."
+                },
+                {
+                    "target_id": 3,
+                    "choice_message": "Nope. Not interested."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 3,
+            "dialog_message": "Okay then. I’ll see you around.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+            
+        },
+        {
+            "id": 4,
+            "dialog_message": "Here it is.",
+            "choices": [],
+            "article": 2,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Introduction",
+  "informant_dialogs": [
+    {
+      "dialog_message": "#name, a journalist, published an article a week ago without any sort of fact-checking...",
+      "panel": "Intro/1"
+    },
+    {
+      "dialog_message": "Later on, #name received numerous backlashes from the netizens for not evaluating sources.",
+      "panel": "Intro/2"
+    },
+    {
+      "dialog_message": "#name lost both the job and reputation. Everything seemed hopeless until...",
+      "panel": "Intro/3"
+    },
+    {
+      "dialog_message": "",
+      "panel": "Intro/4"
+    },
+    {
+      "dialog_message": "Rumors are spreading that mother of celebrity Buoyancé is against her daughter’s wedding with rapper Jay C.",
+      "panel": "Intro/5"
+    },
+    {
+      "dialog_message": "This is the perfect opportunity.",
+      "panel": "Intro/1"
+    },
+    {
+      "dialog_message": "I need to shed light on the truth here. I need to regain my credibility as a journalist.",
+      "panel": "Intro/1"
+    },
+    {
+      "dialog_message": "I better research how to evaluate my sources first before publishing my own. Wait, what’s this?",
+      "panel": "Intro/1"
+    },
+    {
+      "dialog_message": "CRAAP Fact Checking method? Hmm. Interesting.",
+      "panel": "Intro/1"
+    },
+    {
+      "dialog_message": "I better start working. I’ll bring this guide with me.",
+      "panel": "Intro/1"
+    }
+  ]
+}

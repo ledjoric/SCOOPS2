@@ -1,0 +1,58 @@
+{
+    "name": "Alex",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Hey. Nice day, isn’t it?",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "It is."
+                },
+                {
+                    "target_id": 2,
+                    "choice_message": "Nope."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        },
+        {
+            "id": 2,
+            "dialog_message": "Anyway, have you heard about the new romance movie? I’ve read an article about it. Would you like to see?",
+            "choices": [
+                {
+                    "target_id": 3,
+                    "choice_message": "Yes."
+                },
+                {
+                    "target_id": 4,
+                    "choice_message": "No."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": ""
+        },
+        {
+            "id": 3,
+            "dialog_message": "Here it is.",
+            "choices": [],
+            "article": 1,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        },
+        {
+            "id": 4,
+            "dialog_message": "Okay then. I’ll see you around.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "name": "Barry",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "Hey there. Mind if I ask you a question?",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "What is it?"
+                },
+                {
+                    "target_id": 3,
+                    "choice_message": "No, I’m good."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 2,
+            "dialog_message": "At first glance, would you trust an old news article?",
+            "choices": [
+                {
+                    "target_id": 4,
+                    "choice_message": "Yes. I respect all news articles, old and new."
+                },
+                {
+                    "target_id": 5,
+                    "choice_message": "No. I would look for other sources."
+                }
+            ],
+            "article": 4,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 3,
+            "dialog_message": "Okay then, you do you.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+            
+        },
+        {
+            "id": 4,
+            "dialog_message": "I admire your politeness, but old articles eventually get outdated.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+            
+        },
+        {
+            "id": 5,
+            "dialog_message": "I would, too! As a security guard, it’s my job to be cautious at all times.",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+            
+        }
+    ]
+}

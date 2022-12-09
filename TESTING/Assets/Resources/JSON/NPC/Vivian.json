@@ -1,0 +1,44 @@
+{
+    "name": "Vivian",
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_message": "When you’re buying a loaf of bread, which do you think is more important to look at?",
+            "choices": [
+                {
+                    "target_id": 2,
+                    "choice_message": "The bread’s expiration date"
+                },
+                {
+                    "target_id": 3,
+                    "choice_message": "How neatly arranged the bread is."
+                }
+            ],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 2,
+            "dialog_message": "Great! That’s what I’m thinking as well. Here, this article is on me.",
+            "choices": [],
+            "article": 3,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        },
+        {
+            "id": 3,
+            "dialog_message": "Interesting. You do have a passion for arranging things. Anyway, see you!",
+            "choices": [],
+            "article": 0,
+            "objectives": "",
+            "clues": "",
+            "minigame": ""
+
+        }
+    ]
+}

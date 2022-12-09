@@ -1,0 +1,49 @@
+{
+    "mg_articles": [
+        {
+            "id": 0,
+            "title": "Article Title One",
+            "mg_publisher": [
+                {
+                    "name": "Publisher One",
+                    "type": "Publisher one",
+                    "description": "Publsiher Details...",
+                    "pub_photo": ""
+                }
+            ],
+            "date": "January, 01, 2001",
+            "description": "Article Description...",
+            "credibility": "Credible"
+        },
+        {
+            "id": 1,
+            "title": "Article Title Two",
+            "mg_publisher": [
+                {
+                    "name": "Publisher Two",
+                    "type": "Publisher two",
+                    "description": "Publsiher Details...",
+                    "pub_photo": ""
+                }
+            ],
+            "date": "February, 02, 2002",
+            "description": "Article Description...",
+            "credibility": "Credible"
+        },
+        {
+            "id": 2,
+            "title": "Article Title Three",
+            "mg_publisher": [
+                {
+                    "name": "Publisher Three",
+                    "type": "Publisher three",
+                    "description": "Publsiher Details...",
+                    "pub_photo": ""
+                }
+            ],
+            "date": "March, 03, 2003",
+            "description": "Article Description...",
+            "credibility": "NotCredible"
+        }
+    ]
+}

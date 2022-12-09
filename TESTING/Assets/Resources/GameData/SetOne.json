@@ -1,0 +1,118 @@
+{
+    "articles": [
+        {
+            "id": "1",
+            "title": "Jay C and Buoyancé announces their new movie",
+            "publisher": [
+                {
+                    "name": "PIP.ph",
+                    "type": "Entertainment News Website",
+                    "description": "PIP.ph is an entertainment and lifestyle website that covers everything about the showbiz industry. The website is known for its comprehensiveness and credibility.",
+                    "pub_photo": "PublisherPhotos/P1"
+                }
+            ],
+            "date": "March 2020",
+            "body": "Celebrity couple Jay C and Buoyancé announced through their social media account that they will be having their new movie together, titled ‘Hot Love’. The two take the leading roles of Anna and Mike, who fell in love right before the sun collapsed into a supernova.",
+            "photo": "ArticlePhotos/AP1",
+            "credibility": "bad",
+            "r_score": 0,
+            "ca_score": 0,
+            "article_conclusion": "In terms of the final article you based on, the publisher has the credibility – but is it really relevant for your news scoop?"
+        },
+        {
+            "id": "2",
+            "title": "List of Buoyancé's favorite healthy foods!",
+            "publisher": [
+                {
+                    "name": "RealCelebNews",
+                    "type": "Showbiz Website",
+                    "description": "RealCelebNews is a lifestyle website. RCN is also known for its notoriety after publishing articles about famous celebrities that are proven to be false stories.",
+                    "pub_photo": "PublisherPhotos/P2"
+                }
+            ],
+            "date": "December 2021",
+            "body": "Actress and singer Buoyancé recently shared her strict healthy lifestyle. Below are her favorite healthy foods, listed from least to most favorite: almonds, beet, fish, and spinach. The celebrity even uploaded a video of her cooking her favorite recipe, spinach soup!",
+            "photo": "ArticlePhotos/AP2",
+            "credibility": "bad",
+            "r_score": 0,
+            "ca_score": 0,
+            "article_conclusion": "In terms of the final article you published, it is neither relevant nor credible. Do you even need this article as a basis?"
+        },
+        {
+            "id": "3",
+            "title": "Jay C denies accusations: “No, that’s not true”",
+            "publisher": [
+                {
+                    "name": "Dairy Mail",
+                    "type": "Daily Newspaper Company",
+                    "description": "The Dairy Mail is one of the many known circulating online news sources. Known for publishing factually correct news articles, Dairy Mail held on to its reputation.",
+                    "pub_photo": "PublisherPhotos/P3"                
+                }
+            ],
+            "date": "November 2021",
+            "body": "Amidst the rumor between Jay C and her soon-to-be wife Buoyancé’s mother, the actor only has one message for those who believe in the rumors: “No, that’s not true”, he said. Other than that statement, the rapper has been silent ever since.",
+            "photo": "ArticlePhotos/AP3",
+            "credibility": "good",
+            "r_score": 10,
+            "ca_score": 20,
+            "article_conclusion": "In terms of the final article you published, it is a credible piece of relevant information. Wait, are you sure that’s the latest one?"
+        },
+        {
+            "id": "4",
+            "title": "Jay C makes detailed statement about rumors",
+            "publisher": [
+                {
+                    "name": "BBZ News",
+                    "type": "News Broadcasting Company",
+                    "description": "BBZ News is a news company responsible for broadcasting global news. It is also an award-winning news source for having the “Excellence in Online Journalism” award.",
+                    "pub_photo": "PublisherPhotos/P4"              
+                }
+            ],
+            "date": "January 2022",
+            "body": "Following Jay C’s interview from the Dairy Mail a few months ago, the rapper shared more details regarding the rumors. “I am on very good terms with Mother Teresita, and we often meet during family occasions. She was never against our upcoming wedding”, he said.",
+            "photo": "ArticlePhotos/AP4",
+            "credibility": "good",
+            "r_score": 12,
+            "ca_score": 40,
+            "article_conclusion": "In terms of the final article you published, you chose the best possible one! It is relevant, current, and the authority of the publisher is spot on!"
+        },
+        {
+            "id": "5",
+            "title": "Buoyancé's mother is reportedly telling other people how much she hates Jay C to be her daughter’s husband",
+            "publisher": [
+                {
+                    "name": "HotShowBEEZ",
+                    "type": "Celebrity Gossip Website",
+                    "description": "HotShowBEEZ is a popular gossip website that rose immediately in popularity after publishing celebrity scandals and hoaxes. HotShowBEEZ’s sources are questionable.",
+                    "pub_photo": "PublisherPhotos/P5"                
+                }
+            ],
+            "date": "February 2022",
+            "body": "Today on HotShowBEEZ, Buoyancé's mother told our news outlet that he hates his soon-to-be son-in-law! 'I didn't like him from the start. He seems too much for my daughter, and I don’t like that. That attitude and character could ruin my daughter’s [Buoyancé] future.'",
+            "photo": "ArticlePhotos/AP5",
+            "credibility": "good",
+            "r_score": 8,
+            "ca_score": 20,
+            "article_conclusion": "In terms of the final article you published, it is indeed relevant to the topic. However, are you sure about the publisher’s credibility?"
+        },
+        {
+            "id": "6",
+            "title": "Buoyancé's mother admits she doesn't want her daughter marrying Jay C because of his weird facial hair! :O",
+            "publisher": [
+                {
+                    "name": "ComedicTimes",
+                    "type": "Satire Website",
+                    "description": "ComedicTimes is a satirical website that focuses mainly on showbiz entertainment. CT  mostly targets celebrities with the purpose of publishing exaggerated humor.",
+                    "pub_photo": "PublisherPhotos/P6"                
+                }
+            ],
+            "date": "October 2020",
+            "body": "Rappers are known to have authentic and swaggy facial hairstyles that are usually trendsetting. However, the case was different for popular rapper Jay C. His soon-to-be mother-in-law finds this hairstyle weird and could affect their upcoming marriage! Yikes!",
+            "photo": "ArticlePhotos/AP6",
+            "credibility": "bad",
+            "r_score": 0,
+            "ca_score": 0,
+            "article_conclusion": "In terms of the final article you published, it may be an entertaining and funny piece of news, but is it really the truth?"
+        }
+    ]
+}
