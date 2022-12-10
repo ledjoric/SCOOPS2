@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4630a22e9be72d64ca16d6ef669d0b80, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  playerName: Jan
-  playerSexuality: Male
+  playerName: 420
+  playerSexuality: 
   articlesJson:
     articles:
     - id: 1
@@ -205,11 +205,12 @@ MonoBehaviour:
   articlesMinigame: 0
   mg_ArticleInterval: 0
   idShown: 0
-  dialogActive: 0
   loadedData: 1
   win: 0
   targetId_1: 0
   targetId_2: 0
+  dialogActive: 0
+  guideActive: 0
   guardNPC: 0
   customerNPC: 0
   cashierNPC: 0
@@ -227,10 +228,10 @@ MonoBehaviour:
   - Solve minigames
   cluesList: []
   storyProgress: 0
-  stage: 1
-  minigameProgress: 3
+  stage: 0
+  minigameProgress: 0
   maxPoints: 100
-  currentPoints: 100
+  currentPoints: 30
   velocity: 0
   gradient:
     serializedVersion: 2
@@ -262,14 +263,11 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   totalPoints: 0
-  selectedLimit: 3
+  selectedLimit: 1
   selectedArticles: 
   selectedArticlesIndex: 
   stageTwoArticles: 
   viewArticleIndex: 3
-  viewedArticles: 040000000500000003000000000000000100000002000000
-  viewedClues:
-  - clue#Dairy Mail is known for publishing articles that are factual.
-  - clue#CT is a website about satire content.
-  - clue#HotshowBEEZ's publications are mostly gossip and lack proof.
-  viewedFF: 3
+  viewedArticles: 
+  viewedClues: []
+  viewedFF: 0

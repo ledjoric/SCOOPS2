@@ -1,16 +1,19 @@
 {
     "tips":[
         {
-            "tip": "tip1"
+            "tip": "Evaluate your sources!"
         },
         {
-            "tip": "tip2"
+            "tip": "Think before you share!"
         },
         {
-            "tip": "tip3"
+            "tip": "Verify unlikely stories!"
         },
         {
-            "tip": "tip4"
+            "tip": "Never take anything at face value!"
+        },
+        {
+            "tip": "Develop your critical thinking!"
         }
     ]
 }

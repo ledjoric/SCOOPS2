@@ -25,11 +25,14 @@ public class GameData : ScriptableObject
 
     // NPC DIALOG
     public bool idShown;
-    public bool dialogActive;
     public bool loadedData;
     public bool win;
     public int targetId_1;
     public int targetId_2;
+
+    // PLAYER MOVEMENT INTERRUPTION
+    public bool dialogActive;
+    public bool guideActive;
 
     // INTERACTED NPC VARIABLES
     public bool guardNPC;

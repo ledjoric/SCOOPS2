@@ -19,15 +19,17 @@ public class articleContent : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         articleIndex = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetSiblingIndex() - 1;
-        if (gameData.getMG_Article(articleIndex).credibility == "Credible")
+
+
+        if (gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "Credible")
         {
             darkPanel.GetComponent<Image>().color = new Color32(118, 209, 127, 130);
-            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(articleIndex).name + "is a credible source";
+            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(gameData.mgArticlesList[articleIndex]).name + " is a credible source";
         }
-        else if (gameData.getMG_Article(articleIndex).credibility == "NotCredible")
+        else if (gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "NotCredible")
         {
             darkPanel.GetComponent<Image>().color = new Color32(244, 67, 54, 130);
-            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(articleIndex).name + "is not a credible source";
+            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(gameData.mgArticlesList[articleIndex]).name + " is not a credible source";
         }
 
         darkPanel.gameObject.SetActive(true);
@@ -49,22 +51,28 @@ public class articleContent : MonoBehaviour
             notifAnim.SetTrigger("HideNotif");
         }
 
+        foreach(Transform buttons in EventSystem.current.currentSelectedGameObject.transform.parent)
+        {
+            buttons.GetComponent<Button>().enabled = false;
+        }
+
         StartCoroutine(removeArticle());
     }
 
     public void like()
     {
+        Debug.Log(gameData.getMG_Article(articleIndex).credibility);
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         articleIndex = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetSiblingIndex() - 1;
-        if (gameData.getMG_Article(articleIndex).credibility == "Credible")
+        if (gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "Credible")
         {
             darkPanel.GetComponent<Image>().color = new Color32(118, 209, 127, 130);
-            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(articleIndex).name + "is a credible source";
+            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(gameData.mgArticlesList[articleIndex]).name + " is a credible source";
         }
-        else if(gameData.getMG_Article(articleIndex).credibility == "NotCredible")
+        else if(gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "NotCredible")
         {
             darkPanel.GetComponent<Image>().color = new Color32(244, 67, 54, 130);
-            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(articleIndex).name + "is not a credible source";
+            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(gameData.mgArticlesList[articleIndex]).name + " is not a credible source";
         }
 
         darkPanel.gameObject.SetActive(true);
@@ -86,6 +94,11 @@ public class articleContent : MonoBehaviour
             notifAnim.SetTrigger("HideNotif");
         }
 
+        foreach (Transform buttons in EventSystem.current.currentSelectedGameObject.transform.parent)
+        {
+            buttons.GetComponent<Button>().enabled = false;
+        }
+
         StartCoroutine(removeArticle());
     }
 
@@ -93,15 +106,15 @@ public class articleContent : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         articleIndex = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetSiblingIndex() - 1;
-        if (gameData.getMG_Article(articleIndex).credibility == "Credible")
-        {
-            darkPanel.GetComponent<Image>().color = new Color32(118, 209, 127, 130);
-            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(articleIndex).name + "is a credible source";
-        }
-        else if (gameData.getMG_Article(articleIndex).credibility == "NotCredible")
+        if (gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "Credible")
         {
             darkPanel.GetComponent<Image>().color = new Color32(244, 67, 54, 130);
-            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(articleIndex).name + "is not a credible source";
+            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(gameData.mgArticlesList[articleIndex]).name + " is a credible source";
+        }
+        else if (gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "NotCredible")
+        {
+            darkPanel.GetComponent<Image>().color = new Color32(118, 209, 127, 130);
+            ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(gameData.mgArticlesList[articleIndex]).name + " is not a credible source";
         }
 
         darkPanel.gameObject.SetActive(true);
@@ -121,6 +134,11 @@ public class articleContent : MonoBehaviour
         if ((gameData.cluesList.Count == gameData.viewedClues.Count) && (gameData.articlesList.Count == gameData.viewedArticles.Count) && (gameData.articlesMinigame == gameData.viewedFF))
         {
             notifAnim.SetTrigger("HideNotif");
+        }
+
+        foreach (Button buttons in EventSystem.current.currentSelectedGameObject.transform.parent)
+        {
+            buttons.enabled = false;
         }
 
         StartCoroutine(removeArticle());

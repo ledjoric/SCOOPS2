@@ -20,7 +20,17 @@ public class LoadGuide : MonoBehaviour
     private GameObject g;
 
     private int index;
-    private string[] detailSplit; 
+    private string[] detailSplit;
+
+    private void OnEnable()
+    {
+        gameData.guideActive = true;
+    }
+
+    private void OnDisable()
+    {
+        gameData.guideActive = false;
+    }
 
     private void Start()
     {

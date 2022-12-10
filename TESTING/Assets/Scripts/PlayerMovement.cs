@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (gameData.dialogActive == true)
+        if (gameData.dialogActive || gameData.guideActive)
         {
             if (characterController != null) characterController.Move(Vector3.zero);
             if (animator != null)
@@ -34,6 +34,11 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("IsMoving", false);
             }
             return;
+        }
+
+        if(joystick.Direction != center)
+        {
+            joystick.Direction.Set(0, 0); 
         }
 
         float horizontalInput = joystick.Horizontal;

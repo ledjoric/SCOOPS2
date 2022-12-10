@@ -196,3 +196,16 @@ public class Examples
 {
     public string example;
 }
+
+// TIPS
+[System.Serializable]
+public class Tips
+{
+    public Tip[] tips;
+}
+
+[System.Serializable]
+public class Tip
+{
+    public string tip;
+}

@@ -33,6 +33,7 @@
         {
             "id": 3,
             "dialog_message": "Keep looking, I promise you it will be worth it.",
+            "choices": [],
             "article": 0,
             "objectives": "",
             "clues": "",
