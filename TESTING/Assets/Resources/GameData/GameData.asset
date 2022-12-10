@@ -203,7 +203,7 @@ MonoBehaviour:
   mgArticlesData: {fileID: 4900000, guid: e245159cbbe387640b330b5c7c59b3cf, type: 3}
   mgArticlesList: 
   articlesMinigame: 0
-  mg_ArticleInterval: 0
+  mg_ArticleInterval: 1
   idShown: 0
   loadedData: 1
   win: 0
@@ -219,16 +219,17 @@ MonoBehaviour:
   vendorNPC: 0
   storeOwnerNPC: 0
   roadNPC: 0
-  isWatched: 0
+  isWatched: 1
   cryptoDone: 0
   articlesList: 
   objectivesList:
   - Collect articles
   - Collect clues
   - Solve minigames
-  cluesList: []
+  cluesList:
+  - clue#Dairy Mail is known for publishing articles that are factual.
   storyProgress: 0
-  stage: 0
+  stage: 1
   minigameProgress: 0
   maxPoints: 100
   currentPoints: 30
@@ -263,7 +264,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   totalPoints: 0
-  selectedLimit: 1
+  selectedLimit: 3
   selectedArticles: 
   selectedArticlesIndex: 
   stageTwoArticles: 

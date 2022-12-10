@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: ButtonSound
-    clip: {fileID: 8300000, guid: 720eaaca7c416d342b9653e2e4c06c35, type: 3}
+    clip: {fileID: 8300000, guid: 00c3e609df43c3545b7e516edee485ff, type: 3}
     outputAudioMixerGroup: {fileID: 4276377891498869000, guid: 259ebef453e6739428c30dbac8f0221b,
       type: 2}
     volume: 1

@@ -38,6 +38,7 @@ public class TelevisionEvent : MonoBehaviour
                 clickEnable = false;
                 gameData.isWatched = true;
                 followPlayer.player = player;
+                followPlayer.offset = new Vector3(-10f, 10f, -10f);
 
                 if (!gameData.cluesList.Contains("clue#Dairy Mail is known for publishing articles that are factual."))
                 {
@@ -75,6 +76,8 @@ public class TelevisionEvent : MonoBehaviour
         if(!dialogbox.activeInHierarchy)
         {
             followPlayer.player = tv;
+            followPlayer.offset = new Vector3(-10f, 7.4f, -10f);
+            tv.GetComponent<AudioSource>().enabled = true;
         }
         dialogbox.SetActive(true);
         interactButton.SetActive(false);
