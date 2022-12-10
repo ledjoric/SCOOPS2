@@ -3,7 +3,7 @@
     "dialogs": [
         {
             "id": 1,
-            "dialog_message": "Wow, the rumors between Jay C and Buoyance’s mother had me hooked up! Did you know  that she hates Jay C so much?",
+            "dialog_message": "Wow, the rumors between Jay C and Buoyancee's mother had me hooked up! Did you know  that she hates Jay C so much?",
             "choices": [
                 {
                     "target_id": 2,
@@ -11,7 +11,7 @@
                 },
                 {
                     "target_id": 2,
-                    "choice_message": "Really? I’ve never heard of it."
+                    "choice_message": "Really? I've never heard of it."
                 }
             ],
             "article": 0,
@@ -23,7 +23,7 @@
         },
         {
             "id": 2,
-            "dialog_message": "Here, have a free copy of the article I’m reading.#Stay tuned for more information!",
+            "dialog_message": "Here, have a free copy of the article I'm reading.#Stay tuned for more information!",
             "choices": [],
             "article": 5,
             "objectives": "",

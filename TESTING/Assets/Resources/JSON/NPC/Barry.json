@@ -11,7 +11,7 @@
                 },
                 {
                     "target_id": 3,
-                    "choice_message": "No, I’m good."
+                    "choice_message": "No, I'm good."
                 }
             ],
             "article": 0,
@@ -65,7 +65,7 @@
         },
         {
             "id": 5,
-            "dialog_message": "I would, too! As a security guard, it’s my job to be cautious at all times.",
+            "dialog_message": "I would, too! As a security guard, it's my job to be cautious at all times.",
             "choices": [],
             "article": 4,
             "objectives": "",

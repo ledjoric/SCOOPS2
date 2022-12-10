@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,15 +13,21 @@ public class EvaluateArticles : MonoBehaviour
     {
         interactButton.SetActive(true);
         interactButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("InteractionAsset/OBJECT");
+        interactButton.GetComponentInChildren<TextMeshProUGUI>().text = "  Use";
+        interactButton.GetComponentInChildren<TextMeshProUGUI>().alignment = TextAlignmentOptions.Left;
 
         interactButton.GetComponent<Button>().onClick.RemoveListener(showDialog);
         interactButton.GetComponent<Button>().onClick.AddListener(showDialog);
+
+        gameObject.GetComponent<Outline>().enabled = true;
     }
 
     private void OnTriggerExit(Collider collisionInfo)
     {
         interactButton.SetActive(false);
         interactButton.GetComponent<Button>().onClick.RemoveAllListeners();
+
+        gameObject.GetComponent<Outline>().enabled = false;
     }
 
     private void showDialog()

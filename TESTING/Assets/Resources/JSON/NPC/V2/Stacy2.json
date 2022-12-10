@@ -3,12 +3,13 @@
     "dialogs": [
         {
             "id": 1,
-            "dialog_message": "Don’t worry, you made the right decision. It is only important you wanted to see my identification before trusting me as a source. #Remember to always get your facts straight!",
+            "dialog_message": "Don't worry, you made the right decision. It is only important you wanted to see my identification before trusting me as a source. #Remember to always get your facts straight!",
             "choices": [],
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
         }
     ]
 }

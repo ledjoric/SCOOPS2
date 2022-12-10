@@ -3,7 +3,7 @@
     "dialogs": [
         {
             "id": 1,
-            "dialog_message": "Ever heard the rumors about Buoyance’s mother? HotshowBEEZ’s publications are mostly gossip and lack proof.",
+            "dialog_message": "Ever heard the rumors about Buoyancee's mother? HotshowBEEZ's publications are mostly gossip and lack proof.",
             "choices": [
                 {
                     "target_id": 2,
@@ -11,7 +11,7 @@
                 },
                 {
                     "target_id": 2,
-                    "choice_message": "I don’t believe you."
+                    "choice_message": "I don't believe you."
                 }
             ],
             "article": 0,
@@ -23,7 +23,7 @@
         },
         {
             "id": 2,
-            "dialog_message": "I took journalism in college and worked in different publishing companies, one of them being on HotShowBEEZ. I left there because of the company’s way of informing people through their articles.#Would you like some proof?",
+            "dialog_message": "I took journalism in college and worked in different publishing companies, one of them being on HotShowBEEZ. I left there because of the company's way of informing people through their articles.#Would you like some proof?",
             "choices": [
                 {
                     "target_id": 3,
@@ -75,7 +75,7 @@
             "choices": [],
             "article": 0,
             "objectives": "",
-            "clues": "clue#HotshowBEEZ’s publications are mostly gossip and lack proof.",
+            "clues": "clue#HotshowBEEZ's publications are mostly gossip and lack proof.",
             "minigame": "",
             "path": "JSON/NPC/V2/Stacy2"
         },

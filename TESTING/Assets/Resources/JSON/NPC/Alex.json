@@ -3,7 +3,7 @@
     "dialogs": [
         {
             "id": 1,
-            "dialog_message": "Hey. Nice day, isn’t it?",
+            "dialog_message": "Hey. Nice day, isn't it?",
             "choices": [
                 {
                     "target_id": 2,
@@ -22,7 +22,7 @@
         },
         {
             "id": 2,
-            "dialog_message": "Anyway, have you heard about the new romance movie? I’ve read an article about it. Would you like to see?",
+            "dialog_message": "Anyway, have you heard about the new romance movie? I've read an article about it. Would you like to see?",
             "choices": [
                 {
                     "target_id": 3,
@@ -51,7 +51,7 @@
         },
         {
             "id": 4,
-            "dialog_message": "Okay then. I’ll see you around.",
+            "dialog_message": "Okay then. I'll see you around.",
             "choices": [],
             "article": 0,
             "objectives": "",

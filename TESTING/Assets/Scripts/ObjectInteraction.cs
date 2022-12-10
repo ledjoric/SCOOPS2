@@ -72,7 +72,8 @@ public class ObjectInteraction : MonoBehaviour
             {
                 interactButton.SetActive(true);
                 interactButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("InteractionAsset/OBJECT");
-                interactButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Open";
+                interactButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = " Open";
+                interactButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().alignment = TextAlignmentOptions.Left;
 
                 interactButton.GetComponent<Button>().onClick.RemoveListener(enter);
                 interactButton.GetComponent<Button>().onClick.AddListener(enter);

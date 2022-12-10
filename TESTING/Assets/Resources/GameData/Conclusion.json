@@ -1,18 +1,22 @@
 {
     "relevance_conclusion": [
         {
+            "id": 0,
             "type": "000",
             "sentence": "Too bad! Out of all six articles, the ones you deemed relevant were all irrelevant!"
         },
         {
+            "id": 1,
             "type": "001",
             "sentence": "Hmm.. you got one relevant article right, make sure to be more observant next time!"
         },
         {
+            "id": 2,
             "type": "011",
-            "sentence": "Almost there! Out of all your selected articles, you only missed one relevant article!"
+            "sentence": "Almost there! Out of all your selected articles, one of the article is irrelevant!"
         },
         {
+            "id": 3,
             "type": "111",
             "sentence": "Amazing! Out of all six articles, you chose all the relevant articles flawlessly!"
         }

@@ -3,12 +3,17 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private GameData gameData;
     [SerializeField] private GameObject dialogBox;
     public float speed, rotationSpeed, ySpeed, originalStepOffset;
     public Joystick joystick;
 
     private Animator animator;
     private CharacterController characterController;
+
+    private Vector2 center = new Vector2(0f,0f);
+
+    
 
     void Start()
     {
@@ -20,6 +25,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (gameData.dialogActive == true)
+        {
+            if (characterController != null) characterController.Move(Vector3.zero);
+            if (animator != null)
+            {
+                //joystick.Direction.Set(0, 0);
+                animator.SetBool("IsMoving", false);
+            }
+            return;
+        }
+
         float horizontalInput = joystick.Horizontal;
         float verticalInput = joystick.Vertical;
 

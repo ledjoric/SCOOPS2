@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
     // GAME OBJECTS REFERENCE
     [SerializeField] private GameObject dialogBox, addPanel, m1, id, darkPanel, notif, cNotif, aNotif, ffNotif;
     [SerializeField] private Button nameBtn, choiceOneBtn, choiceTwoBtn;
-    [SerializeField] private TextMeshProUGUI npcName, choiceOne, choiceTwo, dialogName, dialogMessage, addedText;
+    [SerializeField] private TextMeshProUGUI npcName, choiceOne, choiceTwo, dialogName, dialogMessage, addedText, objective;
     [SerializeField] private TextAsset characterData;
     [SerializeField] private Animator animator;
 
@@ -246,7 +246,7 @@ public class DialogueManager : MonoBehaviour
 
                 choiceOneBtn.gameObject.SetActive(false);
                 choiceTwoBtn.gameObject.SetActive(false);
-                dialogId = 0;
+                //dialogId = 0;
                 multiDialogCycle = 0;
                 clickEnable = true;
             }
@@ -386,6 +386,14 @@ public class DialogueManager : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("PhoneNotification");
                 gameData.addArticles(getDialog(dialogId).article - 1);
                 aNotif.SetActive(true);
+                if(gameData.articlesList.Count != 6)
+                {
+                    objective.text = "Collect Articles (" + gameData.articlesList.Count + "/6)";
+                }else
+                {
+                    objective.text = "Check your laptop!";
+                }
+                
             }
         }
     }
@@ -401,12 +409,15 @@ public class DialogueManager : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("PhoneNotification");
                 gameData.addClues(getDialog(dialogId).clues);
                 cNotif.SetActive(true);
+                
             }
         }
     }
 
     private void closeDialog()
     {
+        changeDialogue();
+
         dialogBox.SetActive(false);
         gameData.dialogActive  = false;
         clickEnable = false;
@@ -478,6 +489,45 @@ public class DialogueManager : MonoBehaviour
             gameData.addMG_Article(gameData.articlesMinigame);
             gameData.articlesMinigame++;
             
+        }
+    }
+
+    private void changeDialogue()
+    {
+        if(getDialog(dialogId).path != "")
+        {
+            if (gameObject.name == "Denise")
+            {
+                characterData = Resources.Load<TextAsset>(getDialog(dialogId).path);
+            }else if(gameObject.name == "Noah")
+            {
+                characterData = Resources.Load<TextAsset>(getDialog(dialogId).path);
+            }
+            else if (gameObject.name == "Ryan")
+            {
+                characterData = Resources.Load<TextAsset>(getDialog(dialogId).path);
+            }
+            else if (gameObject.name == "Vivian")
+            {
+                characterData = Resources.Load<TextAsset>(getDialog(dialogId).path);
+            }
+            else if (gameObject.name == "Barry")
+            {
+                characterData = Resources.Load<TextAsset>(getDialog(dialogId).path);
+            }
+            else if (gameObject.name == "Stacy")
+            {
+                characterData = Resources.Load<TextAsset>(getDialog(dialogId).path);
+            }
+            else if (gameObject.name == "Cleo")
+            {
+                characterData = Resources.Load<TextAsset>(getDialog(dialogId).path);
+            }
+            else if (gameObject.name == "Alex")
+            {
+                characterData = Resources.Load<TextAsset>(getDialog(dialogId).path);
+            }
+            characterJson = JsonUtility.FromJson<Character>(characterData.text);
         }
     }
 

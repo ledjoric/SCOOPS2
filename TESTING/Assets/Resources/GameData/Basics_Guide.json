@@ -1,0 +1,61 @@
+{
+    "guide_title": "Basics",
+    "guide_details": "Familiarize yourself with the <font=\"Fredoka-Bold SDF\">basics</font> first before proceeding!",
+    "guide": [
+        {
+            "id": 0,
+            "name": "Phone",
+            "content": [
+                {
+                    "title": "About Phone",
+                    "details": "When in-game, this tool enables you to use different interactive tools that will help in completing the objectives.#These tools are: Clues, Articles, FireFacts, Objectives, Options, and Exit buttons.",
+                    "photo": "Guide/PhoneGuide"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "NPCs",
+            "content": [
+                {
+                    "title": "About NPCs",
+                    "details": "Non-playable characters are scattered around the map.#Talk to one and that person will either ask you a question or give you a minigame. Who knows, maybe they’ll give you an article afterwards!",
+                    "photo": "Guide/NPCGuide"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Objects",
+            "content": [
+                {
+                    "title": "About Objects",
+                    "details": "Objects are also scattered around the map.#Interact with an object and it will give you either a clue or a minigame to solve for you to earn one.",
+                    "photo": "Guide/Box"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Articles",
+            "content": [
+                {
+                    "title": "About Articles",
+                    "details": "These are online articles that you must collect.#The articles you collected will then be filtered out to help you find the best article to use as a basis for your own article.",
+                    "photo": "Guide/ArticlesGuide"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Clues",
+            "content": [
+                {
+                    "title": "About Clues",
+                    "details": "They are pieces of information from an NPC or an object.#You can get clues by either interacting with an NPC or an object. A clue can either be about a certain publisher or a general tip for you to keep in mind.",
+                    "photo": "Guide/CluesGuide"
+                }
+            ]
+        }
+    ]
+}

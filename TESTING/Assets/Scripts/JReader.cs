@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI.Extensions;
 
 public class JReader : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class Dialog
     public string objectives;
     public string clues;
     public string minigame;
+    public string path;
 }
 
 [System.Serializable]
@@ -83,6 +85,7 @@ public class Article
     public string credibility;
     public int r_score;
     public int ca_score;
+    public string article_conclusion;
 }
 
 [System.Serializable]
@@ -145,4 +148,51 @@ public class ObjectDialog
     public string name;
     public string object_dialog;
     public string clues;
+}
+
+// CONCLUSION SENTENCES
+[System.Serializable]
+public class Conclusions
+{
+    public Relevance_Conclusions[] relevance_conclusion;
+}
+
+[System.Serializable]
+public class Relevance_Conclusions
+{
+    public int id;
+    public string type;
+    public string sentence;
+}
+
+// GUIDE
+[System.Serializable]
+public class Guides
+{
+    public string guide_title;
+    public string guide_details;
+    public Guide[] guide;
+}
+
+[System.Serializable]
+public class Guide
+{
+    public int id;
+    public string name;
+    public Content[] content;
+}
+
+[System.Serializable]
+public class Content
+{
+    public string title;
+    public string details;
+    public string photo;
+    public Examples[] examples;
+}
+
+[System.Serializable]
+public class Examples
+{
+    public string example;
 }

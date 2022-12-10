@@ -181,6 +181,9 @@ public class Cryptogram : MonoBehaviour
 
         newsPaper.enabled = false;
         newsPaper.gameObject.GetComponent<BoxCollider>().enabled = false;
+        newsPaper.gameObject.GetComponent<Outline>().enabled = false;
         gameData.cryptoDone = true;
+
+        gameObject.SetActive(false);
     }
 }

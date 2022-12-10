@@ -3,7 +3,7 @@
     "dialogs": [
         {
             "id": 1,
-            "dialog_message": "Want to play a game? I’ll tell you something if you win.",
+            "dialog_message": "Want to play a game? I'll tell you something if you win.",
             "choices": [
                 {
                     "target_id": 2,
@@ -23,7 +23,7 @@
         },
         {
             "id": 2,
-            "dialog_message": "Alright then. Let’s see how good your eyesight is.",
+            "dialog_message": "Alright then. Let's see how good your eyesight is.",
             "choices": [
                 {
                     "target_id": 5,
@@ -43,7 +43,7 @@
         },
         {
             "id": 4,
-            "dialog_message": "Okay then, I’ll see you around.",
+            "dialog_message": "Okay then, I'll see you around.",
             "choices": [],
             "article": 0,
             "objectives": "",

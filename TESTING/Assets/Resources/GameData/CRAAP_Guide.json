@@ -1,0 +1,91 @@
+{
+    "guide_title": "<line-height=65%><size=60%>CRAAP</size> Guide",
+    "guide_details": "Developed by S. Blakeslee, <font=\"Fredoka-Bold SDF\">CRAAP</font> method is used for evaluating online sources!",
+    "guide": [
+        {
+            "id": 0,
+            "name": "Currency",
+            "content": [
+                {
+                    "title": "About Currency",
+                    "details": "Is the information posted just recently?",
+                    "examples": [
+                        {
+                            "example": "What is the copyright, publication, or posting date?"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Relevance",
+            "content": [
+                {
+                    "title": "About Relevance",
+                    "details": "Is the information applicable to the situation?",
+                    "examples": [
+                        {
+                            "example": "For what audience or level is the information written?"
+                        },
+                        {
+                            "example": "Why would you or would not quote/reference the information from this source?"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Authority",
+            "content": [
+                {
+                    "title": "About Authority",
+                    "details": "Is the information made by knowledgeable and trusted authors or publishers?",
+                    "examples": [
+                        {
+                            "example": "Who is the author, creator, or publisher of the source or what organization is responsible for the source?"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Accuracy",
+            "content": [
+                {
+                    "title": "About Accuracy",
+                    "details": "Is the information reliable and trustworthy in and of itself?",
+                    "examples": [
+                        {
+                            "example": "What indications do you see that the information is or is not well researched or provides sufficient evidence?"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Purpose",
+            "content": [
+                {
+                    "title": "About Purpose",
+                    "details": "Why does the  information exist in the first place?",
+                    "examples": [
+                        {
+                            "example": "Why was this source written?"
+                        },
+                        {
+                            "example": "How might the intended audience affect the point of view, slant, or potential bias of the information?"
+                        },
+                        {
+                            "example": "How does this resource compare to others on the same topic?"
+                        }
+                    ]
+                }
+            ]
+        }
+
+    ]
+}

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,17 +9,36 @@ public class TrustManager : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private Image fill;
     [SerializeField] private Animator animator, fadePanel;
-    [SerializeField] private GameObject article, eval, btnProceed, blackPanel, conclusionPanel, clickText, blackPanelText;
+    [SerializeField] private GameObject article, eval, btnProceed, blackPanel, conclusionPanel, clickText, blackPanelText, background;
 
     private bool clickEnable;
 
     [SerializeField] private GameData gameData;
 
+    private Conclusions conclusionsJson;
+    [SerializeField] private TextAsset conclusionsData;
+
+    private string type;
+    private string relConclusion;
+    private string articleConclusion;
+    private string finalConclusion;
+    private int lastArticleType;
+    private List<int> zeroOne;
+    private List<int> zeros;
+    private List<int> ones;
+
     private void OnEnable()
     {
+        //zeros = new List<int>(sample.FindAll(isZero));
+        //Debug.Log(zeros.Count);
+        
         slider.value = gameData.currentPoints;
         fill.color = gameData.gradient.Evaluate(slider.normalizedValue);
+
+        conclusionsJson = JsonUtility.FromJson<Conclusions>(conclusionsData.text);
     }
+
+    
 
     private void Start()
     {
@@ -58,17 +78,24 @@ public class TrustManager : MonoBehaviour
             article.SetActive(true);
         }else
         {
+            setConclusion();
+
+            // CROSSFADE TRANSITION
             blackPanel.SetActive(true);
             yield return new WaitForSeconds(0.3f);
             blackPanelText.GetComponent<TextMeshProUGUI>().fontSize = 120;
             blackPanelText.GetComponent<TextMeshProUGUI>().text = "Publishing...";
+            background.SetActive(true);
             fadePanel.SetBool("Proceed", true);
-            yield return new WaitForSeconds(1f);
-            //Debug.Log(gameData.getArticle(gameData.stageTwoArticles[0]-1).credibility);
+            yield return new WaitForSeconds(1f);    
+
+            // ENDING RESULT OR SENTENCES
             publishResult();
             yield return new WaitForSeconds(2f);
             fadePanel.SetBool("Proceed", false);
             yield return new WaitForSeconds(2f);
+
+            // BLACK BACKGROUND
             finalText();
             yield return new WaitForSeconds(2f);
             clickText.SetActive(true);
@@ -79,46 +106,138 @@ public class TrustManager : MonoBehaviour
     private void publishResult()
     {
         conclusionPanel.SetActive(true);
-        if (gameData.getArticle(gameData.stageTwoArticles[0]-1).credibility == "good")
-        {
-            conclusionPanel.transform.GetChild(1).GetComponent<Image>().color = new Color32(37, 169, 43, 127);
-            conclusionPanel.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("CRA/GOOD");
-            conclusionPanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Success!";
-            conclusionPanel.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = "The article you have selected <font=\"Fredoka-Bold SDF\">checks all the marks!</font> Impressive! It is current, accurate, relevant etc etc!";
-        }
-        else if (gameData.getArticle(gameData.stageTwoArticles[0]-1).credibility == "bad")
-        {
-            conclusionPanel.transform.GetChild(1).GetComponent<Image>().color = new Color32(158, 169, 43, 127);
-            conclusionPanel.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("CRA/BAD");
-            conclusionPanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Close!";
-            conclusionPanel.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = "The article you have selected may be credible in one or two aspects, but it may have been wrong with some! Make sure to be wary of blablabla";
-        }
-        else if (gameData.getArticle(gameData.stageTwoArticles[0]-1).credibility == "worst")
+
+        if((type == "000" && lastArticleType == 0) || (type == "001" && lastArticleType == 0) || (type == "011" && lastArticleType == 0)) // WORST ENDING
         {
             conclusionPanel.transform.GetChild(1).GetComponent<Image>().color = new Color32(169, 53, 37, 127);
             conclusionPanel.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("CRA/WORST");
             conclusionPanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Oh no!";
-            conclusionPanel.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = "The article you have selected ruined your reputation even further. Published by a propagandic author, be sure to evaluate your sources before spreading information!";
+            conclusionPanel.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = relConclusion + " " + articleConclusion;
+        } else if((type == "001" && lastArticleType == 1) || (type == "011" && lastArticleType == 1) || (type == "111" && lastArticleType == 2) || (type == "011" && lastArticleType == 2) || (type == "001" && lastArticleType == 2))
+        {
+            conclusionPanel.transform.GetChild(1).GetComponent<Image>().color = new Color32(158, 169, 43, 127);
+            conclusionPanel.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("CRA/BAD");
+            conclusionPanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Close!";
+            conclusionPanel.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = relConclusion + " " + articleConclusion;
+        }
+        else if(type == "111" && lastArticleType == 1)
+        {
+            conclusionPanel.transform.GetChild(1).GetComponent<Image>().color = new Color32(37, 169, 43, 127);
+            conclusionPanel.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("CRA/GOOD");
+            conclusionPanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Success!";
+            conclusionPanel.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = relConclusion + " " + articleConclusion;
         }
     }
 
     private void finalText()
     {
         conclusionPanel.SetActive(true);
+
+        if ((type == "000" && lastArticleType == 0) || (type == "001" && lastArticleType == 0) || (type == "011" && lastArticleType == 0)) // WORST ENDING
+        {
+            blackPanelText.GetComponent<TextMeshProUGUI>().fontSize = 60;
+            blackPanelText.GetComponent<TextMeshProUGUI>().text = "After causing another commotion online, netizens once again bombarded you with negative responses and backlashes, which also caught the attention of the rapper Jay C as well as Buoyancee's mother. Their current plan is to sue you in court.";
+        }
+        else if ((type == "001" && lastArticleType == 1) || (type == "011" && lastArticleType == 1) || (type == "111" && lastArticleType == 2) || (type == "011" && lastArticleType == 2) || (type == "001" && lastArticleType == 2))
+        {
+            blackPanelText.GetComponent<TextMeshProUGUI>().fontSize = 60;
+            blackPanelText.GetComponent<TextMeshProUGUI>().text = "You are commended for learning the basics of the CRAAP fact-checking method before publishing an article. However, after applying for a job, the employer wants you to do better next time in order for their company to admit you as their journalist.";
+        }
+        else if (type == "111" && lastArticleType == 1)
+        {
+            blackPanelText.GetComponent<TextMeshProUGUI>().fontSize = 60;
+            blackPanelText.GetComponent<TextMeshProUGUI>().text = "Because of your outstanding fact-checked article about the issue, you are one of the respected journalists who cleared up the rumors between Jay C and his soon-to-be mother-in-law. You applied in a publishing company and, in no surprise, got accepted.";
+        }
+    }
+
+    private void setConclusion()
+    {
+        // CCONVERT GOOD AND BAD TO 0 AND 1
+        foreach(int i in gameData.selectedArticles)
+        {
+            if(gameData.getArticle(i-1).credibility == "good")
+            {
+                addZeroOne(1);
+            }else if(gameData.getArticle(i-1).credibility == "bad")
+            {
+                addZeroOne(0);
+            }
+        }
+
+        // COUNT HOW MANY ZEROS AND ONES
+        zeros = new List<int>(zeroOne.FindAll(isZero));
+        ones = new List<int>(zeroOne.FindAll(isOne));
+
+        // SET THE TYPE AND FIRST SENTENCE
+        if(zeros.Count == 3 && ones.Count == 0)
+        {
+            type = "000";
+            relConclusion = getConclusion(0).sentence;
+        }
+        else if(zeros.Count == 2 && ones.Count == 1)
+        {
+            type = "001";
+            relConclusion = getConclusion(1).sentence;
+        }
+        else if (zeros.Count == 1 && ones.Count == 2)
+        {
+            type = "011";
+            relConclusion = getConclusion(2).sentence;
+        }
+        else if (zeros.Count == 0 && ones.Count == 3)
+        {
+            type = "111";
+            relConclusion = getConclusion(3).sentence;
+        }
+
+        // SET ARTICLE CONCLUSION
         if (gameData.getArticle(gameData.stageTwoArticles[0] - 1).credibility == "good")
         {
-            blackPanelText.GetComponent<TextMeshProUGUI>().fontSize = 60;
-            blackPanelText.GetComponent<TextMeshProUGUI>().text = "Because of your outstanding, fact-checked article about the issue, you are one of the journalists who cleared up the rumors between Jay C and his soon-to-be mother-in-law. You applied in a publishing company, and in no surprise, got accepted.";
-        }
-        else if (gameData.getArticle(gameData.stageTwoArticles[0] - 1).credibility == "bad")
+            if(gameData.getArticle(gameData.stageTwoArticles[0] - 1).id == 5)
+            {
+                lastArticleType = 0;
+            }else if((gameData.getArticle(gameData.stageTwoArticles[0] - 1).id == 3))
+            {
+                lastArticleType = 2;
+            }else
+            {
+                lastArticleType = 1;
+            }
+        }else if (gameData.getArticle(gameData.stageTwoArticles[0] - 1).credibility == "bad")
         {
-            blackPanelText.GetComponent<TextMeshProUGUI>().fontSize = 60;
-            blackPanelText.GetComponent<TextMeshProUGUI>().text = "You are commended for learning to perform fact-checking before publishing, but the employer wants you to do better next time for their company to admit you.";
+            lastArticleType = 0;
         }
-        else if (gameData.getArticle(gameData.stageTwoArticles[0] - 1).credibility == "worst")
+
+        articleConclusion = gameData.getArticle(gameData.stageTwoArticles[0] - 1).article_conclusion;
+
+    }
+
+
+
+    private void addZeroOne(int i)
+    {
+        if (zeroOne == null)
         {
-            blackPanelText.GetComponent<TextMeshProUGUI>().fontSize = 60;
-            blackPanelText.GetComponent<TextMeshProUGUI>().text = "Netizens once again bombarded you with negative responses, which also caught the attention of Jay C and Buoyance’s mother. their current plan is to sue you for libel (defamation).";
+            zeroOne = new List<int> { i };
         }
+        else
+        {
+            zeroOne.Add(i);
+        }
+    }
+
+    private static bool isZero(int i)
+    {
+        return ((i * 1) == 0);
+    }
+
+    private static bool isOne(int i)
+    {
+        return ((i * 1) == 1);
+    }
+
+    private Relevance_Conclusions getConclusion(int index)
+    {
+        return conclusionsJson.relevance_conclusion[index];
     }
 }

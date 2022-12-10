@@ -44,9 +44,9 @@ public class articleContent : MonoBehaviour
             ffNotif.SetActive(false);
         }
 
-        if ((gameData.cluesList.Count != gameData.viewedClues.Count) && (gameData.articlesList.Count != gameData.viewedArticles.Count) && (gameData.articlesMinigame != gameData.viewedFF))
+        if ((gameData.cluesList.Count == gameData.viewedClues.Count) && (gameData.articlesList.Count == gameData.viewedArticles.Count) && (gameData.articlesMinigame == gameData.viewedFF))
         {
-            notifAnim.SetTrigger("NewNotif");
+            notifAnim.SetTrigger("HideNotif");
         }
 
         StartCoroutine(removeArticle());
@@ -81,9 +81,9 @@ public class articleContent : MonoBehaviour
             ffNotif.SetActive(false);
         }
 
-        if ((gameData.cluesList.Count != gameData.viewedClues.Count) && (gameData.articlesList.Count != gameData.viewedArticles.Count) && (gameData.articlesMinigame != gameData.viewedFF))
+        if ((gameData.cluesList.Count == gameData.viewedClues.Count) && (gameData.articlesList.Count == gameData.viewedArticles.Count) && (gameData.articlesMinigame == gameData.viewedFF))
         {
-            notifAnim.SetTrigger("NewNotif");
+            notifAnim.SetTrigger("HideNotif");
         }
 
         StartCoroutine(removeArticle());

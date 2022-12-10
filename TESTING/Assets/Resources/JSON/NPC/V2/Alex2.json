@@ -16,7 +16,9 @@
             ],
             "article": 0,
             "objectives": "",
-            "clues": ""
+            "clues": "",
+            "minigame": "",
+            "path": ""
 
         },
         {
@@ -25,14 +27,18 @@
             "choices": [],
             "article": 0,
             "objectives": "",
-            "clues": ""
+            "clues": "",
+            "minigame": "",
+            "path": ""
         },
         {
             "id": 3,
             "dialog_message": "You should try reading it.",
             "article": 0,
             "objectives": "",
-            "clues": ""
+            "clues": "",
+            "minigame": "",
+            "path": ""
         }
     ]
 }

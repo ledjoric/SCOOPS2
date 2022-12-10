@@ -5,16 +5,18 @@ using UnityEngine;
 
 public class NPCName : MonoBehaviour
 {
-    private static NPCName instance;
+    //private static NPCName instance;
     private Camera mainCamera;
     private Vector3 offset = new Vector3(0, 1f, 0);
+
+    [SerializeField] private Transform NPCParents;
 
     [SerializeField] private TextMeshProUGUI txtName;
     private TextMeshProUGUI instTxtName;
 
     private void Start()
     {
-        instTxtName = Instantiate(txtName, FindObjectOfType<Canvas>().transform).GetComponent<TextMeshProUGUI>();
+        instTxtName = Instantiate(txtName, NPCParents).GetComponent<TextMeshProUGUI>();
         instTxtName.GetComponent<TextMeshProUGUI>().text = gameObject.name;
 
         if(instTxtName.GetComponent<TextMeshProUGUI>().text == "Vivian" || instTxtName.GetComponent<TextMeshProUGUI>().text == "Noah" || instTxtName.GetComponent<TextMeshProUGUI>().text == "Stacy")

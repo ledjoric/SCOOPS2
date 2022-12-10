@@ -17,7 +17,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
         },
         {
             "id": 2,
@@ -26,7 +27,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""
+            "minigame": "",
+            "path": ""
         },
         {
             "id": 3,
@@ -34,7 +36,8 @@
             "article": 0,
             "objectives": "",
             "clues": "",
-            "minigame": ""            
+            "minigame": "",
+            "path": ""
         }
     ]
 }

@@ -8,11 +8,11 @@
                     "name": "Bloomtown News",
                     "type": "Business News Company",
                     "description": "Bloomtown News is a credible news source from the city of Bloomtown.",
-                    "pub_photo": "MG_ArticlePhotos/MGP1"
+                    "pub_photo": "MG_Publisher/MP1"
                 }
             ],
             "date": "October 2022",
-            "description": "Bloomtown’s Barangay Captain was found guilty of corruption in federal court  today. The jury sentenced the government official to six years in prison and a lifetime ban from holding political office after revealing multiple cases of graft and fraud.",
+            "description": "Bloomtown's Barangay Captain was found guilty of corruption in federal court  today. The jury sentenced the government official to six years in prison and a lifetime ban from holding political office after revealing multiple cases of graft and fraud.",
             "mg_photo": "MG_ArticlePhotos/MGP1",
             "credibility": "Credible"
         },
@@ -24,7 +24,7 @@
                     "name": "Real420 Corporation",
                     "type": "Political Opinion News",
                     "description": "Real420 Corporation is a startup website from an organization with political biases.",
-                    "pub_photo": "MG_ArticlePhotos/MGP2"
+                    "pub_photo": "MG_Publisher/MP2"
                 }
             ],
             "date": "August 2022",
@@ -40,7 +40,7 @@
                     "name": "CrpytoTokens.biz",
                     "type": "Crypto Trading Website",
                     "description": "CrpytoTokens, a business website that promotes questionable cryptocurrencies.",
-                    "pub_photo": "MG_ArticlePhotos/MGP3"
+                    "pub_photo": "MG_Publisher/MP3"
                 }
             ],
             "date": "March 2021",
@@ -50,17 +50,17 @@
         },
         {
             "id": 3,
-            "title": "Pear’s pPhone 16 releasing in June",
+            "title": "Pear's pPhone 16 releasing in June",
             "mg_publisher": [
                 {
                     "name": "TechBite",
                     "type": "Online Tech Newspaper",
                     "description": "TechBite, a global newspaper company that focuses mainly on new technologies.",
-                    "pub_photo": "MG_ArticlePhotos/MGP4"
+                    "pub_photo": "MG_Publisher/MP4"
                 }
             ],
             "date": "December 2022",
-            "description": "Pear’s newest PPhone 16 series, which was announced a few days ago, has been reportedly releasing in June. The most recent PPhone generation has three models: the PPhone 16, PPhone 16 Big, and PPhone 16 Very Big.",
+            "description": "Pear's newest PPhone 16 series, which was announced a few days ago, has been reportedly releasing in June. The most recent PPhone generation has three models: the PPhone 16, PPhone 16 Big, and PPhone 16 Very Big.",
             "mg_photo": "MG_ArticlePhotos/MGP4",
             "credibility": "Credible"
         }
