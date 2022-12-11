@@ -33,6 +33,7 @@ public class GameData : ScriptableObject
     // PLAYER MOVEMENT INTERRUPTION
     public bool dialogActive;
     public bool guideActive;
+    public bool minigameActive;
 
     // INTERACTED NPC VARIABLES
     public bool guardNPC;
@@ -48,7 +49,7 @@ public class GameData : ScriptableObject
     public bool isWatched;
     public bool cryptoDone;
 
-    // LIST OF CLUES, OBJECTIVES, AND clues
+    // LIST OF CLUES, OBJECTIVES, AND ARTICLES
     public List<int> articlesList;
     public List<string> objectivesList;
     public List<string> cluesList;

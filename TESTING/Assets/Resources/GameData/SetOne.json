@@ -8,7 +8,8 @@
                     "name": "PIP.ph",
                     "type": "Entertainment News Website",
                     "description": "PIP.ph is an entertainment and lifestyle website that covers everything about the showbiz industry. The website is known for its comprehensiveness and credibility.",
-                    "pub_photo": "PublisherPhotos/P1"
+                    "pub_photo": "PublisherPhotos/P1",
+                    "clue": ""
                 }
             ],
             "date": "March 2020",
@@ -27,7 +28,8 @@
                     "name": "RealCelebNews",
                     "type": "Showbiz Website",
                     "description": "RealCelebNews is a lifestyle website. RCN is also known for its notoriety after publishing articles about famous celebrities that are proven to be false stories.",
-                    "pub_photo": "PublisherPhotos/P2"
+                    "pub_photo": "PublisherPhotos/P2",
+                    "clue": ""
                 }
             ],
             "date": "December 2021",
@@ -46,7 +48,8 @@
                     "name": "Dairy Mail",
                     "type": "Daily Newspaper Company",
                     "description": "The Dairy Mail is one of the many known circulating online news sources. Known for publishing factually correct news articles, Dairy Mail held on to its reputation.",
-                    "pub_photo": "PublisherPhotos/P3"
+                    "pub_photo": "PublisherPhotos/P3",
+                    "clue": "clue#Dairy Mail is known for publishing articles that are factual."
                 }
             ],
             "date": "November 2021",
@@ -65,7 +68,8 @@
                     "name": "BBZ News",
                     "type": "News Broadcasting Company",
                     "description": "BBZ News is a news company responsible for broadcasting global news. It is also an award-winning news source for having the \"Excellence in Online Journalism\" award.",
-                    "pub_photo": "PublisherPhotos/P4"
+                    "pub_photo": "PublisherPhotos/P4",
+                    "clue": "clue#BBZ News won multiple awards in Excellence in Online Journalism!"
                 }
             ],
             "date": "January 2022",
@@ -84,7 +88,8 @@
                     "name": "HotShowBEEZ",
                     "type": "Celebrity Gossip Website",
                     "description": "HotShowBEEZ is a popular gossip website that rose immediately in popularity after publishing celebrity scandals and hoaxes. HotShowBEEZ's sources are questionable.",
-                    "pub_photo": "PublisherPhotos/P5"
+                    "pub_photo": "PublisherPhotos/P5",
+                    "clue": "clue#HotshowBEEZ’s publications are mostly gossip and lack proof."
                 }
             ],
             "date": "February 2022",
@@ -103,7 +108,8 @@
                     "name": "ComedicTimes",
                     "type": "Satire Website",
                     "description": "ComedicTimes is a satirical website that focuses mainly on showbiz entertainment. CT  mostly targets celebrities with the purpose of publishing exaggerated humor.",
-                    "pub_photo": "PublisherPhotos/P6"
+                    "pub_photo": "PublisherPhotos/P6",
+                    "clue": "clue#CT is a website about satire content."
                 }
             ],
             "date": "October 2020",

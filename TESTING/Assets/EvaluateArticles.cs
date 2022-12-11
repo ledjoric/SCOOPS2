@@ -32,6 +32,7 @@ public class EvaluateArticles : MonoBehaviour
 
     private void showDialog()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonSound");
         evalDialog.SetActive(true);
 
         if(gameData.articlesList.Count == 6)
@@ -43,6 +44,8 @@ public class EvaluateArticles : MonoBehaviour
         {
             evalDialog.transform.GetChild(0).gameObject.SetActive(false);
             evalDialog.transform.GetChild(1).gameObject.SetActive(true);
+            evalDialog.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Inisufficient articles (" +
+                gameData.articlesList.Count + "/" + gameData.articlesJson.articles.Length + ").\nCheck your objectives!";
         }
     }
 

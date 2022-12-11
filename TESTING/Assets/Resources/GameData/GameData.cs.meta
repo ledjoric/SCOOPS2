@@ -3,7 +3,10 @@ guid: 4630a22e9be72d64ca16d6ef669d0b80
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - articlesData: {fileID: 4900000, guid: c1174816b6ea87447ad8226b37ad97c8, type: 3}
+  - mgArticlesData: {fileID: 4900000, guid: e245159cbbe387640b330b5c7c59b3cf, type: 3}
+  - cluesTipsData: {fileID: 4900000, guid: dd64934d4eecb4343af7f46fa296cf9d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

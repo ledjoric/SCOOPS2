@@ -1,0 +1,24 @@
+{
+    "clues_tips": [
+        {
+            "id": 0,
+            "clue_tip": "clue#CT is a website about satire content."
+        },
+        {
+            "id": 1,
+            "clue_tip": "clue#BBZ News won multiple awards in Excellence in Online Journalism!"
+        },
+        {
+            "id": 2,
+            "clue_tip": "clue#HotshowBEEZ’s publications are mostly gossip and lack proof."
+        },
+        {
+            "id": 3,
+            "clue_tip": "clue#Dairy Mail is known for publishing articles that are factual."
+        },
+        {
+            "id": 4,
+            "clue_tip": "tip#It is always important to check the date."
+        }
+    ]
+}

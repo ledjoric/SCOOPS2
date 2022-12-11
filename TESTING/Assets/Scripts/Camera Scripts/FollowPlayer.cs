@@ -2,12 +2,28 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
+    [SerializeField] GameData gameData;
+
+    public Transform malePlayer, femalePlayer;
     public Transform player;
     public Vector3 offset;
-    //public float panSpeed = 20f;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
+    {
+        if(gameData.playerSexuality == "Female")
+        {
+            femalePlayer.gameObject.SetActive(true);
+            malePlayer.gameObject.SetActive(false);
+            player = femalePlayer;
+        }else
+        {
+            femalePlayer.gameObject.SetActive(false);
+            malePlayer.gameObject.SetActive(true);
+            player = malePlayer;
+        }
+    }
+
+    private void Update()
     {
         transform.position = player.position + offset;
     }

@@ -13,7 +13,7 @@ public class LoadArticles : MonoBehaviour
     private P_Articles P_ArticlesJson;
     [SerializeField] private TextAsset P_ArticlesData;
 
-    [SerializeField] private GameObject btnConfirm, confirmDialog, darkPanel, articleChoose, articleEval;
+    [SerializeField] private GameObject btnConfirm, confirmDialog, darkPanel, articleChoose, articleEval, publisherDetail;
     [SerializeField] private Transform publisherPanel, articlePanel, p_ArticlePanel;
 
     private GameObject articleTemplate, g, checkIcon;
@@ -78,6 +78,44 @@ public class LoadArticles : MonoBehaviour
             stageTwoSelect();
         }
 
+
+        reachedLimit();
+    }
+
+    public void selectArticle_2()
+    {
+        FindObjectOfType<AudioManager>().Play("ButtonSound");
+        articleTitle = EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text;
+        articleIndex = EventSystem.current.currentSelectedGameObject.transform.parent.GetSiblingIndex();
+        btnSelect = EventSystem.current.currentSelectedGameObject.transform.GetComponent<Image>();
+        checkIcon = EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(5).gameObject;
+
+        if (!gameData.cluesList.Contains(gameData.getPublisherDetail(gameData.selectedArticles[articleIndex]-1).clue) && btnSelect.sprite != Resources.Load<Sprite>("CRA/Deselectbutton"))
+        {
+            publisherDetail.SetActive(true);
+            publisherDetail.transform.GetChild(0).gameObject.SetActive(false);
+            publisherDetail.transform.GetChild(1).gameObject.SetActive(true);
+            publisherDetail.transform.GetChild(2).gameObject.SetActive(false);
+        }else
+        {
+            proceedSelection();
+        }
+    }
+
+    public void proceedSelection()
+    {
+        
+
+        publisherDetail.SetActive(false);
+
+        if (gameData.stage == 1)
+        {
+            stageOneSelect();
+        }
+        else if (gameData.stage == 2)
+        {
+            stageTwoSelect();
+        }
 
         reachedLimit();
     }

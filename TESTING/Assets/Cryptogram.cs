@@ -27,8 +27,17 @@ public class Cryptogram : MonoBehaviour
     private int randomNumber;
     private List<int> RndmList;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
+    {
+        gameData.minigameActive = true;
+    }
+
+    private void OnDisable()
+    {
+        gameData.minigameActive = false;
+    }
+
+    private void Start()
     {
         guideLetters.GetComponent<TextMeshProUGUI>().text = string.Join(" ", remainingLetters);
         sentence = "CT is a website about satire content".ToUpper().ToCharArray();

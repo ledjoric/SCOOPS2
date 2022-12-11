@@ -61,7 +61,6 @@ public class articleContent : MonoBehaviour
 
     public void like()
     {
-        Debug.Log(gameData.getMG_Article(articleIndex).credibility);
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         articleIndex = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetSiblingIndex() - 1;
         if (gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "Credible")
@@ -136,9 +135,9 @@ public class articleContent : MonoBehaviour
             notifAnim.SetTrigger("HideNotif");
         }
 
-        foreach (Button buttons in EventSystem.current.currentSelectedGameObject.transform.parent)
+        foreach (Transform buttons in EventSystem.current.currentSelectedGameObject.transform.parent)
         {
-            buttons.enabled = false;
+            buttons.GetComponent<Button>().enabled = false;
         }
 
         StartCoroutine(removeArticle());

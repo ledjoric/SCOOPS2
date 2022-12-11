@@ -194,7 +194,7 @@ public class TryInstantiate : MonoBehaviour
     {
         foreach (Transform clone in gameObject.transform)
         {
-            if (clone.name == "NewArticleCard(Clone)" || clone.name == "ViewedArticleCard(Clone)" || clone.name == "ObjectiveText(Clone)" || clone.name == "ClueCard(Clone)" || clone.name == "Divider(Clone)")
+            if (clone.name == "ArticleCard(Clone)" || clone.name == "NewArticleCard(Clone)" || clone.name == "ViewedArticleCard(Clone)" || clone.name == "ObjectiveText(Clone)" || clone.name == "ClueCard(Clone)" || clone.name == "Divider(Clone)")
             {
                 Destroy(clone.gameObject);
             }

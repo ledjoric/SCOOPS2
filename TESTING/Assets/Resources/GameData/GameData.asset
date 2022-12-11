@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   playerName: 420
-  playerSexuality: 
+  playerSexuality: Female
   articlesJson:
     articles:
     - id: 1
@@ -25,6 +25,7 @@ MonoBehaviour:
           everything about the showbiz industry. The website is known for its comprehensiveness
           and credibility.
         pub_photo: PublisherPhotos/P1
+        clue: 
       date: March 2020
       body: "Celebrity couple Jay C and Buoyancee announced through their social
         media account that they will be having their new movie together, titled \u2018Hot
@@ -45,6 +46,7 @@ MonoBehaviour:
           its notoriety after publishing articles about famous celebrities that are
           proven to be false stories.
         pub_photo: PublisherPhotos/P2
+        clue: 
       date: December 2021
       body: 'Actress and singer Buoyancee recently shared her strict healthy lifestyle.
         Below are her favorite healthy foods, listed from least to most favorite:
@@ -65,6 +67,7 @@ MonoBehaviour:
           sources. Known for publishing factually correct news articles, Dairy Mail
           held on to its reputation.
         pub_photo: PublisherPhotos/P3
+        clue: clue#Dairy Mail is known for publishing articles that are factual.
       date: November 2021
       body: 'Amidst the rumor between Jay C and her soon-to-be wife Buoyancee''s
         mother, the actor only has one message for those who believe in the rumors:
@@ -85,6 +88,7 @@ MonoBehaviour:
           news. It is also an award-winning news source for having the "Excellence
           in Online Journalism" award.
         pub_photo: PublisherPhotos/P4
+        clue: clue#BBZ News won multiple awards in Excellence in Online Journalism!
       date: January 2022
       body: Following Jay C's interview from the Dairy Mail a few months ago, the
         rapper shared more details regarding the rumors. "I am on very good terms
@@ -107,6 +111,7 @@ MonoBehaviour:
           in popularity after publishing celebrity scandals and hoaxes. HotShowBEEZ's
           sources are questionable.
         pub_photo: PublisherPhotos/P5
+        clue: "clue#HotshowBEEZ\u2019s publications are mostly gossip and lack proof."
       date: February 2022
       body: Today on HotShowBEEZ, Buoyancee's mother told our news outlet that he
         hates his soon-to-be son-in-law! 'I didn't like him from the start. He seems
@@ -128,6 +133,7 @@ MonoBehaviour:
           entertainment. CT  mostly targets celebrities with the purpose of publishing
           exaggerated humor.
         pub_photo: PublisherPhotos/P6
+        clue: clue#CT is a website about satire content.
       date: October 2020
       body: Rappers are known to have authentic and swaggy facial hairstyles that
         are usually trendsetting. However, the case was different for popular rapper
@@ -203,7 +209,7 @@ MonoBehaviour:
   mgArticlesData: {fileID: 4900000, guid: e245159cbbe387640b330b5c7c59b3cf, type: 3}
   mgArticlesList: 
   articlesMinigame: 0
-  mg_ArticleInterval: 1
+  mg_ArticleInterval: 0
   idShown: 0
   loadedData: 1
   win: 0
@@ -211,6 +217,7 @@ MonoBehaviour:
   targetId_2: 0
   dialogActive: 0
   guideActive: 0
+  minigameActive: 0
   guardNPC: 0
   customerNPC: 0
   cashierNPC: 0
@@ -219,17 +226,16 @@ MonoBehaviour:
   vendorNPC: 0
   storeOwnerNPC: 0
   roadNPC: 0
-  isWatched: 1
+  isWatched: 0
   cryptoDone: 0
   articlesList: 
   objectivesList:
   - Collect articles
   - Collect clues
   - Solve minigames
-  cluesList:
-  - clue#Dairy Mail is known for publishing articles that are factual.
+  cluesList: []
   storyProgress: 0
-  stage: 1
+  stage: 0
   minigameProgress: 0
   maxPoints: 100
   currentPoints: 30
@@ -268,7 +274,7 @@ MonoBehaviour:
   selectedArticles: 
   selectedArticlesIndex: 
   stageTwoArticles: 
-  viewArticleIndex: 3
+  viewArticleIndex: 0
   viewedArticles: 
   viewedClues: []
   viewedFF: 0

@@ -95,6 +95,7 @@ public class PublisherDetail
     public string type;
     public string description;
     public string pub_photo;
+    public string clue;
 }
 
 // MINIGAME ARTICLES

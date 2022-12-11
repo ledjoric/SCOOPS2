@@ -11,9 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private CharacterController characterController;
 
-    private Vector2 center = new Vector2(0f,0f);
-
-    
+    //private Vector2 center = new Vector2(0f,0f);
 
     void Start()
     {
@@ -25,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (gameData.dialogActive || gameData.guideActive)
+        if (gameData.dialogActive || gameData.guideActive || gameData.minigameActive)
         {
             if (characterController != null) characterController.Move(Vector3.zero);
             if (animator != null)
@@ -34,11 +32,6 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("IsMoving", false);
             }
             return;
-        }
-
-        if(joystick.Direction != center)
-        {
-            joystick.Direction.Set(0, 0); 
         }
 
         float horizontalInput = joystick.Horizontal;

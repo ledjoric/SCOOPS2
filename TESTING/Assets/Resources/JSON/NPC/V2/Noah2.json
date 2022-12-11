@@ -33,6 +33,7 @@
         {
             "id": 3,
             "dialog_message": "You should give it a try. Anyway, see you around.",
+            "choices": [],
             "article": 0,
             "objectives": "",
             "clues": "",
