@@ -37,7 +37,16 @@ public class TelevisionEvent : MonoBehaviour
                 Array.Clear(dialogMessage, 0, dialogMessage.Length);
                 clickEnable = false;
                 gameData.isWatched = true;
-                followPlayer.player = player;
+                gameData.dialogActive = false;
+
+                if(gameData.playerSexuality == "Female")
+                {
+                    followPlayer.player = followPlayer.femalePlayer;
+                }else
+                {
+                    followPlayer.player = followPlayer.malePlayer;
+                }
+
                 followPlayer.offset = new Vector3(-10f, 10f, -10f);
 
                 if (!gameData.cluesList.Contains("clue#Dairy Mail is known for publishing articles that are factual."))
@@ -81,6 +90,7 @@ public class TelevisionEvent : MonoBehaviour
         }
         dialogbox.SetActive(true);
         interactButton.SetActive(false);
+        gameData.dialogActive = true;
 
         objectJson = JsonUtility.FromJson<ObjectDialog>(objectData.text);
         loadDialog();

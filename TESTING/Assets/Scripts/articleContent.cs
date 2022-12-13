@@ -13,13 +13,15 @@ public class articleContent : MonoBehaviour
     [SerializeField] private GameObject ffDialog, darkPanel, ffNotif;
     [SerializeField] private Animator notifAnim;
 
+    private GameObject destroyArticle;
+
     // MINIGAME POINTING SYSTEM
 
     public void share()
     {
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         articleIndex = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetSiblingIndex() - 1;
-
+        destroyArticle = EventSystem.current.currentSelectedGameObject.transform.parent.parent.gameObject;
 
         if (gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "Credible")
         {
@@ -63,6 +65,8 @@ public class articleContent : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         articleIndex = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetSiblingIndex() - 1;
+        destroyArticle = EventSystem.current.currentSelectedGameObject.transform.parent.parent.gameObject;
+
         if (gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "Credible")
         {
             darkPanel.GetComponent<Image>().color = new Color32(118, 209, 127, 130);
@@ -105,6 +109,8 @@ public class articleContent : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         articleIndex = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetSiblingIndex() - 1;
+        destroyArticle = EventSystem.current.currentSelectedGameObject.transform.parent.parent.gameObject;
+
         if (gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "Credible")
         {
             darkPanel.GetComponent<Image>().color = new Color32(244, 67, 54, 130);
@@ -146,7 +152,7 @@ public class articleContent : MonoBehaviour
     private IEnumerator removeArticle()
     {
         yield return StartCoroutine(hideDialog(1f));
-        Destroy(EventSystem.current.currentSelectedGameObject.transform.parent.parent.gameObject);
+        Destroy(destroyArticle);
         gameData.mgArticlesList.RemoveAt(articleIndex);
     }
 

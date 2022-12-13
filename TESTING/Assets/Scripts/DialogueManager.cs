@@ -143,6 +143,8 @@ public class DialogueManager : MonoBehaviour
             nameBtn.GetComponent<Image>().sprite = Resources.Load<Sprite>("InteractionAsset/DIALOGUE");
             nameBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color32(75,75,75,255);
 
+            gameObject.GetComponent<Outline>().enabled = true;
+
             //buttonOwner = this;
 
             nameBtn.onClick.RemoveListener(onNameClick);
@@ -163,6 +165,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (collisionInfo.CompareTag("Player"))
         {
+            gameObject.GetComponent<Outline>().enabled = false;
+
             nameBtn.onClick.RemoveListener(onNameClick);
 
             choiceOneBtn.onClick.RemoveListener(onChoiceClick);

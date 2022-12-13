@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 
 public class ConfirmSelection : MonoBehaviour
 {
-    [SerializeField] private GameObject darkPanel, content, article, btnProceed, articleChoosing, articleEval;
+    [SerializeField] private GameObject darkPanel, content, article, btnProceed, articleChoosing, articleEval, btnConfirm;
     [SerializeField] private GameData gameData;
     [SerializeField] private Animator animator;
 
@@ -20,6 +20,7 @@ public class ConfirmSelection : MonoBehaviour
             {
                 Destroy(content.transform.GetChild(i).gameObject);
             }
+            btnConfirm.SetActive(false);
             transform.root.GetChild(1).gameObject.SetActive(false);
             gameData.stage++;
             gameData.selectedLimit = 1;
@@ -44,10 +45,12 @@ public class ConfirmSelection : MonoBehaviour
             }
             gameData.stage++;
 
+            btnConfirm.SetActive(false);
             article.SetActive(false);
             articleEval.SetActive(true);
         }else if(gameData.stage == 3)
         {
+            btnConfirm.SetActive(false);
             articleEval.SetActive(false);
 
             // TRUST METER CHANGE / TRANSITION

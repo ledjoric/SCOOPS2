@@ -8,6 +8,10 @@ public class GameData : ScriptableObject
     public string playerName;
     public string playerSexuality;
 
+    // SETTINGS
+    public float music;
+    public float sfx;
+
     // JSON READER
     public Articles articlesJson;
     public MG_Articles mgArticlesJson;
@@ -48,6 +52,8 @@ public class GameData : ScriptableObject
     // OBJECT BOOLEANS
     public bool isWatched;
     public bool cryptoDone;
+    public bool isOpen;
+    public bool isInside;
 
     // LIST OF CLUES, OBJECTIVES, AND ARTICLES
     public List<int> articlesList;
@@ -121,7 +127,18 @@ public class GameData : ScriptableObject
             currentPoints = 100;
         }
     }
-    
+
+    // SET VOLUMES VALUE
+    public void setMusic(float volume)
+    {
+        music = volume;
+    }
+
+    public void setSFX(float volume)
+    {
+        music = volume;
+    }
+
     // ADDING CLUES, OBJECTIVES, AND clues
     public void addArticles(int article)
     {

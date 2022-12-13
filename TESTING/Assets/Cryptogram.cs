@@ -79,6 +79,16 @@ public class Cryptogram : MonoBehaviour
                 g.SetActive(true);
             }
         }
+
+        // FILL OUT C AND T AND E
+        EventSystem.current.SetSelectedGameObject(transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).gameObject);
+        transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponent<TMP_InputField>().text = "C";
+
+        EventSystem.current.SetSelectedGameObject(transform.GetChild(0).GetChild(1).GetChild(1).GetChild(0).gameObject);
+        transform.GetChild(0).GetChild(1).GetChild(1).GetChild(0).GetComponent<TMP_InputField>().text = "T";
+
+        EventSystem.current.SetSelectedGameObject(transform.GetChild(0).GetChild(1).GetChild(9).GetChild(0).gameObject);
+        transform.GetChild(0).GetChild(1).GetChild(9).GetChild(0).GetComponent<TMP_InputField>().text = "E";
     }
 
     public void fillOutLetters()

@@ -1,15 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject main, play, options, start, btnBack, title, startDialog, darkPanel, loading, tips;
+    [SerializeField] private GameObject main, play, options, start, btnBack, title, startDialog, darkPanel, loading, tips, incDialog;
     [SerializeField] private TMP_InputField playerName;
     [SerializeField] private GameData gameData;
+
+    [SerializeField] private AudioMixer audioMixer;
 
     private string sexuality;
 
@@ -38,7 +42,16 @@ public class MainMenuManager : MonoBehaviour
     public void startGame()
     {
         darkPanel.SetActive(true);
-        startDialog.SetActive(true);
+
+        if(playerName.text != "" && sexuality != "")
+        {
+            startDialog.SetActive(true);
+        }
+        else
+        {
+            incDialog.SetActive(true);
+        }
+        
     }
 
     public void back()
@@ -84,6 +97,7 @@ public class MainMenuManager : MonoBehaviour
         // get player name
         gameData.playerName = playerName.text;
         gameData.playerSexuality = sexuality;
+        StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "Music", 1f, -80f));
 
         loading.SetActive(true);
         tips.SetActive(true);   

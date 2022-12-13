@@ -15,6 +15,7 @@ public class LoadArticles : MonoBehaviour
 
     [SerializeField] private GameObject btnConfirm, confirmDialog, darkPanel, articleChoose, articleEval, publisherDetail;
     [SerializeField] private Transform publisherPanel, articlePanel, p_ArticlePanel;
+    [SerializeField] private TextMeshProUGUI instruction;
 
     private GameObject articleTemplate, g, checkIcon;
     private Image btnSelect;
@@ -179,6 +180,7 @@ public class LoadArticles : MonoBehaviour
     {
         // RELEVANCE ARTICLE / STAGE 1
         articleTemplate = transform.parent.GetChild(1).gameObject;
+        instruction.text = "Choose three (3) articles that are relevant to the issue.";
         RndmList = new List<int>(new int[gameData.articlesJson.articles.Length]);
 
         for (int i = 0; i < gameData.articlesJson.articles.Length; i++)
@@ -206,6 +208,7 @@ public class LoadArticles : MonoBehaviour
     {
         // CURRENCY AND AUTHORITY / STAGE 2
         articleTemplate = transform.parent.GetChild(0).gameObject;
+        instruction.text = "Choose one (1) that will serve as your basis for your article.\nNote: Remember to check publisher's credibility and the article's timeliness";
         RndmList = new List<int>(new int[gameData.selectedArticles.Count]);
 
         for (int i = 0; i < gameData.selectedArticles.Count; i++)

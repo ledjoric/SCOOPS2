@@ -8,7 +8,7 @@ public class ObjectInteraction : MonoBehaviour
 {
     [SerializeField] private GameData gameData;
 
-    [SerializeField] private GameObject interactButton, cafeArrow, aptArrow, konbiniArrow, tv, cNotif;
+    [SerializeField] private GameObject interactButton, cafeArrow, aptArrow, konbiniArrow, tv, cNotif, magazine, darkPanel;
     [SerializeField] private GameObject cryptogram;
     [SerializeField] private GameObject dialogbox;
     [SerializeField] private GameObject nameParent;
@@ -24,12 +24,12 @@ public class ObjectInteraction : MonoBehaviour
     private int[] cafe = Enumerable.Range(0, 17).ToArray(); // CAFE
     private int[] konbini = { 77, 78, 82, 83 }; // CONVENIENT STORE
 
-    private static bool isInside, isOpen;
+    //static bool isInside, isOpen;
 
     private void Start()
     {
-        isInside = false;
-        isOpen = false;
+        gameData.isInside = false;
+        gameData.isOpen = false;
         //Debug.Log(dialogCycle);
     }
 
@@ -39,28 +39,48 @@ public class ObjectInteraction : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && clickEnable)
         {
-            if(dialogCycle != dialogMessage.Length-1)
+            if(gameObject.name == "car2")
             {
-                dialogCycle++;
-                loadDialog();
-            }else
-            {
-                dialogbox.SetActive(false);
-                dialogCycle = 0;
-                Array.Clear(dialogMessage, 0, dialogMessage.Length);
+                magazine.SetActive(false);
+                darkPanel.SetActive(false);
                 clickEnable = false;
 
-                if(gameObject.name == "Radio")
+                if (!gameData.cluesList.Contains("clue#RealCeleb News is a health-centered lifestyle magazine."))
                 {
-                    if (!gameData.cluesList.Contains("clue#BCC News won multiple awards in Excellence in Online Journalism!"))
+                    animator.SetTrigger("NewNotif");
+                    FindObjectOfType<AudioManager>().Play("PhoneNotification");
+                    gameData.addClues("clue#RealCeleb News is a health-centered lifestyle magazine.");
+                    cNotif.SetActive(true);
+                }
+            }
+            else
+            {
+                if (dialogCycle != dialogMessage.Length - 1)
+                {
+                    dialogCycle++;
+                    loadDialog();
+                }
+                else
+                {
+                    dialogbox.SetActive(false);
+                    dialogCycle = 0;
+                    Array.Clear(dialogMessage, 0, dialogMessage.Length);
+                    clickEnable = false;
+                    gameData.dialogActive = false;
+
+                    if (gameObject.name == "Radio")
                     {
-                        animator.SetTrigger("NewNotif");
-                        FindObjectOfType<AudioManager>().Play("PhoneNotification");
-                        gameData.addClues("clue#BCC News won multiple awards in Excellence in Online Journalism!");
-                        cNotif.SetActive(true);
+                        if (!gameData.cluesList.Contains("clue#BBZ News won multiple awards in Excellence in Online Journalism!"))
+                        {
+                            animator.SetTrigger("NewNotif");
+                            FindObjectOfType<AudioManager>().Play("PhoneNotification");
+                            gameData.addClues("clue#BBZ News won multiple awards in Excellence in Online Journalism!");
+                            cNotif.SetActive(true);
+                        }
                     }
                 }
             }
+            
         }
     }
 
@@ -110,15 +130,26 @@ public class ObjectInteraction : MonoBehaviour
                 interactButton.GetComponent<Button>().onClick.RemoveAllListeners();
                 interactButton.GetComponent<Button>().onClick.AddListener(objectDialog);
             }
+            else if(gameObject.name == "car2")
+            {
+                interactButton.SetActive(true);
+                interactButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("InteractionAsset/OBJECT");
+                interactButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = " View";
+                interactButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().alignment = TextAlignmentOptions.Left;
+                gameObject.GetComponent<Outline>().OutlineWidth = 4;
+
+                interactButton.GetComponent<Button>().onClick.RemoveAllListeners();
+                interactButton.GetComponent<Button>().onClick.AddListener(showMagazine);
+            }
             
             if (gameObject.name == "apt_floor")
             {
-                isInside = true;
+                gameData.isInside = true;
                 aptArrow.SetActive(true);
             }
             else if (gameObject.name == "cafe_floor")
             {
-                isInside = true;
+                gameData.isInside = true;
                 cafeArrow.SetActive(true);
 
                 foreach (Transform text in nameParent.transform)
@@ -134,7 +165,7 @@ public class ObjectInteraction : MonoBehaviour
             }
             else if(gameObject.name == "konbini_floor")
             {
-                isInside = true;
+                gameData.isInside = true;
                 konbiniArrow.SetActive(true);
                 tv.GetComponent<AudioSource>().enabled = true;
                 foreach (Transform text in nameParent.transform)
@@ -167,67 +198,29 @@ public class ObjectInteraction : MonoBehaviour
             {
                 gameObject.GetComponent<Outline>().enabled = false;
             }
+            else if(gameObject.name == "car2")
+            {
+                gameObject.GetComponent<Outline>().OutlineWidth = 0;
+            }
 
             // WHEN LEAVING ROOMS
-            if (gameObject.name == "apt_floor" || (gameObject.name == "apt_wall" && !isInside && isOpen))
+            if (gameObject.name == "apt_floor" || (gameObject.name == "apt_wall" && !gameData.isInside && gameData.isOpen))
             {
-                FindObjectOfType<AudioManager>().Play("DoorSqueak");
-                for (int i = 0; i < apartment.Length; i++)
-                {
-                    transform.root.GetChild(apartment[i]).GetComponent<MeshRenderer>().enabled = true;
-                    transform.root.GetChild(apartment[i]).gameObject.SetActive(true);
-                }
-                aptArrow.SetActive(false);
+                closeApartment();
+                gameData.isInside = false;
+                gameData.isOpen = false;
             }
-            else if(gameObject.name == "cafe_floor" || (gameObject.name == "cafe_wall" && !isInside && isOpen))
+            else if(gameObject.name == "cafe_floor" || (gameObject.name == "cafe_wall" && !gameData.isInside && gameData.isOpen))
             {
-                FindObjectOfType<AudioManager>().Play("DoorSqueak");
-                for (int i = 0; i < cafe.Length; i++)
-                {
-                    if (i != 13)
-                    {
-                        transform.root.GetChild(cafe[i]).gameObject.SetActive(true);
-                    }
-                }
-                transform.root.GetChild(63).GetComponent<MeshRenderer>().enabled = true;
-                transform.root.GetChild(67).GetComponent<MeshRenderer>().enabled = true;
-                transform.root.GetChild(68).GetComponent<MeshRenderer>().enabled = true;
-                transform.root.GetChild(59).gameObject.SetActive(true);
-                cafeArrow.SetActive(false);
-
-                foreach (Transform text in nameParent.transform)
-                {
-                    if(text.name == "NameText(Clone)")
-                    {
-                        if (text.GetComponent<TextMeshProUGUI>().text == "Vivian" || text.GetComponent<TextMeshProUGUI>().text == "Noah")
-                        {
-                            text.gameObject.SetActive(false);
-                        }
-                    }
-                }
+                closeCafe();
+                gameData.isInside = false;
+                gameData.isOpen = false;
             }
-            else if(gameObject.name == "konbini_floor" || (gameObject.name == "konbini_wall" && !isInside && isOpen))
+            else if(gameObject.name == "konbini_floor" || (gameObject.name == "konbini_wall" && !gameData.isInside && gameData.isOpen))
             {
-                FindObjectOfType<AudioManager>().Play("DoorSqueak");
-                tv.GetComponent<AudioSource>().enabled = false;
-                for (int i = 0; i < konbini.Length; i++)
-                {
-                    transform.root.GetChild(konbini[i]).GetComponent<MeshRenderer>().enabled = true;
-                }
-                transform.root.GetChild(73).gameObject.SetActive(true);
-                transform.root.GetChild(74).gameObject.SetActive(true);
-                konbiniArrow.SetActive(false);
-
-                foreach (Transform text in nameParent.transform)
-                {
-                    if (text.name == "NameText(Clone)")
-                    {
-                        if (text.GetComponent<TextMeshProUGUI>().text == "Stacy")
-                        {
-                            text.gameObject.SetActive(false);
-                        }
-                    }
-                }
+                closeKonbini();
+                gameData.isInside = false;
+                gameData.isOpen = false;
             }
         }
     }
@@ -256,8 +249,6 @@ public class ObjectInteraction : MonoBehaviour
             transform.root.GetChild(67).GetComponent<MeshRenderer>().enabled = false;
             transform.root.GetChild(68).GetComponent<MeshRenderer>().enabled = false;
             gameObject.SetActive(false);
-
-            
         }
         else if(gameObject.name == "konbini_door1")
         {
@@ -268,7 +259,7 @@ public class ObjectInteraction : MonoBehaviour
             transform.root.GetChild(73).gameObject.SetActive(false);
             transform.root.GetChild(74).gameObject.SetActive(false);
         }
-        isOpen = true;
+        gameData.isOpen = true;
         interactButton.SetActive(false);
         interactButton.GetComponent<Button>().onClick.RemoveListener(enter);
         
@@ -286,6 +277,7 @@ public class ObjectInteraction : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         dialogbox.SetActive(true);
         interactButton.SetActive(false);
+        gameData.dialogActive = true;
         dialogCycle = 0;
 
         loadJson();
@@ -318,5 +310,82 @@ public class ObjectInteraction : MonoBehaviour
             dialogbox.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = dialogMessage[dialogCycle];
             clickEnable = true;
         }
+    }
+
+    public void showMagazine()
+    {
+        FindObjectOfType<AudioManager>().Play("ButtonSound");
+        magazine.SetActive(true);
+        darkPanel.SetActive(true);
+        clickEnable = true;
+    }
+
+    public void closeApartment()
+    {
+        FindObjectOfType<AudioManager>().Play("DoorSqueak");
+        for (int i = 0; i < apartment.Length; i++)
+        {
+            transform.root.GetChild(apartment[i]).GetComponent<MeshRenderer>().enabled = true;
+            transform.root.GetChild(apartment[i]).gameObject.SetActive(true);
+        }
+        aptArrow.SetActive(false);
+        gameData.isInside = false;
+        gameData.isOpen = false;
+    }
+
+    public void closeCafe()
+    {
+        FindObjectOfType<AudioManager>().Play("DoorSqueak");
+        for (int i = 0; i < cafe.Length; i++)
+        {
+            if (i != 13)
+            {
+                transform.root.GetChild(cafe[i]).gameObject.SetActive(true);
+            }
+        }
+        transform.root.GetChild(63).GetComponent<MeshRenderer>().enabled = true;
+        transform.root.GetChild(67).GetComponent<MeshRenderer>().enabled = true;
+        transform.root.GetChild(68).GetComponent<MeshRenderer>().enabled = true;
+        transform.root.GetChild(59).gameObject.SetActive(true);
+        cafeArrow.SetActive(false);
+
+        foreach (Transform text in nameParent.transform)
+        {
+            if (text.name == "NameText(Clone)")
+            {
+                if (text.GetComponent<TextMeshProUGUI>().text == "Vivian" || text.GetComponent<TextMeshProUGUI>().text == "Noah")
+                {
+                    text.gameObject.SetActive(false);
+                }
+            }
+        }
+        gameData.isInside = false;
+        gameData.isOpen = false;
+    }
+
+    public void closeKonbini()
+    {
+        FindObjectOfType<AudioManager>().Play("DoorSqueak");
+        tv.GetComponent<AudioSource>().enabled = false;
+        for (int i = 0; i < konbini.Length; i++)
+        {
+            transform.root.GetChild(konbini[i]).GetComponent<MeshRenderer>().enabled = true;
+        }
+        transform.root.GetChild(73).gameObject.SetActive(true);
+        transform.root.GetChild(74).gameObject.SetActive(true);
+        konbiniArrow.SetActive(false);
+
+        foreach (Transform text in nameParent.transform)
+        {
+            if (text.name == "NameText(Clone)")
+            {
+                if (text.GetComponent<TextMeshProUGUI>().text == "Stacy")
+                {
+                    text.gameObject.SetActive(false);
+                }
+            }
+        }
+        gameData.isInside = false;
+        gameData.isOpen = false;
     }
 }

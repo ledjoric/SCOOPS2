@@ -9,10 +9,11 @@ public class TryInstantiate : MonoBehaviour
 {
     private GameObject cluesTemplate, articleTemplate, MG_ArticleTemplate, divider, objTxt, g;
 
-    [SerializeField] private GameObject trustMeter, txtNoContent, notif, cNotif;
+    [SerializeField] private GameObject txtNoContent, notif, cNotif;
     [SerializeField] private Animator animator;
     [SerializeField] private GameData gameData;
-    private string[] clueSplit;
+    private string[] clueSplit, clueSplit_2;
+    private int clues;
 
     private void OnEnable()
     {
@@ -70,6 +71,8 @@ public class TryInstantiate : MonoBehaviour
                     g.SetActive(true);
                 }
                 */
+                clues = 0;
+                cluesCount();
 
                 g = Instantiate(objTxt, transform);
                 g.transform.GetComponent<TextMeshProUGUI>().text = gameData.objectivesList[0] + "(" + gameData.articlesList.Count + "/" + gameData.articlesJson.articles.Length + ")";
@@ -78,7 +81,7 @@ public class TryInstantiate : MonoBehaviour
                 g.SetActive(true);
 
                 g = Instantiate(objTxt, transform);
-                g.transform.GetComponent<TextMeshProUGUI>().text = gameData.objectivesList[1] + "(" + gameData.cluesList.Count + "/4)";
+                g.transform.GetComponent<TextMeshProUGUI>().text = gameData.objectivesList[1] + "(" + clues + "/5)";
                 g.SetActive(true);
                 g = Instantiate(divider, transform);
                 g.SetActive(true);
@@ -199,10 +202,17 @@ public class TryInstantiate : MonoBehaviour
                 Destroy(clone.gameObject);
             }
         }
+    }
 
-        if (gameObject.name == "FireFacts")
+    public void cluesCount()
+    {
+        foreach (string clue in gameData.cluesList)
         {
-            trustMeter.SetActive(false);
+            clueSplit_2 = clue.Split('#');
+            if (clueSplit_2[0] == "clue")
+            {
+                clues++;
+            }
         }
     }
 
@@ -226,6 +236,4 @@ public class TryInstantiate : MonoBehaviour
         yield return new WaitForSeconds(0.001f);
         GetComponent<VerticalLayoutGroup>().enabled = true;
     }
-
-
 }

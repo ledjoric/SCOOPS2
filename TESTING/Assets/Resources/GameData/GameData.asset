@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4630a22e9be72d64ca16d6ef669d0b80, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  playerName: 420
-  playerSexuality: Female
+  playerName: 
+  playerSexuality: 
+  music: 0
+  sfx: 0
   articlesJson:
     articles:
     - id: 1
@@ -111,7 +113,7 @@ MonoBehaviour:
           in popularity after publishing celebrity scandals and hoaxes. HotShowBEEZ's
           sources are questionable.
         pub_photo: PublisherPhotos/P5
-        clue: "clue#HotshowBEEZ\u2019s publications are mostly gossip and lack proof."
+        clue: clue#HotshowBEEZ's publications are mostly gossip and lack proof.
       date: February 2022
       body: Today on HotShowBEEZ, Buoyancee's mother told our news outlet that he
         hates his soon-to-be son-in-law! 'I didn't like him from the start. He seems
@@ -207,9 +209,9 @@ MonoBehaviour:
       credibility: Credible
   articlesData: {fileID: 4900000, guid: c1174816b6ea87447ad8226b37ad97c8, type: 3}
   mgArticlesData: {fileID: 4900000, guid: e245159cbbe387640b330b5c7c59b3cf, type: 3}
-  mgArticlesList: 
-  articlesMinigame: 0
-  mg_ArticleInterval: 0
+  mgArticlesList: 00000000
+  articlesMinigame: 1
+  mg_ArticleInterval: 3
   idShown: 0
   loadedData: 1
   win: 0
@@ -222,20 +224,28 @@ MonoBehaviour:
   customerNPC: 0
   cashierNPC: 0
   baristaNPC: 0
-  parkNPC: 0
+  parkNPC: 1
   vendorNPC: 0
   storeOwnerNPC: 0
   roadNPC: 0
-  isWatched: 0
+  isWatched: 1
   cryptoDone: 0
-  articlesList: 
+  isOpen: 0
+  isInside: 1
+  articlesList: 000000000100000002000000030000000400000005000000
   objectivesList:
   - Collect articles
   - Collect clues
   - Solve minigames
-  cluesList: []
+  cluesList:
+  - tip#It is always important to check the date.
+  - clue#Dairy Mail is known for publishing articles that are factual.
+  - clue#CT is a website about satire content.
+  - clue#HotshowBEEZ's publications are mostly gossip and lack proof.
+  - clue#RealCeleb News is a health-centered lifestyle magazine.
+  - clue#BBZ News won multiple awards in Excellence in Online Journalism!
   storyProgress: 0
-  stage: 0
+  stage: 1
   minigameProgress: 0
   maxPoints: 100
   currentPoints: 30
@@ -276,5 +286,11 @@ MonoBehaviour:
   stageTwoArticles: 
   viewArticleIndex: 0
   viewedArticles: 
-  viewedClues: []
+  viewedClues:
+  - tip#It is always important to check the date.
+  - clue#Dairy Mail is known for publishing articles that are factual.
+  - clue#CT is a website about satire content.
+  - clue#HotshowBEEZ's publications are mostly gossip and lack proof.
+  - clue#RealCeleb News is a health-centered lifestyle magazine.
+  - clue#BBZ News won multiple awards in Excellence in Online Journalism!
   viewedFF: 0

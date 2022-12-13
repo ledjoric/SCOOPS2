@@ -43,6 +43,7 @@ public class InformantDialogue : MonoBehaviour
                 if (CR_running)
                 {
                     finishDialogue = true;
+                    delay();
                 }
                 else
                 {
@@ -88,7 +89,7 @@ public class InformantDialogue : MonoBehaviour
         return informantJson.informant_dialogs[dialogId];
     }
 
-    IEnumerator TypeSentence(string sentence)
+    private IEnumerator TypeSentence(string sentence)
     {
         CR_running = true;
         finishDialogue = false;
@@ -121,6 +122,16 @@ public class InformantDialogue : MonoBehaviour
         }
     }
     */
+    private void delay()
+    {
+        StartCoroutine(clickDelay());
+    }
+    private IEnumerator clickDelay()
+    {
+        clickEnable = false;
+        yield return new WaitForSeconds(3.5f);
+        clickEnable = true;
+    }
 
     private void showDialogue()
     {

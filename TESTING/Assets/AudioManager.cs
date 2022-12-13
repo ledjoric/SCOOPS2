@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        /*
         if(instance == null)
             instance = this;
         else
@@ -19,6 +21,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
+        */
 
         foreach(Sound s in sounds)
         {
@@ -35,7 +38,15 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("MainTheme");
+        Scene scene = SceneManager.GetActiveScene();
+
+        if(scene.name == "MainMenu")
+        {
+            Play("MainMenu");
+        }else if(scene.name == "LevelOne")
+        {
+            Play("MainTheme");
+        }
     }
 
     public void Play(string name)

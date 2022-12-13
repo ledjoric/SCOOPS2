@@ -54,11 +54,20 @@ MonoBehaviour:
     spatialBlend: 0
     loop: 0
     source: {fileID: 0}
-  - name: MainTheme
-    clip: {fileID: 8300000, guid: e7b1377ad3401f949a21e70f920d4a28, type: 3}
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: d312f203ab590e94da769fb9d390cd3e, type: 3}
     outputAudioMixerGroup: {fileID: 7444973419138818192, guid: 259ebef453e6739428c30dbac8f0221b,
       type: 2}
     volume: 1
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MainTheme
+    clip: {fileID: 8300000, guid: f018f5f584b0550478b2a6158c648d0a, type: 3}
+    outputAudioMixerGroup: {fileID: 7444973419138818192, guid: 259ebef453e6739428c30dbac8f0221b,
+      type: 2}
+    volume: 0.7
     pitch: 1
     spatialBlend: 0
     loop: 1
@@ -82,7 +91,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Minigame
-    clip: {fileID: 8300000, guid: 4c5cf7afdde37a043b88eb7ad41ee31b, type: 3}
+    clip: {fileID: 8300000, guid: 2e9512965ebae4f4d93f3321c59294d9, type: 3}
     outputAudioMixerGroup: {fileID: 7444973419138818192, guid: 259ebef453e6739428c30dbac8f0221b,
       type: 2}
     volume: 1

@@ -83,11 +83,13 @@ public class TrustManager : MonoBehaviour
             // CROSSFADE TRANSITION
             blackPanel.SetActive(true);
             yield return new WaitForSeconds(0.3f);
+            transform.root.GetChild(1).gameObject.SetActive(false);
+            transform.root.GetChild(3).gameObject.SetActive(false);
             blackPanelText.GetComponent<TextMeshProUGUI>().fontSize = 120;
             blackPanelText.GetComponent<TextMeshProUGUI>().text = "Publishing...";
             background.SetActive(true);
             fadePanel.SetBool("Proceed", true);
-            yield return new WaitForSeconds(1f);    
+            yield return new WaitForSeconds(1f);
 
             // ENDING RESULT OR SENTENCES
             publishResult();
@@ -107,13 +109,14 @@ public class TrustManager : MonoBehaviour
     {
         conclusionPanel.SetActive(true);
 
-        if((type == "000" && lastArticleType == 0) || (type == "001" && lastArticleType == 0) || (type == "011" && lastArticleType == 0)) // WORST ENDING
+        if((type == "000" && lastArticleType == 0) || (type == "001" && lastArticleType == 0) || (type == "011" && lastArticleType == 0) || (type == "111" && lastArticleType == 0)) // WORST ENDING
         {
             conclusionPanel.transform.GetChild(1).GetComponent<Image>().color = new Color32(169, 53, 37, 127);
             conclusionPanel.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("CRA/WORST");
             conclusionPanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Oh no!";
             conclusionPanel.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = relConclusion + " " + articleConclusion;
-        } else if((type == "001" && lastArticleType == 1) || (type == "011" && lastArticleType == 1) || (type == "111" && lastArticleType == 2) || (type == "011" && lastArticleType == 2) || (type == "001" && lastArticleType == 2))
+        }
+        else if((type == "001" && lastArticleType == 1) || (type == "011" && lastArticleType == 1) || (type == "111" && lastArticleType == 2) || (type == "011" && lastArticleType == 2) || (type == "001" && lastArticleType == 2))
         {
             conclusionPanel.transform.GetChild(1).GetComponent<Image>().color = new Color32(158, 169, 43, 127);
             conclusionPanel.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("CRA/BAD");
@@ -133,7 +136,7 @@ public class TrustManager : MonoBehaviour
     {
         conclusionPanel.SetActive(true);
 
-        if ((type == "000" && lastArticleType == 0) || (type == "001" && lastArticleType == 0) || (type == "011" && lastArticleType == 0)) // WORST ENDING
+        if ((type == "000" && lastArticleType == 0) || (type == "001" && lastArticleType == 0) || (type == "011" && lastArticleType == 0) || (type == "111" && lastArticleType == 0)) // WORST ENDING
         {
             blackPanelText.GetComponent<TextMeshProUGUI>().fontSize = 60;
             blackPanelText.GetComponent<TextMeshProUGUI>().text = "After causing another commotion online, netizens once again bombarded you with negative responses and backlashes, which also caught the attention of the rapper Jay C as well as Buoyancee's mother. Their current plan is to sue you in court.";

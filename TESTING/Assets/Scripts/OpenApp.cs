@@ -65,12 +65,14 @@ public class OpenApp : MonoBehaviour
 
     public void openOptions()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonSound");
         options.SetActive(true);
         contentPanel.SetActive(false);
     }
 
     public void exitOptions()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonSound");
         options.SetActive(false);
     }
 
