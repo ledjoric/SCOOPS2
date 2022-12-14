@@ -1,0 +1,50 @@
+{
+    "guide_title": "What To Do?",
+    "guide_details": "",
+    "guide": [
+        {
+            "id": 0,
+            "name": "Collect",
+            "content": [
+                {
+                    "title": "Collect all articles.",
+                    "details": "Collect all articles by\ninteracting with NPCs!",
+                    "photo": "Guide/Collect"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Explore",
+            "content": [
+                {
+                    "title": "Explore the map for clues.",
+                    "details": "Explore and interact with\nobjects for clues and tips!",
+                    "photo": "Guide/Explore"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Evaluate",
+            "content": [
+                {
+                    "title": "Evaluate using CRAAP method.",
+                    "details": "Evaluate the articles you collected\nusing the CRAAP Guide!",
+                    "photo": "Guide/Evaluate"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Publish",
+            "content": [
+                {
+                    "title": "Publish your own article.",
+                    "details": "Publish your own article by relying\non one article you trust the most!",
+                    "photo": "Guide/Publish"
+                }
+            ]
+        }
+    ]
+}

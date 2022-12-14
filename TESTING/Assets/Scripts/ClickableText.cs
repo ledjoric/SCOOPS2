@@ -29,21 +29,33 @@ public class ClickableText : MonoBehaviour, IPointerClickHandler
                 publisherDetails.SetActive(true);
                 if (!gameData.cluesList.Contains(gameData.getPublisherDetail(gameData.viewArticleIndex).clue))
                 {
-                    caution.SetActive(false);
-                    unkownPublisher.SetActive(true);
-                    knownPublisher.SetActive(false);
+                    if(gameData.getPublisherDetail(gameData.viewArticleIndex).name == "PIP.ph")
+                    {
+                        showArticle();
+                    }
+                    else
+                    {
+                        caution.SetActive(false);
+                        unkownPublisher.SetActive(true);
+                        knownPublisher.SetActive(false);
+                    }
                 }else
                 {
-                    caution.SetActive(false);
-                    unkownPublisher.SetActive(false);
-                    knownPublisher.SetActive(true);
-
-                    knownPublisher.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(gameData.getPublisherDetail(gameData.viewArticleIndex).pub_photo);
-                    knownPublisher.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = gameData.getPublisherDetail(gameData.viewArticleIndex).name;
-                    knownPublisher.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getPublisherDetail(gameData.viewArticleIndex).type;
-                    knownPublisher.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = gameData.getPublisherDetail(gameData.viewArticleIndex).description;
+                    showArticle();
                 }
             }
         }
+    }
+
+    private void showArticle()
+    {
+        caution.SetActive(false);
+        unkownPublisher.SetActive(false);
+        knownPublisher.SetActive(true);
+
+        knownPublisher.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(gameData.getPublisherDetail(gameData.viewArticleIndex).pub_photo);
+        knownPublisher.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = gameData.getPublisherDetail(gameData.viewArticleIndex).name;
+        knownPublisher.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getPublisherDetail(gameData.viewArticleIndex).type;
+        knownPublisher.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = gameData.getPublisherDetail(gameData.viewArticleIndex).description;
     }
 }

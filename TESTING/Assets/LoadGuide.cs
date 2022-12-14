@@ -9,13 +9,15 @@ public class LoadGuide : MonoBehaviour
 {
     [SerializeField] private GameData gameData;
 
+    [SerializeField] private TextAsset wtdData;
     [SerializeField] private TextAsset craapData;
     [SerializeField] private TextAsset basicsData;
+    private Guides wtdJson;
     private Guides craapJson;
     private Guides basicsJson;
 
     [SerializeField] private TextMeshProUGUI basicsTitle, basicsDetails, craapTitle, craapDetails;
-    [SerializeField] private Transform basicsItems, basicsContent, craapItems, craapContent;
+    [SerializeField] private Transform wtdItems, wtdContent, basicsItems, basicsContent, craapItems, craapContent;
     [SerializeField] private GameObject examplesTemplate;
     private GameObject g;
 
@@ -34,6 +36,7 @@ public class LoadGuide : MonoBehaviour
 
     private void Start()
     {
+        wtdJson = JsonUtility.FromJson<Guides>(wtdData.text);
         craapJson = JsonUtility.FromJson<Guides>(craapData.text);
         basicsJson = JsonUtility.FromJson<Guides>(basicsData.text);
 
@@ -48,6 +51,11 @@ public class LoadGuide : MonoBehaviour
         craapTitle.text = craapJson.guide_title;
         craapDetails.text = craapJson.guide_details;
 
+        foreach (Transform items in wtdItems)
+        {
+            items.GetComponentInChildren<TextMeshProUGUI>().text = getWTDGuide(items.GetSiblingIndex()).name;
+        }
+
         foreach (Transform items in basicsItems)
         {
             items.GetComponentInChildren<TextMeshProUGUI>().text = getBasicsGuide(items.GetSiblingIndex()).name;
@@ -58,9 +66,23 @@ public class LoadGuide : MonoBehaviour
             items.GetComponentInChildren<TextMeshProUGUI>().text = getCRAAPGuide(items.GetSiblingIndex()).name;
         }
 
+        refreshWTD();
         refreshBasics();
         refreshCRAAP();
     }
+
+    public void wtdtemClick()
+    {
+        FindObjectOfType<AudioManager>().Play("ButtonSound");
+        index = EventSystem.current.currentSelectedGameObject.transform.GetSiblingIndex();
+
+        wtdContent.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = getWTDContent(index).title;
+        wtdContent.GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>(getWTDContent(index).photo);
+        wtdContent.GetChild(2).GetComponent<TextMeshProUGUI>().text = getWTDContent(index).details;
+
+        refreshWTD();
+    }
+
 
     public void basicsItemClick()
     {
@@ -106,6 +128,12 @@ public class LoadGuide : MonoBehaviour
         refreshCRAAP();
     }
 
+    private void refreshWTD()
+    {
+        LayoutRebuilder.ForceRebuildLayoutImmediate(wtdContent.GetComponent<RectTransform>());
+        LayoutRebuilder.ForceRebuildLayoutImmediate(wtdItems.parent.GetComponent<RectTransform>());
+    }
+
     private void refreshBasics()
     {
         LayoutRebuilder.ForceRebuildLayoutImmediate(basicsContent.GetComponent<RectTransform>());
@@ -119,6 +147,16 @@ public class LoadGuide : MonoBehaviour
     }
 
     // GETTERS FOR BASICS JSON
+    private Guide getWTDGuide(int index)
+    {
+        return wtdJson.guide[index];
+    }
+
+    private Content getWTDContent(int index)
+    {
+        return wtdJson.guide[index].content[0];
+    }
+
     private Guide getBasicsGuide(int index)
     {
         return basicsJson.guide[index];
