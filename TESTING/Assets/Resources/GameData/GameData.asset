@@ -184,7 +184,7 @@ MonoBehaviour:
       - name: CrpytoTokens.biz
         type: Crypto Trading Website
         description: CrpytoTokens, a business website that promotes questionable
-          cryptocurrencies.
+          crypto currencies.
         pub_photo: MG_Publisher/MP3
       date: March 2021
       description: A startup cryptocurrency launched its token today. Within the
@@ -209,9 +209,9 @@ MonoBehaviour:
       credibility: Credible
   articlesData: {fileID: 4900000, guid: c1174816b6ea87447ad8226b37ad97c8, type: 3}
   mgArticlesData: {fileID: 4900000, guid: e245159cbbe387640b330b5c7c59b3cf, type: 3}
-  mgArticlesList: 00000000
-  articlesMinigame: 1
-  mg_ArticleInterval: 3
+  mgArticlesList: 
+  articlesMinigame: 0
+  mg_ArticleInterval: 0
   idShown: 0
   loadedData: 1
   win: 0
@@ -224,26 +224,38 @@ MonoBehaviour:
   customerNPC: 0
   cashierNPC: 0
   baristaNPC: 0
-  parkNPC: 1
+  parkNPC: 0
   vendorNPC: 0
   storeOwnerNPC: 0
   roadNPC: 0
-  isWatched: 1
+  isWatched: 0
   cryptoDone: 0
   isOpen: 0
-  isInside: 1
-  articlesList: 000000000100000002000000030000000400000005000000
+  isInside: 0
+  tutorial: 1
+  wtd: 0
+  basics: 0
+  craap: 0
+  collect: 0
+  explore: 0
+  evaluate: 0
+  publish: 0
+  phone: 0
+  npc: 0
+  objects: 0
+  article: 0
+  clue: 0
+  currency: 0
+  relevance: 0
+  authority: 0
+  accuracy: 0
+  purpose: 0
+  articlesList: 
   objectivesList:
   - Collect articles
   - Collect clues
   - Solve minigames
-  cluesList:
-  - tip#It is always important to check the date.
-  - clue#Dairy Mail is known for publishing articles that are factual.
-  - clue#CT is a website about satire content.
-  - clue#HotshowBEEZ's publications are mostly gossip and lack proof.
-  - clue#RealCeleb News is a health-centered lifestyle magazine.
-  - clue#BBZ News won multiple awards in Excellence in Online Journalism!
+  cluesList: []
   storyProgress: 0
   stage: 1
   minigameProgress: 0
@@ -286,11 +298,5 @@ MonoBehaviour:
   stageTwoArticles: 
   viewArticleIndex: 0
   viewedArticles: 
-  viewedClues:
-  - tip#It is always important to check the date.
-  - clue#Dairy Mail is known for publishing articles that are factual.
-  - clue#CT is a website about satire content.
-  - clue#HotshowBEEZ's publications are mostly gossip and lack proof.
-  - clue#RealCeleb News is a health-centered lifestyle magazine.
-  - clue#BBZ News won multiple awards in Excellence in Online Journalism!
+  viewedClues: []
   viewedFF: 0

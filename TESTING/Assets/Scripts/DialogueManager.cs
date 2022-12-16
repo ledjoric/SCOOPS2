@@ -146,6 +146,7 @@ public class DialogueManager : MonoBehaviour
             gameObject.GetComponent<Outline>().enabled = true;
 
             //buttonOwner = this;
+            nameBtn.onClick.RemoveAllListeners();
 
             nameBtn.onClick.RemoveListener(onNameClick);
             nameBtn.onClick.AddListener(onNameClick);

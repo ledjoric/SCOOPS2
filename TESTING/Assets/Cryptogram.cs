@@ -27,6 +27,8 @@ public class Cryptogram : MonoBehaviour
     private int randomNumber;
     private List<int> RndmList;
 
+    //TouchScreenKeyboard keyboard;
+
     private void OnEnable()
     {
         gameData.minigameActive = true;
@@ -89,6 +91,10 @@ public class Cryptogram : MonoBehaviour
 
         EventSystem.current.SetSelectedGameObject(transform.GetChild(0).GetChild(1).GetChild(9).GetChild(0).gameObject);
         transform.GetChild(0).GetChild(1).GetChild(9).GetChild(0).GetComponent<TMP_InputField>().text = "E";
+        //StartCoroutine(deselectInput());
+        //EventSystem.current.SetSelectedGameObject(transform.GetChild(0).GetChild(1).GetChild(3).GetChild(0).gameObject);
+        //transform.GetChild(0).GetChild(1).GetChild(3).GetChild(0).GetComponent<TMP_InputField>().ActivateInputField();
+        //keyboard.active = false;
     }
 
     public void fillOutLetters()
@@ -106,17 +112,24 @@ public class Cryptogram : MonoBehaviour
         if (inputLetter == alphabet[cryptoIndex])
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color = Color.white;
+            EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>().interactable = false;
+            //StartCoroutine(delayInput_2());
 
             for (int i = 0; i < transform.GetChild(0).GetChild(1).childCount; i++)
             {
                 if (transform.GetChild(0).GetChild(1).GetChild(i).GetChild(2).GetComponent<TextMeshProUGUI>().text == crypto[cryptoIndex].ToString())
                 {
-                    EventSystem.current.SetSelectedGameObject(transform.GetChild(0).GetChild(1).GetChild(i).GetChild(0).gameObject);
-                    transform.GetChild(0).GetChild(1).GetChild(i).GetChild(0).GetComponent<TMP_InputField>().text = alphabet[cryptoIndex].ToString();
-                    transform.GetChild(0).GetChild(1).GetChild(i).GetChild(0).GetComponent<TMP_InputField>().interactable = false;
+                    
+                    if (transform.GetChild(0).GetChild(1).GetChild(i).GetChild(0).GetComponent<TMP_InputField>().text == "" && transform.GetChild(0).GetChild(1).GetChild(i).GetChild(0).GetComponent<TMP_InputField>().interactable == true)
+                    {
+                        StartCoroutine(delayInput(i));
+                        //EventSystem.current.SetSelectedGameObject(transform.GetChild(0).GetChild(1).GetChild(i).GetChild(0).gameObject);
+                        transform.GetChild(0).GetChild(1).GetChild(i).GetChild(0).GetComponent<TMP_InputField>().text = alphabet[cryptoIndex].ToString();
+                        transform.GetChild(0).GetChild(1).GetChild(i).GetChild(0).GetComponent<TMP_InputField>().interactable = false;
 
-                    remainingLetters = remainingLetters.Where(val => val != inputLetter).ToArray();
-                    guideLetters.GetComponent<TextMeshProUGUI>().text = string.Join(" ", remainingLetters);
+                        remainingLetters = remainingLetters.Where(val => val != inputLetter).ToArray();
+                        guideLetters.GetComponent<TextMeshProUGUI>().text = string.Join(" ", remainingLetters);
+                    }
                 }
             }
         }else
@@ -155,6 +168,7 @@ public class Cryptogram : MonoBehaviour
         if(Enumerable.SequenceEqual(inputSentence, sentence) == true)
         {
             StartCoroutine(puzzleDialog());
+            gameData.minigameProgress++;
         }
     }
 
@@ -204,5 +218,19 @@ public class Cryptogram : MonoBehaviour
         gameData.cryptoDone = true;
 
         gameObject.SetActive(false);
+    }
+
+    private IEnumerator delayInput(int index)
+    {
+        yield return new WaitForSeconds(0.0001f);
+        EventSystem.current.SetSelectedGameObject(transform.GetChild(0).GetChild(1).GetChild(index).GetChild(0).gameObject);
+    }
+
+    private IEnumerator deselectInput()
+    {
+        yield return new WaitForSeconds(0.0001f);
+        transform.GetChild(0).GetChild(1).GetChild(9).GetChild(0).GetComponent<TMP_InputField>().DeactivateInputField();
+        yield return new WaitForSeconds(0.0001f);
+        transform.GetChild(0).GetChild(1).GetChild(33).GetChild(0).GetComponent<TMP_InputField>().DeactivateInputField();
     }
 }

@@ -18,15 +18,25 @@ public class LoadGuide : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI basicsTitle, basicsDetails, craapTitle, craapDetails;
     [SerializeField] private Transform wtdItems, wtdContent, basicsItems, basicsContent, craapItems, craapContent;
-    [SerializeField] private GameObject examplesTemplate;
+    [SerializeField] private GameObject examplesTemplate, wtd, basics, craap, btnExit, focus;
     private GameObject g;
 
     private int index;
     private string[] detailSplit;
+    private string btnName;
 
     private void OnEnable()
     {
         gameData.guideActive = true;
+
+        if(gameData.tutorial)
+        {
+            btnExit.SetActive(false);
+            focus.SetActive(false);
+        }else
+        {
+            btnExit.SetActive(true);
+        }
     }
 
     private void OnDisable()
@@ -40,7 +50,23 @@ public class LoadGuide : MonoBehaviour
         craapJson = JsonUtility.FromJson<Guides>(craapData.text);
         basicsJson = JsonUtility.FromJson<Guides>(basicsData.text);
 
+        btnName = "";
+
         loadItems();
+        if(gameData.tutorial)
+        {
+            wtd.transform.SetParent(transform);
+            wtd.SetActive(true);
+        }else
+        {
+            wtd.transform.SetParent(transform);
+            basics.transform.SetParent(transform);
+            craap.transform.SetParent(transform);
+
+            wtd.SetActive(true);
+            basics.SetActive(true);
+            craap.SetActive(true);
+        }
     }
 
     private void loadItems()
@@ -75,11 +101,13 @@ public class LoadGuide : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         index = EventSystem.current.currentSelectedGameObject.transform.GetSiblingIndex();
+        btnName = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>().text;
 
         wtdContent.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = getWTDContent(index).title;
         wtdContent.GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>(getWTDContent(index).photo);
         wtdContent.GetChild(2).GetComponent<TextMeshProUGUI>().text = getWTDContent(index).details;
 
+        wtdTutorialProg();
         refreshWTD();
     }
 
@@ -88,6 +116,7 @@ public class LoadGuide : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         index = EventSystem.current.currentSelectedGameObject.transform.GetSiblingIndex();
+        btnName = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>().text;
 
         detailSplit = getBasicsContent(index).details.Split('#');
 
@@ -97,6 +126,7 @@ public class LoadGuide : MonoBehaviour
         basicsContent.GetChild(2).GetComponent<Image>().SetNativeSize();
         basicsContent.GetChild(3).GetComponent<TextMeshProUGUI>().text = detailSplit[1];
 
+        basicsTutorialProg();
         refreshBasics();
     }
 
@@ -112,6 +142,7 @@ public class LoadGuide : MonoBehaviour
         }
 
         index = EventSystem.current.currentSelectedGameObject.transform.GetSiblingIndex();
+        btnName = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>().text;
 
         craapContent.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = getCRAAPContent(index).title;
         craapContent.GetChild(1).GetComponent<TextMeshProUGUI>().text = getCRAAPContent(index).details;
@@ -125,8 +156,119 @@ public class LoadGuide : MonoBehaviour
             g.SetActive(true);
         }
 
+        craapTutorialProg();
         refreshCRAAP();
     }
+
+    private void wtdTutorialProg()
+    {
+        if (gameData.tutorial)
+        {
+            if (btnName == "Collect" && !gameData.collect)
+            {
+                gameData.collect = true;
+                gameData.wtd++;
+            }
+            else if (btnName == "Explore" && !gameData.explore)
+            {
+                gameData.explore = true;
+                gameData.wtd++;
+            }
+            else if (btnName == "Evaluate" && !gameData.evaluate)
+            {
+                gameData.evaluate = true;
+                gameData.wtd++;
+            }
+            else if (btnName == "Publish" && !gameData.publish)
+            {
+                gameData.publish = true;
+                gameData.wtd++;
+            }
+
+            if(gameData.wtd == 4)
+            {
+                basics.transform.SetParent(transform);
+                basics.SetActive(true);
+            }
+        }
+    }
+
+    private void basicsTutorialProg()
+    {
+        if (gameData.tutorial)
+        {
+            if (btnName == "Phone" && !gameData.phone)
+            {
+                gameData.phone = true;
+                gameData.basics++;
+            }
+            else if (btnName == "NPCs" && !gameData.npc)
+            {
+                gameData.npc = true;
+                gameData.basics++;
+            }
+            else if (btnName == "Objects" && !gameData.objects)
+            {
+                gameData.objects = true;
+                gameData.basics++;
+            }
+            else if (btnName == "Articles" && !gameData.article)
+            {
+                gameData.article = true;
+                gameData.basics++;
+            }
+            else if (btnName == "Clues" && !gameData.clue)
+            {
+                gameData.clue = true;
+                gameData.basics++;
+            }
+
+            if (gameData.basics == 5)
+            {
+                craap.transform.SetParent(transform);
+                craap.SetActive(true);
+            }
+        }
+    }
+
+    private void craapTutorialProg()
+    {
+        if (gameData.tutorial)
+        {
+            if (btnName == "Currency" && !gameData.currency)
+            {
+                gameData.currency = true;
+                gameData.craap++;
+            }
+            else if (btnName == "Relevance" && !gameData.relevance)
+            {
+                gameData.relevance = true;
+                gameData.craap++;
+            }
+            else if (btnName == "Authority" && !gameData.authority)
+            {
+                gameData.authority = true;
+                gameData.craap++;
+            }
+            else if (btnName == "Accuracy" && !gameData.accuracy)
+            {
+                gameData.accuracy = true;
+                gameData.craap++;
+            }
+            else if (btnName == "Purpose" && !gameData.purpose)
+            {
+                gameData.purpose = true;
+                gameData.craap++;
+            }
+
+            if (gameData.craap == 5)
+            {
+                gameData.tutorial = false;
+                btnExit.SetActive(true);
+            }
+        }
+    }
+
 
     private void refreshWTD()
     {

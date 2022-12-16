@@ -91,6 +91,7 @@ public class ClickObject : MonoBehaviour
             StartCoroutine(puzzleDialog());
             timerStop = true;
 
+            gameData.minigameProgress++;
             gameData.win = true;
         }
     }

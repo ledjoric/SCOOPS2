@@ -55,6 +55,29 @@ public class GameData : ScriptableObject
     public bool isOpen;
     public bool isInside;
 
+    // TUTORIAL
+    public bool tutorial;
+    public int wtd;
+    public int basics;
+    public int craap;
+
+    public bool collect;
+    public bool explore;
+    public bool evaluate;
+    public bool publish;
+
+    public bool phone;
+    public bool npc;
+    public bool objects;
+    public bool article;
+    public bool clue;
+
+    public bool currency;
+    public bool relevance;
+    public bool authority;
+    public bool accuracy;
+    public bool purpose;
+
     // LIST OF CLUES, OBJECTIVES, AND ARTICLES
     public List<int> articlesList;
     public List<string> objectivesList;
@@ -107,7 +130,7 @@ public class GameData : ScriptableObject
         targetId_1 = 0;
         targetId_2 = 0;
 
-        //currentPoints = maxPoints;
+        tutorial = true;
     }
 
     // TRUST METER METHODS

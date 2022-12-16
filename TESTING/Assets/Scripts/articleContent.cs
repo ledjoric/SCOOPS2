@@ -43,7 +43,7 @@ public class articleContent : MonoBehaviour
         gameData.viewedFF++;
         gameData.minigameProgress++;
 
-        if (gameData.minigameProgress == gameData.articlesMinigame)
+        if (gameData.viewedFF == gameData.articlesMinigame)
         {
             ffNotif.SetActive(false);
         }
@@ -87,7 +87,7 @@ public class articleContent : MonoBehaviour
         gameData.viewedFF++;
         gameData.minigameProgress++;
 
-        if (gameData.minigameProgress == gameData.articlesMinigame)
+        if (gameData.viewedFF == gameData.articlesMinigame)
         {
             ffNotif.SetActive(false);
         }
@@ -131,7 +131,7 @@ public class articleContent : MonoBehaviour
         gameData.viewedFF++;
         gameData.minigameProgress++;
 
-        if (gameData.minigameProgress == gameData.articlesMinigame)
+        if (gameData.viewedFF == gameData.articlesMinigame)
         {
             ffNotif.SetActive(false);
         }
