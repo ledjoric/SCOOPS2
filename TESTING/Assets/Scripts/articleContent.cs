@@ -10,7 +10,7 @@ public class articleContent : MonoBehaviour
     private int articleIndex;
 
     [SerializeField] private GameData gameData;
-    [SerializeField] private GameObject ffDialog, darkPanel, ffNotif;
+    [SerializeField] private GameObject ffDialog, darkPanel, ffNotif, noContentText;
     [SerializeField] private Animator notifAnim;
 
     private GameObject destroyArticle;
@@ -42,22 +42,9 @@ public class articleContent : MonoBehaviour
 
         gameData.viewedFF++;
         gameData.minigameProgress++;
+        Debug.Log(gameData.minigameProgress);
 
-        if (gameData.viewedFF == gameData.articlesMinigame)
-        {
-            ffNotif.SetActive(false);
-        }
-
-        if ((gameData.cluesList.Count == gameData.viewedClues.Count) && (gameData.articlesList.Count == gameData.viewedArticles.Count) && (gameData.articlesMinigame == gameData.viewedFF))
-        {
-            notifAnim.SetTrigger("HideNotif");
-        }
-
-        foreach(Transform buttons in EventSystem.current.currentSelectedGameObject.transform.parent)
-        {
-            buttons.GetComponent<Button>().enabled = false;
-        }
-
+        PhoneNotif();
         StartCoroutine(removeArticle());
     }
 
@@ -86,22 +73,9 @@ public class articleContent : MonoBehaviour
 
         gameData.viewedFF++;
         gameData.minigameProgress++;
+        Debug.Log(gameData.minigameProgress);
 
-        if (gameData.viewedFF == gameData.articlesMinigame)
-        {
-            ffNotif.SetActive(false);
-        }
-
-        if ((gameData.cluesList.Count == gameData.viewedClues.Count) && (gameData.articlesList.Count == gameData.viewedArticles.Count) && (gameData.articlesMinigame == gameData.viewedFF))
-        {
-            notifAnim.SetTrigger("HideNotif");
-        }
-
-        foreach (Transform buttons in EventSystem.current.currentSelectedGameObject.transform.parent)
-        {
-            buttons.GetComponent<Button>().enabled = false;
-        }
-
+        PhoneNotif();
         StartCoroutine(removeArticle());
     }
 
@@ -130,7 +104,14 @@ public class articleContent : MonoBehaviour
 
         gameData.viewedFF++;
         gameData.minigameProgress++;
+        Debug.Log(gameData.minigameProgress);
 
+        PhoneNotif();
+        StartCoroutine(removeArticle());
+    }
+
+    private void PhoneNotif()
+    {
         if (gameData.viewedFF == gameData.articlesMinigame)
         {
             ffNotif.SetActive(false);
@@ -145,15 +126,20 @@ public class articleContent : MonoBehaviour
         {
             buttons.GetComponent<Button>().enabled = false;
         }
-
-        StartCoroutine(removeArticle());
     }
+
 
     private IEnumerator removeArticle()
     {
         yield return StartCoroutine(hideDialog(1f));
         Destroy(destroyArticle);
         gameData.mgArticlesList.RemoveAt(articleIndex);
+
+        if (gameData.viewedFF == gameData.articlesMinigame)
+        {
+            noContentText.GetComponent<TextMeshProUGUI>().text = "No available articles right now, come back later!";
+            noContentText.SetActive(true);
+        }
     }
 
     private IEnumerator hideDialog(float time)

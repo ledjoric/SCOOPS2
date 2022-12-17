@@ -14417,7 +14417,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -251.25}
-  m_SizeDelta: {x: 1460, y: 375}
+  m_SizeDelta: {x: 1500, y: 375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &536776314
 MonoBehaviour:
@@ -41919,6 +41919,7 @@ MonoBehaviour:
   ffDialog: {fileID: 323134019}
   darkPanel: {fileID: 1873510192}
   ffNotif: {fileID: 281513819}
+  noContentText: {fileID: 1801237554}
   notifAnim: {fileID: 1766281734}
 --- !u!1 &1612612974
 GameObject:

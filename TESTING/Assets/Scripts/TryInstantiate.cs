@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TryInstantiate : MonoBehaviour
@@ -15,6 +16,8 @@ public class TryInstantiate : MonoBehaviour
     private string[] clueSplit, clueSplit_2;
     private int clues;
 
+    //private string btnName;
+
     private void OnEnable()
     {
         if (gameObject.name == "Articles")
@@ -22,7 +25,7 @@ public class TryInstantiate : MonoBehaviour
             txtNoContent.SetActive(false);
 
             //articleTemplate = transform.GetChild(0).gameObject;
-            
+
 
             if (gameData.articlesList != null && gameData.articlesList.Any())
             {
@@ -33,7 +36,8 @@ public class TryInstantiate : MonoBehaviour
                     if (!gameData.viewedArticles.Contains(gameData.articlesList[i]))
                     {
                         articleTemplate = transform.GetChild(0).gameObject;
-                    }else
+                    }
+                    else
                     {
                         articleTemplate = transform.GetChild(1).gameObject;
                     }
@@ -102,7 +106,7 @@ public class TryInstantiate : MonoBehaviour
         {
             txtNoContent.SetActive(false);
             cluesTemplate = transform.GetChild(0).gameObject;
-            
+
             if (gameData.cluesList != null && gameData.cluesList.Any())
             {
                 for (int i = 0; i < gameData.cluesList.Count; i++)
@@ -112,17 +116,19 @@ public class TryInstantiate : MonoBehaviour
                     if (clueSplit[0] == "clue")
                     {
                         g.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("CluesIcon/CluesLogo");
-                    }else if(clueSplit[0] == "tip")
+                    }
+                    else if (clueSplit[0] == "tip")
                     {
                         g.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("CluesIcon/TipsLogo");
                     }
                     g.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = clueSplit[1];
 
                     // CHECK IF VIEWED
-                    if(gameData.viewedClues.Contains(gameData.cluesList[i]))
+                    if (gameData.viewedClues.Contains(gameData.cluesList[i]))
                     {
                         g.transform.GetChild(2).gameObject.SetActive(false);
-                    }else
+                    }
+                    else
                     {
                         g.transform.GetChild(2).gameObject.SetActive(true);
                     }
@@ -135,7 +141,7 @@ public class TryInstantiate : MonoBehaviour
                 txtNoContent.SetActive(true);
                 txtNoContent.GetComponent<TextMeshProUGUI>().text = "No available clues right now, come back later!";
             }
-            
+
             // ADD TO VIEWED CLUES
             if (gameData.viewedClues.Count != gameData.cluesList.Count)
             {
@@ -164,7 +170,7 @@ public class TryInstantiate : MonoBehaviour
 
             StartCoroutine(cluesRefresh());
         }
-        else if(gameObject.name == "FireFacts")
+        else if (gameObject.name == "FireFacts")
         {
             txtNoContent.SetActive(false);
             GetComponent<VerticalLayoutGroup>().enabled = false;
@@ -189,7 +195,6 @@ public class TryInstantiate : MonoBehaviour
                 txtNoContent.SetActive(true);
                 txtNoContent.GetComponent<TextMeshProUGUI>().text = "No available articles right now, come back later!";
             }
-            
         }
     }
 

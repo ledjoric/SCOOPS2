@@ -169,6 +169,7 @@ public class Cryptogram : MonoBehaviour
         {
             StartCoroutine(puzzleDialog());
             gameData.minigameProgress++;
+            Debug.Log(gameData.minigameProgress);
         }
     }
 

@@ -231,7 +231,7 @@ MonoBehaviour:
   isWatched: 0
   cryptoDone: 0
   isOpen: 0
-  isInside: 0
+  isInside: 1
   tutorial: 1
   wtd: 0
   basics: 0

@@ -221,7 +221,7 @@ public class DialogueManager : MonoBehaviour
         {
             choices[i] = getDialog(dialogId).choices[i];
         }
-        Debug.Log(dialogId);
+        //Debug.Log(dialogId);
         // CHARACTER NAME
         dialogName.text = characterJson.name;
 

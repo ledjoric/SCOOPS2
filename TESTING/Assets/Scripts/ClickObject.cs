@@ -98,10 +98,11 @@ public class ClickObject : MonoBehaviour
         {
             // PAG PANALO
             Debug.Log("Spotted all the objects");
+            gameData.minigameProgress++;
             StartCoroutine(puzzleDialog());
             timerStop = true;
-
-            gameData.minigameProgress++;
+            Debug.Log(gameData.minigameProgress);
+            Debug.Log(gameObject.name);
             gameData.win = true;
         }
     }
