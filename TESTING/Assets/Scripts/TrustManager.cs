@@ -9,7 +9,7 @@ public class TrustManager : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private Image fill;
     [SerializeField] private Animator animator, fadePanel;
-    [SerializeField] private GameObject article, eval, btnProceed, blackPanel, conclusionPanel, clickText, blackPanelText, background;
+    [SerializeField] private GameObject article, eval, btnProceed, blackPanel, conclusionPanel, clickText, blackPanelText, background, btnEnd, blackPanelLast;
 
     private bool clickEnable;
 
@@ -57,7 +57,9 @@ public class TrustManager : MonoBehaviour
         if((Input.touchCount == 1 || Input.GetMouseButtonDown(0)) && clickEnable)
         {
             fadePanel.SetBool("Proceed", true);
+            clickText.SetActive(false);
             clickEnable = false;
+            thankYou();
         }
     }
 
@@ -103,6 +105,24 @@ public class TrustManager : MonoBehaviour
             clickText.SetActive(true);
             clickEnable = true;
         }
+    }
+
+    private void thankYou()
+    {
+        StartCoroutine(thanks());
+    }
+    private IEnumerator thanks()
+    {
+        yield return new WaitForSeconds(1f);
+        blackPanelLast.SetActive(true);
+        yield return new WaitForSeconds(10f);
+        fadePanel.SetBool("Proceed", false);
+        yield return new WaitForSeconds(1f);
+        blackPanelText.GetComponent<TextMeshProUGUI>().fontSize = 120;
+        blackPanelText.GetComponent<TextMeshProUGUI>().text = "Thank you for playing our demo!";
+        fadePanel.SetBool("Proceed", true);
+        yield return new WaitForSeconds(4f);
+        btnEnd.SetActive(true);
     }
 
     private void publishResult()

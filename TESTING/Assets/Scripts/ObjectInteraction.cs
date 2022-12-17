@@ -43,6 +43,7 @@ public class ObjectInteraction : MonoBehaviour
             {
                 magazine.SetActive(false);
                 darkPanel.SetActive(false);
+                gameData.minigameActive = false;
                 clickEnable = false;
 
                 if (!gameData.cluesList.Contains("clue#RealCeleb News is a health-centered lifestyle magazine."))
@@ -317,6 +318,7 @@ public class ObjectInteraction : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         magazine.SetActive(true);
         darkPanel.SetActive(true);
+        gameData.minigameActive = true;
         clickEnable = true;
     }
 

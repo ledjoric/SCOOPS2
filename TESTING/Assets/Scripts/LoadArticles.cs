@@ -180,7 +180,8 @@ public class LoadArticles : MonoBehaviour
     {
         // RELEVANCE ARTICLE / STAGE 1
         articleTemplate = transform.parent.GetChild(1).gameObject;
-        instruction.text = "Choose three (3) articles that are relevant to the issue.";
+        instruction.gameObject.SetActive(true);
+        instruction.text = "Choose three (3) articles\nthat are relevant to the issue.";
         RndmList = new List<int>(new int[gameData.articlesJson.articles.Length]);
 
         for (int i = 0; i < gameData.articlesJson.articles.Length; i++)
@@ -208,7 +209,8 @@ public class LoadArticles : MonoBehaviour
     {
         // CURRENCY AND AUTHORITY / STAGE 2
         articleTemplate = transform.parent.GetChild(0).gameObject;
-        instruction.text = "Choose one (1) that will serve as your basis for your article.\nNote: Remember to check publisher's credibility and the article's timeliness";
+        instruction.gameObject.SetActive(true);
+        instruction.text = "Choose one (1) that will serve as your basis for your article.\nNote: Remember to check publisher's credibility and the article's timeliness.";
         RndmList = new List<int>(new int[gameData.selectedArticles.Count]);
 
         for (int i = 0; i < gameData.selectedArticles.Count; i++)

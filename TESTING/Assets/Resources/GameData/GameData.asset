@@ -261,7 +261,7 @@ MonoBehaviour:
   minigameProgress: 0
   maxPoints: 100
   currentPoints: 30
-  velocity: 0
+  velocity: 0.00012986577
   gradient:
     serializedVersion: 2
     key0: {r: 1, g: 0.4117647, b: 0.38039216, a: 1}

@@ -8,7 +8,7 @@ using System.Collections;
 public class ClickObject : MonoBehaviour
 {
     [SerializeField] private GameData gameData;
-    [SerializeField] private GameObject items, objects, instruction, finishDialog, darkPanel, timerText, dialogBox;
+    [SerializeField] private GameObject items, objects, instruction, finishDialog, darkPanel, timerText, dialogBox, hud, upperHud, phone;
 
     // RANDOM NUMBER HOLDER FOR CHECKING
     private int randomNumber, foundCount;
@@ -22,7 +22,17 @@ public class ClickObject : MonoBehaviour
 
     private void OnEnable()
     {
+        hud.SetActive(false);
+        upperHud.SetActive(false);
+        phone.SetActive(false);
         resetGame();
+    }
+
+    private void OnDisable()
+    {
+        hud.SetActive(true);
+        upperHud.SetActive(true);
+        phone.SetActive(true);
     }
 
     private void Update()
