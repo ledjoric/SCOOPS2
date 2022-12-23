@@ -1,10 +1,13 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private GameData gameData;
-    [SerializeField] private GameObject dialogBox;
+    [SerializeField] private GameObject dialogBox, male, female;
     public float speed, rotationSpeed, ySpeed, originalStepOffset;
     public Joystick joystick;
 
@@ -23,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        gameData.position = transform.position;
+        gameData.rotation = transform.localRotation.eulerAngles.y;
+
         if (gameData.dialogActive || gameData.guideActive || gameData.minigameActive)
         {
             if (characterController != null) characterController.Move(Vector3.zero);

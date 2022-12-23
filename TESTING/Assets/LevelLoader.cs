@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    [SerializeField] private GameData gameData;
     [SerializeField] private Animator transition;
     [SerializeField] private TextMeshProUGUI tipsText;
     [SerializeField] private AudioMixer audioMixer;
@@ -24,6 +26,14 @@ public class LevelLoader : MonoBehaviour
     public void levelLoader()
     {
         //transition.SetTrigger("Start");
+        if(EventSystem.current.currentSelectedGameObject.name == "Resume")
+        {
+            gameData.isResume = true;
+        } else
+        {
+            gameData.isResume = false;
+        }
+
         randomTips();
         StartCoroutine(loadLevel());
     }

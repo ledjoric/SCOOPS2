@@ -1,14 +1,23 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [CreateAssetMenu(fileName = "GameData", menuName = "ScriptableObjects/GameData")]
 public class GameData : ScriptableObject
 {
+    // RESUME
+    public bool isResume;
+
+    // PLAYER DATA
+    public Vector3 position;
+    public float rotation;
+
     // PLAYER PERSONALIZATION
     public string playerName;
     public string playerSexuality;
 
     // SETTINGS
+    [SerializeField] public AudioMixer audioMixer;
     public float music;
     public float sfx;
 
@@ -159,7 +168,7 @@ public class GameData : ScriptableObject
 
     public void setSFX(float volume)
     {
-        music = volume;
+        sfx = volume;
     }
 
     // ADDING CLUES, OBJECTIVES, AND clues

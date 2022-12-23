@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4630a22e9be72d64ca16d6ef669d0b80, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  playerName: 
-  playerSexuality: 
-  music: 0
-  sfx: 0
+  isResume: 1
+  position: {x: 10.1786375, y: 4.245001, z: 8.538363}
+  rotation: 206.01242
+  playerName: Bob
+  playerSexuality: Male
+  audioMixer: {fileID: 24100000, guid: 259ebef453e6739428c30dbac8f0221b, type: 2}
+  music: -10.947852
+  sfx: -17.264338
   articlesJson:
     articles:
     - id: 1

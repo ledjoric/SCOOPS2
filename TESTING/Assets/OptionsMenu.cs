@@ -11,11 +11,13 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider music, sfx;
     private float musicValue, sfxValue;
 
-
-    private void Start()
+    private void OnEnable()
     {
         music.value = gameData.music;
         sfx.value = gameData.sfx;
+
+        SetSFXVolume(gameData.sfx);
+        SetMusicVolume(gameData.music);
     }
 
     public void SetSFXVolume(float volume)
