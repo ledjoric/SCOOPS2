@@ -694,6 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc239488af5bd6149b1ff14bc89afb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameData: {fileID: 11400000, guid: dcc64fe963447684894eb70f844118fc, type: 2}
   transition: {fileID: 3881151213381420291}
   tipsText: {fileID: 3881151212985675161}
   audioMixer: {fileID: 24100000, guid: 259ebef453e6739428c30dbac8f0221b, type: 2}

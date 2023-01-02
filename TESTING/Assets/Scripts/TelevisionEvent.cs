@@ -39,10 +39,11 @@ public class TelevisionEvent : MonoBehaviour
                 gameData.isWatched = true;
                 gameData.dialogActive = false;
 
-                if(gameData.playerSexuality == "Female")
+                if (gameData.playerSexuality == "Female")
                 {
                     followPlayer.player = followPlayer.femalePlayer;
-                }else
+                }
+                else
                 {
                     followPlayer.player = followPlayer.malePlayer;
                 }
@@ -62,7 +63,7 @@ public class TelevisionEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider collisionInfo)
     {
-        if(gameData.isWatched) return;
+        if (gameData.isWatched) return;
         if (collisionInfo.CompareTag("Player"))
         {
             interactButton.GetComponent<Button>().onClick.RemoveListener(tvDialog);
@@ -82,7 +83,7 @@ public class TelevisionEvent : MonoBehaviour
 
     public void tvDialog()
     {
-        if(!dialogbox.activeInHierarchy)
+        if (!dialogbox.activeInHierarchy)
         {
             followPlayer.player = tv;
             followPlayer.offset = new Vector3(-10f, 7.4f, -10f);

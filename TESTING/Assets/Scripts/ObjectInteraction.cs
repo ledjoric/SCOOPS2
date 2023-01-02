@@ -26,6 +26,11 @@ public class ObjectInteraction : MonoBehaviour
 
     //static bool isInside, isOpen;
 
+    private void OnEnable()
+    {
+
+    }
+
     private void Start()
     {
         gameData.isInside = false;
@@ -39,7 +44,7 @@ public class ObjectInteraction : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && clickEnable)
         {
-            if(gameObject.name == "car2")
+            if (gameObject.name == "car2")
             {
                 magazine.SetActive(false);
                 darkPanel.SetActive(false);
@@ -81,15 +86,15 @@ public class ObjectInteraction : MonoBehaviour
                     }
                 }
             }
-            
+
         }
     }
 
     private void OnTriggerEnter(Collider collisionInfo)
     {
-        if(collisionInfo.CompareTag("Player"))
+        if (collisionInfo.CompareTag("Player"))
         {
-            if(gameObject.CompareTag("Door"))
+            if (gameObject.CompareTag("Door"))
             {
                 interactButton.SetActive(true);
                 interactButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("InteractionAsset/OBJECT");
@@ -99,7 +104,7 @@ public class ObjectInteraction : MonoBehaviour
                 interactButton.GetComponent<Button>().onClick.RemoveListener(enter);
                 interactButton.GetComponent<Button>().onClick.AddListener(enter);
             }
-            else if(gameObject.CompareTag("Newspaper"))
+            else if (gameObject.CompareTag("Newspaper"))
             {
                 if (!gameData.cryptoDone)
                 {
@@ -114,14 +119,15 @@ public class ObjectInteraction : MonoBehaviour
                     interactButton.GetComponent<Button>().onClick.AddListener(showCryptogram);
                 }
             }
-            else if(gameObject.CompareTag("ObjectDialog"))
+            else if (gameObject.CompareTag("ObjectDialog"))
             {
                 interactButton.SetActive(true);
                 interactButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("InteractionAsset/OBJECT");
-                if(gameObject.name == "Radio")
+                if (gameObject.name == "Radio")
                 {
                     interactButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = " Listen";
-                }else if(gameObject.name == "Television")
+                }
+                else if (gameObject.name == "Television")
                 {
                     interactButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = " Watch";
                 }
@@ -131,7 +137,7 @@ public class ObjectInteraction : MonoBehaviour
                 interactButton.GetComponent<Button>().onClick.RemoveAllListeners();
                 interactButton.GetComponent<Button>().onClick.AddListener(objectDialog);
             }
-            else if(gameObject.name == "car2")
+            else if (gameObject.name == "car2")
             {
                 interactButton.SetActive(true);
                 interactButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("InteractionAsset/OBJECT");
@@ -142,14 +148,16 @@ public class ObjectInteraction : MonoBehaviour
                 interactButton.GetComponent<Button>().onClick.RemoveAllListeners();
                 interactButton.GetComponent<Button>().onClick.AddListener(showMagazine);
             }
-            
+
             if (gameObject.name == "apt_floor")
             {
+                openApartment();
                 gameData.isInside = true;
                 aptArrow.SetActive(true);
             }
             else if (gameObject.name == "cafe_floor")
             {
+                openCafe();
                 gameData.isInside = true;
                 cafeArrow.SetActive(true);
 
@@ -164,8 +172,9 @@ public class ObjectInteraction : MonoBehaviour
                     }
                 }
             }
-            else if(gameObject.name == "konbini_floor")
+            else if (gameObject.name == "konbini_floor")
             {
+                openKonbini();
                 gameData.isInside = true;
                 konbiniArrow.SetActive(true);
                 tv.GetComponent<AudioSource>().enabled = true;
@@ -191,7 +200,7 @@ public class ObjectInteraction : MonoBehaviour
         if (collisionInfo.CompareTag("Player"))
         {
             // TURN OFF OUTLINE / HIGHLIGHT 
-            if(gameObject.CompareTag("Newspaper"))
+            if (gameObject.CompareTag("Newspaper"))
             {
                 gameObject.GetComponent<Outline>().enabled = false;
             }
@@ -199,7 +208,7 @@ public class ObjectInteraction : MonoBehaviour
             {
                 gameObject.GetComponent<Outline>().enabled = false;
             }
-            else if(gameObject.name == "car2")
+            else if (gameObject.name == "car2")
             {
                 gameObject.GetComponent<Outline>().OutlineWidth = 0;
             }
@@ -211,13 +220,13 @@ public class ObjectInteraction : MonoBehaviour
                 gameData.isInside = false;
                 gameData.isOpen = false;
             }
-            else if(gameObject.name == "cafe_floor" || (gameObject.name == "cafe_wall" && !gameData.isInside && gameData.isOpen))
+            else if (gameObject.name == "cafe_floor" || (gameObject.name == "cafe_wall" && !gameData.isInside && gameData.isOpen))
             {
                 closeCafe();
                 gameData.isInside = false;
                 gameData.isOpen = false;
             }
-            else if(gameObject.name == "konbini_floor" || (gameObject.name == "konbini_wall" && !gameData.isInside && gameData.isOpen))
+            else if (gameObject.name == "konbini_floor" || (gameObject.name == "konbini_wall" && !gameData.isInside && gameData.isOpen))
             {
                 closeKonbini();
                 gameData.isInside = false;
@@ -232,38 +241,20 @@ public class ObjectInteraction : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("DoorSqueak");
         if (gameObject.name == "apt_door")
         {
-            for(int i = 0; i < apartment.Length; i++)
-            {
-                transform.root.GetChild(apartment[i]).GetComponent<MeshRenderer>().enabled = false;
-            }
-            gameObject.SetActive(false);
-        }else if(gameObject.name == "cafe_door")
-        {
-            for (int i = 0; i < cafe.Length; i++)
-            {
-                if(i != 13)
-                {
-                    transform.root.GetChild(cafe[i]).gameObject.SetActive(false);
-                }
-            }
-            transform.root.GetChild(63).GetComponent<MeshRenderer>().enabled = false;
-            transform.root.GetChild(67).GetComponent<MeshRenderer>().enabled = false;
-            transform.root.GetChild(68).GetComponent<MeshRenderer>().enabled = false;
-            gameObject.SetActive(false);
+            openApartment();
         }
-        else if(gameObject.name == "konbini_door1")
+        else if (gameObject.name == "cafe_door")
         {
-            for (int i = 0; i < konbini.Length; i++)
-            {
-                transform.root.GetChild(konbini[i]).GetComponent<MeshRenderer>().enabled = false;
-            }
-            transform.root.GetChild(73).gameObject.SetActive(false);
-            transform.root.GetChild(74).gameObject.SetActive(false);
+            openCafe();
+        }
+        else if (gameObject.name == "konbini_door1")
+        {
+            openKonbini();
         }
         gameData.isOpen = true;
         interactButton.SetActive(false);
         interactButton.GetComponent<Button>().onClick.RemoveListener(enter);
-        
+
     }
 
     // SHOW CRYPTOGRAM MINIGAME IN OBJECT
@@ -284,19 +275,20 @@ public class ObjectInteraction : MonoBehaviour
         loadJson();
         loadDialog();
     }
-    
+
     public void loadJson()
     {
         if (gameObject.name == "Radio")
         {
             objectData = Resources.Load<TextAsset>("JSON/Objects/Radio");
-        }else if(gameObject.name == "Television")
+        }
+        else if (gameObject.name == "Television")
         {
             objectData = Resources.Load<TextAsset>("JSON/Objects/TV");
         }
         objectJson = JsonUtility.FromJson<ObjectDialog>(objectData.text);
     }
-    
+
     public void loadDialog()
     {
         dialogbox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = objectJson.name;
@@ -322,6 +314,45 @@ public class ObjectInteraction : MonoBehaviour
         clickEnable = true;
     }
 
+    // OPEN ROOMS
+    public void openApartment()
+    {
+        for (int i = 0; i < apartment.Length; i++)
+        {
+            transform.root.GetChild(apartment[i]).GetComponent<MeshRenderer>().enabled = false;
+        }
+        transform.root.GetChild(3).gameObject.SetActive(false);
+        gameData.isOpen = true;
+    }
+
+    public void openCafe()
+    {
+        gameData.isOpen = true;
+        for (int i = 0; i < cafe.Length; i++)
+        {
+            if (i != 13)
+            {
+                transform.root.GetChild(cafe[i]).gameObject.SetActive(false);
+            }
+        }
+        transform.root.GetChild(63).GetComponent<MeshRenderer>().enabled = false;
+        transform.root.GetChild(67).GetComponent<MeshRenderer>().enabled = false;
+        transform.root.GetChild(68).GetComponent<MeshRenderer>().enabled = false;
+        transform.root.GetChild(59).gameObject.SetActive(false);
+    }
+
+    public void openKonbini()
+    {
+        gameData.isOpen = true;
+        for (int i = 0; i < konbini.Length; i++)
+        {
+            transform.root.GetChild(konbini[i]).GetComponent<MeshRenderer>().enabled = false;
+        }
+        transform.root.GetChild(73).gameObject.SetActive(false);
+        transform.root.GetChild(74).gameObject.SetActive(false);
+    }
+
+    // CLOSE ROOMS
     public void closeApartment()
     {
         FindObjectOfType<AudioManager>().Play("DoorSqueak");

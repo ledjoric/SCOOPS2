@@ -82,23 +82,24 @@ public class SaveData
 
     // PROGRESS VARIABLES
     //public int storyProgress;
-    public int stage;
+    //public int stage;
     public int minigameProgress;
 
     // TRUST METER VALUES
     //public float maxPoints = 100;
-    public float currentPoints;
+    //public float currentPoints;
     //public float velocity = 0;
     //public int totalPoints;
 
     // SELECTED ARTCILES
-    public int selectedLimit;
-    public List<int> selectedArticles;
-    public List<int> selectedArticlesIndex;
-    public List<int> stageTwoArticles;
+    //public int selectedLimit;
+    //public List<int> selectedArticles;
+    //public List<int> selectedArticlesIndex;
+    //public List<int> stageTwoArticles;
+    public bool isEvaluating;
 
     // PHONE ARTICLE
-    public int viewArticleIndex;
+    //public int viewArticleIndex;
 
     // VIEWED
     public List<int> viewedArticles;
@@ -166,13 +167,25 @@ public class SaveData
         articlesList = gameData.articlesList;
         cluesList = gameData.cluesList;
 
-        stage = gameData.stage;
+        //stage = gameData.stage;
         minigameProgress = gameData.minigameProgress;
 
-        currentPoints = gameData.currentPoints;
-        
+        //currentPoints = gameData.currentPoints;
+
         viewedArticles = gameData.viewedArticles;
         viewedClues = gameData.viewedClues;
         viewedFF = gameData.viewedFF;
+
+        /*
+        for(int i = 0; i < gameData.allObjectsName.Length; i++)
+        {
+            allObjectsName[i] = gameData.allObjectsName[i];
+        }
+        */
+
+        //for(int i = 0; i < gameData.activeStatus.Length; i++)
+        //{
+        //    activeStatus[i] = gameData.activeStatus[i];
+        //}
     }
 }

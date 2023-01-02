@@ -17,10 +17,10 @@ public class ClickableText : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         var text = GetComponent<TextMeshProUGUI>();
-        if(eventData.button == PointerEventData.InputButton.Left)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
             int linkIndex = TMP_TextUtilities.FindIntersectingLink(text, Input.mousePosition, null);
-            if(linkIndex != -1)
+            if (linkIndex != -1)
             {
                 FindObjectOfType<AudioManager>().Play("ButtonSound");
                 refTitle = transform.parent.GetChild(0).GetComponent<TextMeshProUGUI>().text;
@@ -29,7 +29,7 @@ public class ClickableText : MonoBehaviour, IPointerClickHandler
                 publisherDetails.SetActive(true);
                 if (!gameData.cluesList.Contains(gameData.getPublisherDetail(gameData.viewArticleIndex).clue))
                 {
-                    if(gameData.getPublisherDetail(gameData.viewArticleIndex).name == "PIP.ph")
+                    if (gameData.getPublisherDetail(gameData.viewArticleIndex).name == "PIP.ph")
                     {
                         showArticle();
                     }
@@ -39,7 +39,8 @@ public class ClickableText : MonoBehaviour, IPointerClickHandler
                         unkownPublisher.SetActive(true);
                         knownPublisher.SetActive(false);
                     }
-                }else
+                }
+                else
                 {
                     showArticle();
                 }

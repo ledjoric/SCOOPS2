@@ -35,7 +35,7 @@ public class ConfirmSelection : MonoBehaviour
             // POINTS TO BE ADDED OR DEDUCTED
             gameData.trustChange(gameData.totalPoints);
         }
-        else if(gameData.stage == 2)
+        else if (gameData.stage == 2)
         {
             // KAPAG NAG-CONFIRM NA SA CURRENCY PART
             transform.root.GetChild(1).gameObject.SetActive(false);
@@ -48,7 +48,8 @@ public class ConfirmSelection : MonoBehaviour
             btnConfirm.SetActive(false);
             article.SetActive(false);
             articleEval.SetActive(true);
-        }else if(gameData.stage == 3)
+        }
+        else if (gameData.stage == 3)
         {
             btnConfirm.SetActive(false);
             articleEval.SetActive(false);
@@ -61,7 +62,7 @@ public class ConfirmSelection : MonoBehaviour
             gameData.trustChange(gameData.totalPoints);
         }
 
-        
+
 
         // HIDE CONFIRM DIALOG
         gameObject.SetActive(false);

@@ -9,16 +9,17 @@ public class Panning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        } else if(Input.touchCount == 2)
+        }
+        else if (Input.touchCount == 2)
         {
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
@@ -32,7 +33,8 @@ public class Panning : MonoBehaviour
             float difference = currentMagnitude - prevMagnitude;
 
             Zoom(difference * 0.01f);
-        } else if(Input.GetMouseButton(0))
+        }
+        else if (Input.GetMouseButton(0))
         {
             Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Camera.main.transform.position += direction;

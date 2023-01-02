@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
 
-        if(characterController.isGrounded)
+        if (characterController.isGrounded)
         {
             characterController.stepOffset = originalStepOffset;
             ySpeed = -0.5f;
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsMoving", true);
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        } 
+        }
         else
         {
             joystick.Direction.Set(0, 0);
@@ -83,12 +83,12 @@ public class PlayerMovement : MonoBehaviour
     {
         var ray = new Ray(transform.position, Vector3.down);
 
-        if(Physics.Raycast(ray, out RaycastHit hitInfo, 0.2f))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 0.2f))
         {
             var slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
             var adjustedVelocity = slopeRotation * velocity;
 
-            if(adjustedVelocity.y < 0)
+            if (adjustedVelocity.y < 0)
             {
                 return adjustedVelocity;
             }

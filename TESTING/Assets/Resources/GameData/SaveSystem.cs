@@ -8,7 +8,7 @@ public static class SaveSystem
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = Application.persistentDataPath + "/player.ops";
+        string path = Application.persistentDataPath + "/player.scps";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         SaveData data = new SaveData(gameData);
@@ -19,8 +19,8 @@ public static class SaveSystem
 
     public static SaveData loadPlayer()
     {
-        string path = Application.persistentDataPath + "/player.ops";
-        if(File.Exists(path))
+        string path = Application.persistentDataPath + "/player.scps";
+        if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
@@ -29,7 +29,8 @@ public static class SaveSystem
             stream.Close();
 
             return data;
-        }else
+        }
+        else
         {
             Debug.LogError("Save file not found in " + path);
             return null;

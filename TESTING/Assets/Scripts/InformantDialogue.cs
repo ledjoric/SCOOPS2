@@ -36,9 +36,9 @@ public class InformantDialogue : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && clickEnable == true)
         {
-            Debug.Log(dialogId);    
-            
-            if(dialogId != informantJson.informant_dialogs.Length-1)
+            Debug.Log(dialogId);
+
+            if (dialogId != informantJson.informant_dialogs.Length - 1)
             {
                 if (CR_running)
                 {
@@ -50,7 +50,8 @@ public class InformantDialogue : MonoBehaviour
                     dialogId++;
                     loadCharacterData();
                 }
-            }else
+            }
+            else
             {
                 // END OF INTRODUCTION
                 transform.root.gameObject.SetActive(false);
@@ -66,7 +67,7 @@ public class InformantDialogue : MonoBehaviour
         // DIALOGUE
         if (getIDialog(dialogId).dialog_message != "")
         {
-            if(!dialogBox.activeInHierarchy)
+            if (!dialogBox.activeInHierarchy)
             {
                 dialogBox.SetActive(true);
             }

@@ -8,7 +8,7 @@ public class TrustManager : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private Image fill;
-    [SerializeField] private Animator animator, fadePanel;
+    [SerializeField] private Animator animator, fadePanel, credits;
     [SerializeField] private GameObject article, eval, btnProceed, blackPanel, conclusionPanel, clickText, blackPanelText, background, btnEnd, blackPanelLast;
 
     private bool clickEnable;
@@ -29,16 +29,11 @@ public class TrustManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //zeros = new List<int>(sample.FindAll(isZero));
-        //Debug.Log(zeros.Count);
-        
         slider.value = gameData.currentPoints;
         fill.color = gameData.gradient.Evaluate(slider.normalizedValue);
 
         conclusionsJson = JsonUtility.FromJson<Conclusions>(conclusionsData.text);
     }
-
-    
 
     private void Start()
     {
@@ -54,11 +49,13 @@ public class TrustManager : MonoBehaviour
             fill.color = gameData.gradient.Evaluate(slider.normalizedValue);
         }
 
-        if((Input.touchCount == 1 || Input.GetMouseButtonDown(0)) && clickEnable)
+        if ((Input.touchCount == 1 || Input.GetMouseButtonDown(0)) && clickEnable)
         {
             fadePanel.SetBool("Proceed", true);
             clickText.SetActive(false);
             clickEnable = false;
+
+            // FINAL SCENE
             thankYou();
         }
     }
@@ -75,10 +72,11 @@ public class TrustManager : MonoBehaviour
     private IEnumerator showNewArticles()
     {
         yield return new WaitForSeconds(0.3f);
-        if(gameData.stage < 3)
+        if (gameData.stage < 3)
         {
             article.SetActive(true);
-        }else
+        }
+        else
         {
             setConclusion();
 
@@ -116,12 +114,18 @@ public class TrustManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         blackPanelLast.SetActive(true);
         yield return new WaitForSeconds(10f);
+
+        // THANK YOU
         fadePanel.SetBool("Proceed", false);
         yield return new WaitForSeconds(1f);
+        credits.SetTrigger("ShowCredits");
+        yield return new WaitForSeconds(15f);
         blackPanelText.GetComponent<TextMeshProUGUI>().fontSize = 120;
         blackPanelText.GetComponent<TextMeshProUGUI>().text = "Thank you for playing our demo!";
         fadePanel.SetBool("Proceed", true);
         yield return new WaitForSeconds(4f);
+        //credits.SetTrigger("ShowCredits");
+        // CREDITS
         btnEnd.SetActive(true);
     }
 
@@ -129,21 +133,21 @@ public class TrustManager : MonoBehaviour
     {
         conclusionPanel.SetActive(true);
 
-        if((type == "000" && lastArticleType == 0) || (type == "001" && lastArticleType == 0) || (type == "011" && lastArticleType == 0) || (type == "111" && lastArticleType == 0)) // WORST ENDING
+        if ((type == "000" && lastArticleType == 0) || (type == "001" && lastArticleType == 0) || (type == "011" && lastArticleType == 0) || (type == "111" && lastArticleType == 0)) // WORST ENDING
         {
             conclusionPanel.transform.GetChild(1).GetComponent<Image>().color = new Color32(169, 53, 37, 127);
             conclusionPanel.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("CRA/WORST");
             conclusionPanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Oh no!";
             conclusionPanel.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = relConclusion + " " + articleConclusion;
         }
-        else if((type == "001" && lastArticleType == 1) || (type == "011" && lastArticleType == 1) || (type == "111" && lastArticleType == 2) || (type == "011" && lastArticleType == 2) || (type == "001" && lastArticleType == 2))
+        else if ((type == "001" && lastArticleType == 1) || (type == "011" && lastArticleType == 1) || (type == "111" && lastArticleType == 2) || (type == "011" && lastArticleType == 2) || (type == "001" && lastArticleType == 2))
         {
             conclusionPanel.transform.GetChild(1).GetComponent<Image>().color = new Color32(158, 169, 43, 127);
             conclusionPanel.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("CRA/BAD");
             conclusionPanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Close!";
             conclusionPanel.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = relConclusion + " " + articleConclusion;
         }
-        else if(type == "111" && lastArticleType == 1)
+        else if (type == "111" && lastArticleType == 1)
         {
             conclusionPanel.transform.GetChild(1).GetComponent<Image>().color = new Color32(37, 169, 43, 127);
             conclusionPanel.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("CRA/GOOD");
@@ -176,12 +180,13 @@ public class TrustManager : MonoBehaviour
     private void setConclusion()
     {
         // CCONVERT GOOD AND BAD TO 0 AND 1
-        foreach(int i in gameData.selectedArticles)
+        foreach (int i in gameData.selectedArticles)
         {
-            if(gameData.getArticle(i-1).credibility == "good")
+            if (gameData.getArticle(i - 1).credibility == "good")
             {
                 addZeroOne(1);
-            }else if(gameData.getArticle(i-1).credibility == "bad")
+            }
+            else if (gameData.getArticle(i - 1).credibility == "bad")
             {
                 addZeroOne(0);
             }
@@ -192,12 +197,12 @@ public class TrustManager : MonoBehaviour
         ones = new List<int>(zeroOne.FindAll(isOne));
 
         // SET THE TYPE AND FIRST SENTENCE
-        if(zeros.Count == 3 && ones.Count == 0)
+        if (zeros.Count == 3 && ones.Count == 0)
         {
             type = "000";
             relConclusion = getConclusion(0).sentence;
         }
-        else if(zeros.Count == 2 && ones.Count == 1)
+        else if (zeros.Count == 2 && ones.Count == 1)
         {
             type = "001";
             relConclusion = getConclusion(1).sentence;
@@ -216,17 +221,20 @@ public class TrustManager : MonoBehaviour
         // SET ARTICLE CONCLUSION
         if (gameData.getArticle(gameData.stageTwoArticles[0] - 1).credibility == "good")
         {
-            if(gameData.getArticle(gameData.stageTwoArticles[0] - 1).id == 5)
+            if (gameData.getArticle(gameData.stageTwoArticles[0] - 1).id == 5)
             {
                 lastArticleType = 0;
-            }else if((gameData.getArticle(gameData.stageTwoArticles[0] - 1).id == 3))
+            }
+            else if ((gameData.getArticle(gameData.stageTwoArticles[0] - 1).id == 3))
             {
                 lastArticleType = 2;
-            }else
+            }
+            else
             {
                 lastArticleType = 1;
             }
-        }else if (gameData.getArticle(gameData.stageTwoArticles[0] - 1).credibility == "bad")
+        }
+        else if (gameData.getArticle(gameData.stageTwoArticles[0] - 1).credibility == "bad")
         {
             lastArticleType = 0;
         }

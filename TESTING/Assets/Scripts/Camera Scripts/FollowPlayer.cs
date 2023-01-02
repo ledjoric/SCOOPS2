@@ -10,15 +10,22 @@ public class FollowPlayer : MonoBehaviour
 
     private void Start()
     {
-        if(gameData.playerSexuality == "Female")
+        if (gameData.playerSexuality == "Female")
         {
-            femalePlayer.gameObject.SetActive(true);
-            malePlayer.gameObject.SetActive(false);
+            if (!gameData.isResume)
+            {
+                femalePlayer.gameObject.SetActive(true);
+                malePlayer.gameObject.SetActive(false);
+            }
             player = femalePlayer;
-        }else
+        }
+        else
         {
-            femalePlayer.gameObject.SetActive(false);
-            malePlayer.gameObject.SetActive(true);
+            if (!gameData.isResume)
+            {
+                femalePlayer.gameObject.SetActive(false);
+                malePlayer.gameObject.SetActive(true);
+            }
             player = malePlayer;
         }
     }

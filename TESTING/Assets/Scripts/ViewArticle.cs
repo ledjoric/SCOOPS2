@@ -21,7 +21,7 @@ public class ViewArticle : MonoBehaviour
         titleTxt.SetActive(false);
         transform.parent.gameObject.SetActive(false);
 
-        if(gameData.viewedArticles == null)
+        if (gameData.viewedArticles == null)
         {
             gameData.viewedArticles = new List<int> { gameData.articlesList[transform.GetSiblingIndex() - 2] };
         }

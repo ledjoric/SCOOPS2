@@ -56,11 +56,11 @@ public class Cryptogram : MonoBehaviour
                 randomNumber = UnityEngine.Random.Range(0, (alphabet.Length) + 1);
             }
             RndmList[i] = randomNumber;
-            crypto[i] = alphabet[randomNumber-1];
+            crypto[i] = alphabet[randomNumber - 1];
         }
 
         // CONVERT SENTENCE TO CRYPTOGRAM
-        for(int i = 0; i < sentence.Length; i++)
+        for (int i = 0; i < sentence.Length; i++)
         {
             if (sentence[i] != ' ')
             {
@@ -101,10 +101,11 @@ public class Cryptogram : MonoBehaviour
     {
         cryptoLetter = char.Parse(EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(2).GetComponent<TextMeshProUGUI>().text);
         cryptoIndex = Array.IndexOf(crypto, cryptoLetter);
-        if(EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>().text != "")
+        if (EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>().text != "")
         {
             inputLetter = char.Parse(EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>().text.ToUpper());
-        }else
+        }
+        else
         {
             inputLetter = ' ';
         }
@@ -119,7 +120,7 @@ public class Cryptogram : MonoBehaviour
             {
                 if (transform.GetChild(0).GetChild(1).GetChild(i).GetChild(2).GetComponent<TextMeshProUGUI>().text == crypto[cryptoIndex].ToString())
                 {
-                    
+
                     if (transform.GetChild(0).GetChild(1).GetChild(i).GetChild(0).GetComponent<TMP_InputField>().text == "" && transform.GetChild(0).GetChild(1).GetChild(i).GetChild(0).GetComponent<TMP_InputField>().interactable == true)
                     {
                         StartCoroutine(delayInput(i));
@@ -132,7 +133,8 @@ public class Cryptogram : MonoBehaviour
                     }
                 }
             }
-        }else
+        }
+        else
         {
             if (EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>().text == "")
             {
@@ -165,7 +167,7 @@ public class Cryptogram : MonoBehaviour
             inputSentence[i] = inputLetter;
         }
 
-        if(Enumerable.SequenceEqual(inputSentence, sentence) == true)
+        if (Enumerable.SequenceEqual(inputSentence, sentence) == true)
         {
             StartCoroutine(puzzleDialog());
             gameData.minigameProgress++;
@@ -182,7 +184,7 @@ public class Cryptogram : MonoBehaviour
             helpPanel.SetActive(true);
             EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cryptogram/BACK");
         }
-        else if(helpPanel.activeInHierarchy)
+        else if (helpPanel.activeInHierarchy)
         {
             helpPanel.SetActive(false);
             mainPanel.SetActive(true);

@@ -226,7 +226,7 @@ public class TryInstantiate : MonoBehaviour
         yield return new WaitForSeconds(0.001f);
         GetComponent<VerticalLayoutGroup>().enabled = true;
     }
-    
+
     private IEnumerator articleRefresh()
     {
         yield return new WaitForSeconds(0.001f);

@@ -59,7 +59,7 @@ public class articleContent : MonoBehaviour
             darkPanel.GetComponent<Image>().color = new Color32(118, 209, 127, 130);
             ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(gameData.mgArticlesList[articleIndex]).name + " is a credible source";
         }
-        else if(gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "NotCredible")
+        else if (gameData.getMG_Article(gameData.mgArticlesList[articleIndex]).credibility == "NotCredible")
         {
             darkPanel.GetComponent<Image>().color = new Color32(244, 67, 54, 130);
             ffDialog.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = gameData.getMG_Publisher(gameData.mgArticlesList[articleIndex]).name + " is not a credible source";
@@ -69,7 +69,7 @@ public class articleContent : MonoBehaviour
         ffDialog.gameObject.SetActive(true);
         ffDialog.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("FireFactsIcons/Like");
         ffDialog.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Liked!";
-        ffDialog.transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = new Color32(183,128,128,255);
+        ffDialog.transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = new Color32(183, 128, 128, 255);
 
         gameData.viewedFF++;
         gameData.minigameProgress++;

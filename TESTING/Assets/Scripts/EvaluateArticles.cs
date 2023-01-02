@@ -44,7 +44,7 @@ public class EvaluateArticles : MonoBehaviour
         darkPanel.SetActive(true);
         cluesCount();
 
-        if(gameData.articlesList.Count == 6)
+        if (gameData.articlesList.Count == 6)
         {
             evalDialog.transform.GetChild(0).gameObject.SetActive(true);
             evalDialog.transform.GetChild(1).gameObject.SetActive(false);
@@ -53,12 +53,13 @@ public class EvaluateArticles : MonoBehaviour
             {
                 evalDialog.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text
                     = "Insufficient clues. Are you sure you want to proceed? You cannot go back once you enter.";
-            } else
+            }
+            else
             {
                 evalDialog.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text
                     = "Are you sure you want to enter the Evaluation stage? You cannot go back once you enter.";
             }
-            
+
         }
         else
         {
@@ -75,6 +76,7 @@ public class EvaluateArticles : MonoBehaviour
         //evalDialog.SetActive(false);
         //mainCanvas.SetActive(false);
         //eval.SetActive(true);
+        gameData.isEvaluating = true;
         FindObjectOfType<LevelLoader>().randomTips();
         StartCoroutine(transition());
     }
@@ -104,7 +106,7 @@ public class EvaluateArticles : MonoBehaviour
 
     public void cluesCount()
     {
-        foreach(string clue in gameData.cluesList)
+        foreach (string clue in gameData.cluesList)
         {
             clueSplit = clue.Split('#');
             if (clueSplit[0] == "clue")

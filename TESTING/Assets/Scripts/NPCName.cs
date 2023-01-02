@@ -19,7 +19,7 @@ public class NPCName : MonoBehaviour
         instTxtName = Instantiate(txtName, NPCParents).GetComponent<TextMeshProUGUI>();
         instTxtName.GetComponent<TextMeshProUGUI>().text = gameObject.name;
 
-        if(instTxtName.GetComponent<TextMeshProUGUI>().text == "Vivian" || instTxtName.GetComponent<TextMeshProUGUI>().text == "Noah" || instTxtName.GetComponent<TextMeshProUGUI>().text == "Stacy")
+        if (instTxtName.GetComponent<TextMeshProUGUI>().text == "Vivian" || instTxtName.GetComponent<TextMeshProUGUI>().text == "Noah" || instTxtName.GetComponent<TextMeshProUGUI>().text == "Stacy")
         {
             instTxtName.gameObject.SetActive(false);
         }
@@ -28,10 +28,10 @@ public class NPCName : MonoBehaviour
     private void Update()
     {
         //if (instance != this) return;
-        
+
         if (!mainCamera) mainCamera = Camera.main;
         instTxtName.transform.position = mainCamera.WorldToScreenPoint(transform.GetChild(0).position + offset);
 
-        
+
     }
 }

@@ -14,15 +14,15 @@ public class StartDialog : MonoBehaviour
 
     private void Update()
     {
-        
+
         if (Input.GetMouseButtonDown(0))
         {
-            if(!dialogBox.activeInHierarchy)
+            if (!dialogBox.activeInHierarchy)
             {
                 dialogBox.SetActive(true);
             }
         }
-        
+
     }
 
     public void showDialogue()

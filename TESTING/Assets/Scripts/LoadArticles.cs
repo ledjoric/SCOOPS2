@@ -51,11 +51,13 @@ public class LoadArticles : MonoBehaviour
         {
             loadStageOne();
             //reachedLimit();
-        }else if(gameData.stage == 2)
+        }
+        else if (gameData.stage == 2)
         {
             //gameData.selectedArticlesIndex.Clear();
             loadStageTwo();
-        }else if(gameData.stage == 3)
+        }
+        else if (gameData.stage == 3)
         {
             loadStageThree();
         }
@@ -91,13 +93,14 @@ public class LoadArticles : MonoBehaviour
         btnSelect = EventSystem.current.currentSelectedGameObject.transform.GetComponent<Image>();
         checkIcon = EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(5).gameObject;
 
-        if (!gameData.cluesList.Contains(gameData.getPublisherDetail(gameData.selectedArticles[articleIndex]-1).clue) && btnSelect.sprite != Resources.Load<Sprite>("CRA/Deselectbutton"))
+        if (!gameData.cluesList.Contains(gameData.getPublisherDetail(gameData.selectedArticles[articleIndex] - 1).clue) && btnSelect.sprite != Resources.Load<Sprite>("CRA/Deselectbutton"))
         {
             publisherDetail.SetActive(true);
             publisherDetail.transform.GetChild(0).gameObject.SetActive(false);
             publisherDetail.transform.GetChild(1).gameObject.SetActive(true);
             publisherDetail.transform.GetChild(2).gameObject.SetActive(false);
-        }else
+        }
+        else
         {
             proceedSelection();
         }
@@ -105,7 +108,7 @@ public class LoadArticles : MonoBehaviour
 
     public void proceedSelection()
     {
-        
+
 
         publisherDetail.SetActive(false);
 
@@ -124,7 +127,7 @@ public class LoadArticles : MonoBehaviour
     private void reachedLimit()
     {
         // WHEN SELECTED ALL NEEDED ARTICLES
-        if(gameData.stage == 1)
+        if (gameData.stage == 1)
         {
             if (gameData.selectedArticles.Count == gameData.selectedLimit)
             {
@@ -149,7 +152,7 @@ public class LoadArticles : MonoBehaviour
                 btnConfirm.SetActive(false);
             }
         }
-        else if(gameData.stage == 2)
+        else if (gameData.stage == 2)
         {
             if (gameData.stageTwoArticles.Count == gameData.selectedLimit)
             {
@@ -215,10 +218,10 @@ public class LoadArticles : MonoBehaviour
 
         for (int i = 0; i < gameData.selectedArticles.Count; i++)
         {
-            index = gameData.selectedArticles[i]-1;
+            index = gameData.selectedArticles[i] - 1;
             g = Instantiate(articleTemplate, transform);
             g.transform.GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = gameData.getArticle(index).title;
-            g.transform.GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Published by <link=publisher><color=blue><u><b><font=\"Fredoka-Bold SDF\">" + 
+            g.transform.GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Published by <link=publisher><color=blue><u><b><font=\"Fredoka-Bold SDF\">" +
                 gameData.getPublisherDetail(index).name + "</font></b></u></color></link> on <font=\"Fredoka-Bold SDF\">" + gameData.getArticle(index).date + "</font>";
             g.transform.GetChild(2).GetChild(0).GetChild(0).GetChild(1).GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>(gameData.getArticle(index).photo);
             g.transform.GetChild(2).GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = gameData.getArticle(index).body;
@@ -231,9 +234,9 @@ public class LoadArticles : MonoBehaviour
     public void loadStageThree()
     {
         // EVALUATION PART / PUBLISHING
-        if(transform.parent.parent.name == "Evaluation" && gameData.stage == 3)
+        if (transform.parent.parent.name == "Evaluation" && gameData.stage == 3)
         {
-            finalArticleIndex = gameData.stageTwoArticles[0]-1;
+            finalArticleIndex = gameData.stageTwoArticles[0] - 1;
 
             // BASED PUBLISHER PANEL
             publisherPanel.GetChild(1).GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(gameData.getPublisherDetail(finalArticleIndex).pub_photo);
@@ -251,10 +254,10 @@ public class LoadArticles : MonoBehaviour
 
             // ARTICLE TO PUBLISH
             p_ArticlePanel.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = getP_Article(finalArticleIndex).title;
-            p_ArticlePanel.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Published by <font=\"Fredoka-Bold SDF\">" + gameData.playerName + "</font> on <font=\"Fredoka-Bold SDF\">" + 
+            p_ArticlePanel.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Published by <font=\"Fredoka-Bold SDF\">" + gameData.playerName + "</font> on <font=\"Fredoka-Bold SDF\">" +
                 DateTime.Now.ToString("Y") + "</font>";
             p_ArticlePanel.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = getP_Article(finalArticleIndex).body;
-            p_ArticlePanel.GetChild(1).GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>(getP_Article(finalArticleIndex).photo); 
+            p_ArticlePanel.GetChild(1).GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>(getP_Article(finalArticleIndex).photo);
         }
         StartCoroutine(refreshEval());
     }
@@ -345,7 +348,7 @@ public class LoadArticles : MonoBehaviour
         gameData.stage--;
         articleEval.gameObject.SetActive(false);
         articleChoose.SetActive(true);
-        if(transform.parent.parent.name == "ArticleChoosing")
+        if (transform.parent.parent.name == "ArticleChoosing")
         {
             StartCoroutine(backToS2());
         }
@@ -358,7 +361,7 @@ public class LoadArticles : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         darkPanel.gameObject.SetActive(true);
         confirmDialog.SetActive(true);
-        confirmDialog.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Pubilish this article?";
+        confirmDialog.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Publish this article?";
     }
 
     public void confirmSelection()
@@ -371,7 +374,7 @@ public class LoadArticles : MonoBehaviour
     private IEnumerator refresh()
     {
         yield return new WaitForSeconds(0.001f);
-        for(int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).GetChild(2).GetChild(0).GetChild(0).GetComponent<VerticalLayoutGroup>().enabled = true;
         }

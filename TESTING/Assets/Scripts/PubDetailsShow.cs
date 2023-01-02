@@ -14,18 +14,18 @@ public class PubDetailsShow : MonoBehaviour
     private void OnDisable()
     {
         darkPanel.SetActive(false);
-        
-        foreach(Transform child in gameObject.transform)
+
+        foreach (Transform child in gameObject.transform)
         {
-            if((child.name == "Publisher" && !child.gameObject.activeInHierarchy) || child.name == "BtnExit")
+            if ((child.name == "Publisher" && !child.gameObject.activeInHierarchy) || child.name == "BtnExit")
             {
                 child.gameObject.SetActive(true);
-            }else
+            }
+            else
             {
                 child.gameObject.SetActive(false);
             }
         }
-        
     }
 
     public void PubDetailsExit()

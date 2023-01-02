@@ -26,10 +26,11 @@ public class LevelLoader : MonoBehaviour
     public void levelLoader()
     {
         //transition.SetTrigger("Start");
-        if(EventSystem.current.currentSelectedGameObject.name == "Resume")
+        if (EventSystem.current.currentSelectedGameObject.name == "Resume")
         {
             gameData.isResume = true;
-        } else
+        }
+        else
         {
             gameData.isResume = false;
         }

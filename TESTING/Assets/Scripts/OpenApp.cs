@@ -30,7 +30,7 @@ public class OpenApp : MonoBehaviour
             {
                 contents.gameObject.SetActive(false);
 
-                if(btnBack.activeInHierarchy)
+                if (btnBack.activeInHierarchy)
                 {
                     btnBack.SetActive(false);
                     titleTxt.gameObject.SetActive(true);

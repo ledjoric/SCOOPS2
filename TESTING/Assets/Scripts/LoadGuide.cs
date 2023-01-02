@@ -29,11 +29,12 @@ public class LoadGuide : MonoBehaviour
     {
         gameData.guideActive = true;
 
-        if(gameData.tutorial)
+        if (gameData.tutorial)
         {
             btnExit.SetActive(false);
             focus.SetActive(false);
-        }else
+        }
+        else
         {
             btnExit.SetActive(true);
         }
@@ -53,11 +54,12 @@ public class LoadGuide : MonoBehaviour
         btnName = "";
 
         loadItems();
-        if(gameData.tutorial)
+        if (gameData.tutorial)
         {
             wtd.transform.SetParent(transform);
             wtd.SetActive(true);
-        }else
+        }
+        else
         {
             wtd.transform.SetParent(transform);
             basics.transform.SetParent(transform);
@@ -135,7 +137,7 @@ public class LoadGuide : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         foreach (Transform clone in craapContent.GetChild(3))
         {
-            if (clone.name == "Example(Clone)" )
+            if (clone.name == "Example(Clone)")
             {
                 Destroy(clone.gameObject);
             }
@@ -146,10 +148,10 @@ public class LoadGuide : MonoBehaviour
 
         craapContent.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = getCRAAPContent(index).title;
         craapContent.GetChild(1).GetComponent<TextMeshProUGUI>().text = getCRAAPContent(index).details;
-        
+
         examplesTemplate.gameObject.SetActive(false);
 
-        foreach(Examples examples in getCRAAPContent(index).examples)
+        foreach (Examples examples in getCRAAPContent(index).examples)
         {
             g = Instantiate(examplesTemplate, craapContent.GetChild(3));
             g.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = examples.example;
@@ -185,7 +187,7 @@ public class LoadGuide : MonoBehaviour
                 gameData.wtd++;
             }
 
-            if(gameData.wtd == 4)
+            if (gameData.wtd == 4)
             {
                 basics.transform.SetParent(transform);
                 basics.SetActive(true);

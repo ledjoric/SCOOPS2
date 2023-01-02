@@ -19,9 +19,10 @@ public class InteractButtonPosition : MonoBehaviour
     {
         uiUse.transform.position = Camera.main.WorldToScreenPoint(this.transform.position + offset);
     }
+
     private void OnTriggerEnter(Collider collisionInfo)
     {
-        if(collisionInfo.CompareTag("Player"))
+        if (collisionInfo.CompareTag("Player"))
         {
             uiUse.gameObject.SetActive(true);
         }
@@ -29,11 +30,11 @@ public class InteractButtonPosition : MonoBehaviour
 
     private void OnTriggerExit(Collider collisionInfo)
     {
-        if(collisionInfo.CompareTag("Player"))
+        if (collisionInfo.CompareTag("Player"))
         {
             //Destroy(uiUse.gameObject);
             uiUse.gameObject.SetActive(false);
         }
     }
-        
+
 }

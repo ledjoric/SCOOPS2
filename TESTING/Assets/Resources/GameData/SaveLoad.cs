@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SaveLoad : MonoBehaviour
 {
     [SerializeField] private GameData gameData;
+    [SerializeField] private GameObject articleChoosing, intro;
+    [SerializeField] TextMeshProUGUI objectiveTxt;
     [SerializeField] private Transform male, female;
     private Transform player;
 
-    //public GameObject[] allObjects;
-    //public bool[] activeStatus;
-
     private void OnEnable()
     {
-        if(gameData.isResume)
+        if (gameData.isResume)
         {
             Invoke("loadData", 0.001f);
             //loadData();
@@ -22,14 +22,12 @@ public class SaveLoad : MonoBehaviour
 
     private void Start()
     {
-        /*
-        allObjects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
-        activeStatus = new bool[allObjects.Length];
-        for(int i = 0; i < allObjects.Length; i++)
-        {
-            activeStatus[i] = allObjects[i].activeInHierarchy;
-        }
-        */
+        //allObjects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
+    }
+
+    private void OnDisable()
+    {
+        saveData();
     }
 
     private void OnApplicationQuit()
@@ -102,25 +100,57 @@ public class SaveLoad : MonoBehaviour
         gameData.articlesList = data.articlesList;
         gameData.cluesList = data.cluesList;
 
-        gameData.currentPoints = data.currentPoints;
+        gameData.minigameProgress = data.minigameProgress;
+
+        gameData.isEvaluating = data.isEvaluating;
+
+        //gameData.currentPoints = data.currentPoints;
 
         gameData.viewedArticles = data.viewedArticles;
         gameData.viewedClues = data.viewedClues;
         gameData.viewedFF = data.viewedFF;
+
+        if (data.articlesList.Count != 6)
+        {
+            objectiveTxt.text = "Collect Articles (" + data.articlesList.Count + "/6)";
+        }
+        else
+        {
+            objectiveTxt.text = "Check you laptop!";
+        }
+
+        if (data.isEvaluating)
+        {
+            articleChoosing.SetActive(true);
+        }
+        else
+        {
+            articleChoosing.SetActive(false);
+        }
+
+        if (data.tutorial)
+        {
+            intro.SetActive(true);
+        }
+        else
+        {
+            intro.SetActive(false);
+        }
     }
 
     private IEnumerator setPlayerPosition(float Px, float Py, float Pz, float Ry)
     {
-        if(gameData.playerSexuality == "Female")
+        if (gameData.playerSexuality == "Female")
         {
             player = female;
-        }else
+        }
+        else
         {
             player = male;
         }
 
-        player.gameObject.SetActive(false);
-        yield return new WaitForSeconds(0.001f);
+        //player.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.00001f);
 
         Vector3 playerPosition;
         playerPosition.x = Px;
@@ -132,5 +162,21 @@ public class SaveLoad : MonoBehaviour
         player.position = playerPosition;
         player.rotation = target;
         player.gameObject.SetActive(true);
+    }
+
+    GameObject FindInActiveObjectByName(string name)
+    {
+        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i].hideFlags == HideFlags.None)
+            {
+                if (objs[i].name == name)
+                {
+                    return objs[i].gameObject;
+                }
+            }
+        }
+        return null;
     }
 }

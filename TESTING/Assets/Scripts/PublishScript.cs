@@ -9,11 +9,12 @@ public class PublishScript : MonoBehaviour
 
     public void viewClues()
     {
-        if(EventSystem.current.currentSelectedGameObject.name == "BtnViewClues1")
+        if (EventSystem.current.currentSelectedGameObject.name == "BtnViewClues1")
         {
             publishContent1.SetActive(false);
             cluesContent1.SetActive(true);
-        }else if (EventSystem.current.currentSelectedGameObject.name == "BtnViewClues2")
+        }
+        else if (EventSystem.current.currentSelectedGameObject.name == "BtnViewClues2")
         {
             publishContent2.SetActive(false);
             cluesContent2.SetActive(true);

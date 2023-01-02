@@ -37,7 +37,7 @@ public class ClickObject : MonoBehaviour
 
     private void Update()
     {
-        if((Input.touchCount == 1 || Input.GetMouseButtonDown(0)) && clickEnable)
+        if ((Input.touchCount == 1 || Input.GetMouseButtonDown(0)) && clickEnable)
         {
             instruction.SetActive(false);
 
@@ -56,7 +56,7 @@ public class ClickObject : MonoBehaviour
             clickEnable = false;
         }
 
-        if(!timerStop)
+        if (!timerStop)
         {
             timer -= Time.deltaTime;
             timerText.GetComponent<TextMeshProUGUI>().text = Mathf.FloorToInt(timer % 60).ToString();

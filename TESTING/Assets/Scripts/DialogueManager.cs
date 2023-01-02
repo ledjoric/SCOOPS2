@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour
 
         // LOAD NPC DATA
         characterJson = JsonUtility.FromJson<Character>(characterData.text);
-        
+
         // SET DEFAULT VALUE
         //dialogId = 0;
         multiDialogCycle = 0;
@@ -55,9 +55,9 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if(nameBtn.gameObject.activeInHierarchy)
+        if (nameBtn.gameObject.activeInHierarchy)
         {
-            if(Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 EventSystem.current.SetSelectedGameObject(nameBtn.gameObject);
             }
@@ -66,9 +66,9 @@ public class DialogueManager : MonoBehaviour
         // FOR ENDING DIALOGUES WITHOUT CHOICES
         if (Input.GetMouseButtonDown(0) && clickEnable == true)
         {
-            if (multiDialog.Length > 1 )
+            if (multiDialog.Length > 1)
             {
-                if(getDialog(dialogId).choices.Length == 0 && multiDialogCycle == multiDialog.Length - 1)
+                if (getDialog(dialogId).choices.Length == 0 && multiDialogCycle == multiDialog.Length - 1)
                 {
                     addArticles();
                     addClues();
@@ -76,14 +76,15 @@ public class DialogueManager : MonoBehaviour
                 }
                 else
                 {
-                    if(getDialog(dialogId).minigame != "" && multiDialogCycle < multiDialog.Length - 1)
+                    if (getDialog(dialogId).minigame != "" && multiDialogCycle < multiDialog.Length - 1)
                     {
-                        if(!gameData.idShown)
+                        if (!gameData.idShown)
                         {
                             darkPanel.SetActive(true);
                             id.SetActive(true);
                         }
-                    }else
+                    }
+                    else
                     {
                         multiDialogCycle++;
                         loadCharacterData();
@@ -94,12 +95,12 @@ public class DialogueManager : MonoBehaviour
             {
                 if (getDialog(dialogId).minigame != "")
                 {
-                    if(getDialog(dialogId).minigame == "spot_object")
+                    if (getDialog(dialogId).minigame == "spot_object")
                     {
                         m1.SetActive(true);
                     }
                     dialogBox.SetActive(false);
-                    gameData.dialogActive  = false;
+                    gameData.dialogActive = false;
                 }
                 else
                 {
@@ -110,7 +111,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        if(gameData.idShown)
+        if (gameData.idShown)
         {
             multiDialogCycle++;
             loadCharacterData();
@@ -122,7 +123,7 @@ public class DialogueManager : MonoBehaviour
             updateID();
             loadCharacterData();
         }
-        
+
         // FOR NPC NAMES
         /*
         if (buttonOwner != this) return;
@@ -141,7 +142,7 @@ public class DialogueManager : MonoBehaviour
         {
             nameBtn.gameObject.SetActive(true);
             nameBtn.GetComponent<Image>().sprite = Resources.Load<Sprite>("InteractionAsset/DIALOGUE");
-            nameBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color32(75,75,75,255);
+            nameBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color32(75, 75, 75, 255);
 
             gameObject.GetComponent<Outline>().enabled = true;
 
@@ -184,7 +185,7 @@ public class DialogueManager : MonoBehaviour
     {
         nameBtn.gameObject.SetActive(false);
         dialogBox.SetActive(true);
-        gameData.dialogActive  = true;
+        gameData.dialogActive = true;
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         if (dialogBox.activeInHierarchy)
         {
@@ -214,7 +215,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void loadCharacterData()
     {
-        
+
 
         choices = new Choice[2];
         for (int i = 0; i < getDialog(dialogId).choices.Length; i++)
@@ -244,7 +245,7 @@ public class DialogueManager : MonoBehaviour
         // FOR CYCLING MULTIPLE DIALOGUES
         if ((getDialog(dialogId).choices.Length == 0 && multiDialog.Length == 1))
         {
-            if(getDialog(dialogId).minigame == "")
+            if (getDialog(dialogId).minigame == "")
             {
                 addArticles();
                 addClues();
@@ -258,9 +259,9 @@ public class DialogueManager : MonoBehaviour
         }
         else if ((getDialog(dialogId).choices.Length != 0 && multiDialog.Length == 1) || (multiDialogCycle == multiDialog.Length - 1 && getDialog(dialogId).choices.Length != 0))
         {
-            if(getDialog(dialogId).minigame != "")
+            if (getDialog(dialogId).minigame != "")
             {
-                if((getChoice(0).choice_message == "" && getChoice(1).choice_message == ""))
+                if ((getChoice(0).choice_message == "" && getChoice(1).choice_message == ""))
                 {
                     clickEnable = true;
                     choiceOneBtn.gameObject.SetActive(false);
@@ -301,7 +302,7 @@ public class DialogueManager : MonoBehaviour
         choiceOne.text = choice1.choice_message;
         choiceTwo.text = choice2.choice_message;
 
-        if(choice1.choice_message == "")
+        if (choice1.choice_message == "")
         {
             choiceOneBtn.gameObject.SetActive(false);
         }
@@ -325,7 +326,7 @@ public class DialogueManager : MonoBehaviour
         }
         else if (EventSystem.current.currentSelectedGameObject.name == "Choice1")
         {
-            if(getDialog(dialogId).article == 0)
+            if (getDialog(dialogId).article == 0)
             {
                 addArticles();
                 addClues();
@@ -352,7 +353,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             loadCharacterData();
-            if(getDialog(dialogId).minigame != "")
+            if (getDialog(dialogId).minigame != "")
             {
                 gameData.targetId_1 = getChoice(0).target_id;
                 gameData.targetId_2 = getChoice(1).target_id;
@@ -383,22 +384,23 @@ public class DialogueManager : MonoBehaviour
     // ADD CLUES
     public void addArticles()
     {
-        if(getDialog(dialogId).article != 0)
+        if (getDialog(dialogId).article != 0)
         {
-            if(!gameData.articlesList.Contains(getDialog(dialogId).article - 1))
+            if (!gameData.articlesList.Contains(getDialog(dialogId).article - 1))
             {
                 animator.SetTrigger("NewNotif");
                 FindObjectOfType<AudioManager>().Play("PhoneNotification");
                 gameData.addArticles(getDialog(dialogId).article - 1);
                 aNotif.SetActive(true);
-                if(gameData.articlesList.Count != 6)
+                if (gameData.articlesList.Count != 6)
                 {
                     objective.text = "Collect Articles (" + gameData.articlesList.Count + "/6)";
-                }else
+                }
+                else
                 {
                     objective.text = "Check your laptop!";
                 }
-                
+
             }
         }
     }
@@ -408,13 +410,13 @@ public class DialogueManager : MonoBehaviour
     {
         if (getDialog(dialogId).clues != "")
         {
-            if(!gameData.cluesList.Contains(getDialog(dialogId).clues))
+            if (!gameData.cluesList.Contains(getDialog(dialogId).clues))
             {
                 animator.SetTrigger("NewNotif");
                 FindObjectOfType<AudioManager>().Play("PhoneNotification");
                 gameData.addClues(getDialog(dialogId).clues);
                 cNotif.SetActive(true);
-                
+
             }
         }
     }
@@ -424,7 +426,7 @@ public class DialogueManager : MonoBehaviour
         changeDialogue();
 
         dialogBox.SetActive(false);
-        gameData.dialogActive  = false;
+        gameData.dialogActive = false;
         clickEnable = false;
         multiDialogCycle = 0;
         dialogId = 0;
@@ -439,7 +441,7 @@ public class DialogueManager : MonoBehaviour
             gameData.guardNPC = true;
             addMG_Article();
         }
-        else if(characterJson.name == "Vivian" && gameData.baristaNPC == false)
+        else if (characterJson.name == "Vivian" && gameData.baristaNPC == false)
         {
             gameData.mg_ArticleInterval++;
             gameData.baristaNPC = true;
@@ -493,18 +495,19 @@ public class DialogueManager : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("PhoneNotification");
             gameData.addMG_Article(gameData.articlesMinigame);
             gameData.articlesMinigame++;
-            
+
         }
     }
 
     private void changeDialogue()
     {
-        if(getDialog(dialogId).path != "")
+        if (getDialog(dialogId).path != "")
         {
             if (gameObject.name == "Denise")
             {
                 characterData = Resources.Load<TextAsset>(getDialog(dialogId).path);
-            }else if(gameObject.name == "Noah")
+            }
+            else if (gameObject.name == "Noah")
             {
                 characterData = Resources.Load<TextAsset>(getDialog(dialogId).path);
             }

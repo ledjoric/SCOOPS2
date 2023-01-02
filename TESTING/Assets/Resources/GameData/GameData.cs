@@ -65,7 +65,7 @@ public class GameData : ScriptableObject
     public bool isInside;
 
     // TUTORIAL
-    public bool tutorial;
+    public bool tutorial = true;
     public int wtd;
     public int basics;
     public int craap;
@@ -103,12 +103,13 @@ public class GameData : ScriptableObject
     public float velocity = 0;
     public Gradient gradient;
     public int totalPoints;
-    
+
     // SELECTED ARTCILES
     public int selectedLimit;
     public List<int> selectedArticles;
     public List<int> selectedArticlesIndex;
     public List<int> stageTwoArticles;
+    public bool isEvaluating;
 
     // PHONE ARTICLE
     public int viewArticleIndex;
@@ -117,6 +118,10 @@ public class GameData : ScriptableObject
     public List<int> viewedArticles;
     public List<string> viewedClues;
     public int viewedFF;
+
+    // OBJECT STATUS
+    public List<string> allObjectsName;
+    public List<bool> activeStatus;
 
     private void OnEnable()
     {
@@ -139,7 +144,9 @@ public class GameData : ScriptableObject
         targetId_1 = 0;
         targetId_2 = 0;
 
-        tutorial = true;
+        //tutorial = true;
+
+        isEvaluating = false;
     }
 
     // TRUST METER METHODS
@@ -151,10 +158,11 @@ public class GameData : ScriptableObject
 
     public void limitPoints()
     {
-        if(currentPoints < 0)
+        if (currentPoints < 0)
         {
             currentPoints = 0;
-        }else if(currentPoints > 100)
+        }
+        else if (currentPoints > 100)
         {
             currentPoints = 100;
         }

@@ -1,15 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject main, play, options, start, btnBack, title, startDialog, darkPanel, loading, tips, incDialog;
+    [SerializeField] private GameObject main, play, options, resume, start, btnBack, title, startDialog, darkPanel, loading, tips, incDialog;
     [SerializeField] private TMP_InputField playerName;
     [SerializeField] private GameData gameData;
 
@@ -17,10 +19,15 @@ public class MainMenuManager : MonoBehaviour
 
     private string sexuality;
 
+    private void OnEnable()
+    {
+        existingSave();
+    }
+
     public void playGame()
     {
         play.SetActive(true);
-        main.SetActive(false);  
+        main.SetActive(false);
     }
 
     public void openOptions()
@@ -43,7 +50,7 @@ public class MainMenuManager : MonoBehaviour
     {
         darkPanel.SetActive(true);
 
-        if(playerName.text != "" && sexuality != "")
+        if (playerName.text != "" && sexuality != "")
         {
             startDialog.SetActive(true);
         }
@@ -51,22 +58,24 @@ public class MainMenuManager : MonoBehaviour
         {
             incDialog.SetActive(true);
         }
-        
+
     }
 
     public void back()
     {
-        if(play.activeInHierarchy)
+        if (play.activeInHierarchy)
         {
             main.SetActive(true);
             play.SetActive(false);
-        }else if(start.activeInHierarchy)
+        }
+        else if (start.activeInHierarchy)
         {
             play.SetActive(true);
             title.SetActive(true);
             start.SetActive(false);
             btnBack.SetActive(false);
-        }else if(options.activeInHierarchy)
+        }
+        else if (options.activeInHierarchy)
         {
             main.SetActive(true);
             title.SetActive(true);
@@ -82,10 +91,11 @@ public class MainMenuManager : MonoBehaviour
 
     public void chooseSexuality()
     {
-        if(EventSystem.current.currentSelectedGameObject.name == "Male")
+        if (EventSystem.current.currentSelectedGameObject.name == "Male")
         {
             sexuality = "Male";
-        }else if(EventSystem.current.currentSelectedGameObject.name == "Female")
+        }
+        else if (EventSystem.current.currentSelectedGameObject.name == "Female")
         {
             sexuality = "Female";
         }
@@ -100,12 +110,25 @@ public class MainMenuManager : MonoBehaviour
         StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "Music", 1f, -80f));
 
         loading.SetActive(true);
-        tips.SetActive(true);   
+        tips.SetActive(true);
     }
 
     public void no()
     {
         darkPanel.SetActive(false);
         startDialog.SetActive(false);
+    }
+
+    private void existingSave()
+    {
+        string path = Application.persistentDataPath + "/player.scps";
+        if (File.Exists(path))
+        {
+            resume.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            resume.GetComponent<Button>().interactable = false;
+        }
     }
 }
