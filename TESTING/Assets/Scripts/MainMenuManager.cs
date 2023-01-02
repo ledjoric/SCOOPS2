@@ -18,6 +18,12 @@ public class MainMenuManager : MonoBehaviour
     private void OnEnable()
     {
         existingSave();
+        Invoke("loadSettings", 0.01f);
+    }
+
+    private void OnApplicationQuit()
+    {
+        SettingsSaveSystem.saveSettings(gameData);
     }
 
     public void playGame()
@@ -126,5 +132,18 @@ public class MainMenuManager : MonoBehaviour
         {
             resume.GetComponent<Button>().interactable = false;
         }
+    }
+
+    private void loadSettings()
+    {
+        SettingsSaveData data = SettingsSaveSystem.loadSettings();
+
+        gameData.music = data.music;
+        gameData.sfx = data.sfx;
+        gameData.quality = data.quality;
+
+        gameData.audioMixer.SetFloat("SFX", data.music);
+        gameData.audioMixer.SetFloat("Music", data.sfx);
+        QualitySettings.SetQualityLevel(data.quality);
     }
 }

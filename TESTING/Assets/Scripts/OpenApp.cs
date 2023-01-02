@@ -68,12 +68,14 @@ public class OpenApp : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         options.SetActive(true);
         contentPanel.SetActive(false);
+        darkPanel.SetActive(true);
     }
 
     public void exitOptions()
     {
         FindObjectOfType<AudioManager>().Play("ButtonSound");
         options.SetActive(false);
+        darkPanel.SetActive(false);
     }
 
     public void exitGame()

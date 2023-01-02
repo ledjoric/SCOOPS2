@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using TMPro;
 using UnityEngine;
 
@@ -17,11 +18,22 @@ public class SaveLoad : MonoBehaviour
             Invoke("loadData", 0.001f);
             //loadData();
         }
+
+        string path = Application.persistentDataPath + "/settings.scps";
+        if (File.Exists(path))
+        {
+            loadSettingsData();
+        }
     }
 
     private void Start()
     {
         //allObjects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
+        string path = Application.persistentDataPath + "/settings.scps";
+        if(File.Exists(path))
+        {
+            loadSettingsData();
+        }
     }
 
     private void OnDisable()
@@ -37,6 +49,7 @@ public class SaveLoad : MonoBehaviour
     public void saveData()
     {
         SaveSystem.savePlayer(gameData);
+        SettingsSaveSystem.saveSettings(gameData);
     }
 
     public void loadData()
@@ -47,11 +60,6 @@ public class SaveLoad : MonoBehaviour
         gameData.playerSexuality = data.playerSexuality;
 
         StartCoroutine(setPlayerPosition(data.position[0], data.position[1], data.position[2], data.rotation));
-
-        //gameData.music = data.music;
-        //gameData.sfx = data.sfx;
-        //gameData.audioMixer.SetFloat("SFX", data.music);
-        //gameData.audioMixer.SetFloat("Music", data.sfx);
 
         gameData.mgArticlesList = data.mgArticlesList;
         gameData.articlesMinigame = data.articlesMinigame;
@@ -137,6 +145,19 @@ public class SaveLoad : MonoBehaviour
         }
     }
 
+    public void loadSettingsData()
+    {
+        SettingsSaveData data = SettingsSaveSystem.loadSettings();
+
+        gameData.music = data.music;
+        gameData.sfx = data.sfx;
+        gameData.quality = data.quality;
+
+        gameData.audioMixer.SetFloat("SFX", data.music);
+        gameData.audioMixer.SetFloat("Music", data.sfx);
+        QualitySettings.SetQualityLevel(data.quality);
+    }
+
     private IEnumerator setPlayerPosition(float Px, float Py, float Pz, float Ry)
     {
         if (gameData.playerSexuality == "Female")
@@ -161,21 +182,5 @@ public class SaveLoad : MonoBehaviour
         player.position = playerPosition;
         player.rotation = target;
         player.gameObject.SetActive(true);
-    }
-
-    GameObject FindInActiveObjectByName(string name)
-    {
-        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
-        for (int i = 0; i < objs.Length; i++)
-        {
-            if (objs[i].hideFlags == HideFlags.None)
-            {
-                if (objs[i].name == name)
-                {
-                    return objs[i].gameObject;
-                }
-            }
-        }
-        return null;
     }
 }

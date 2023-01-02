@@ -20,6 +20,7 @@ public class GameData : ScriptableObject
     [SerializeField] public AudioMixer audioMixer;
     public float music;
     public float sfx;
+    public int quality;
 
     // JSON READER
     public Articles articlesJson;
@@ -145,6 +146,7 @@ public class GameData : ScriptableObject
         targetId_2 = 0;
 
         //tutorial = true;
+        quality = QualitySettings.GetQualityLevel();
 
         isEvaluating = false;
     }
@@ -177,6 +179,11 @@ public class GameData : ScriptableObject
     public void setSFX(float volume)
     {
         sfx = volume;
+    }
+
+    public void setQuality(int qualityIndex)
+    {
+        quality = qualityIndex;
     }
 
     // ADDING CLUES, OBJECTIVES, AND clues

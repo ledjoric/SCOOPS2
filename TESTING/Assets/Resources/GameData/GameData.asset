@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4630a22e9be72d64ca16d6ef669d0b80, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  isResume: 1
-  position: {x: 13.366681, y: 4.2914042, z: 9.222174}
-  rotation: 30.592974
-  playerName: Eyy
-  playerSexuality: Male
+  isResume: 0
+  position: {x: 0, y: 0, z: 0}
+  rotation: 90
+  playerName: 
+  playerSexuality: 
   audioMixer: {fileID: 24100000, guid: 259ebef453e6739428c30dbac8f0221b, type: 2}
   music: 0
   sfx: 0
+  quality: 1
   articlesJson:
     articles:
     - id: 1
@@ -234,26 +235,26 @@ MonoBehaviour:
   roadNPC: 0
   isWatched: 0
   cryptoDone: 0
-  isOpen: 1
-  isInside: 1
-  tutorial: 0
-  wtd: 4
-  basics: 5
-  craap: 5
-  collect: 1
-  explore: 1
-  evaluate: 1
-  publish: 1
-  phone: 1
-  npc: 1
-  objects: 1
-  article: 1
-  clue: 1
-  currency: 1
-  relevance: 1
-  authority: 1
-  accuracy: 1
-  purpose: 1
+  isOpen: 0
+  isInside: 0
+  tutorial: 1
+  wtd: 0
+  basics: 0
+  craap: 0
+  collect: 0
+  explore: 0
+  evaluate: 0
+  publish: 0
+  phone: 0
+  npc: 0
+  objects: 0
+  article: 0
+  clue: 0
+  currency: 0
+  relevance: 0
+  authority: 0
+  accuracy: 0
+  purpose: 0
   articlesList: 
   objectivesList:
   - Collect articles
