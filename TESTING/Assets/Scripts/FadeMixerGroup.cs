@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.Audio;
 public static class FadeMixerGroup
 {
     public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)

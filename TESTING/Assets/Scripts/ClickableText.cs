@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
 using UnityEngine.UI;
-using System.Linq;
 
 public class ClickableText : MonoBehaviour, IPointerClickHandler
 {

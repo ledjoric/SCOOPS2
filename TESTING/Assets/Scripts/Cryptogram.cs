@@ -5,7 +5,6 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class Cryptogram : MonoBehaviour

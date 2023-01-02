@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Drawing;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
