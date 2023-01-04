@@ -124,6 +124,11 @@ public class GameData : ScriptableObject
     public List<string> allObjectsName;
     public List<bool> activeStatus;
 
+    private void Awake()
+    {
+        tutorial = true;
+    }
+
     private void OnEnable()
     {
         articlesJson = JsonUtility.FromJson<Articles>(articlesData.text);

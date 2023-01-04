@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void OnEnable()
     {
-        existingSave();
+        Invoke("existingSave", 0.01f);
         Invoke("loadSettings", 0.01f);
     }
 

@@ -11,12 +11,12 @@ public class SaveLoad : MonoBehaviour
     [SerializeField] private Transform male, female;
     private Transform player;
 
-    private void OnEnable()
+    private void Awake()
     {
         if (gameData.isResume)
         {
-            Invoke("loadData", 0.001f);
-            //loadData();
+            //Invoke("loadData", 0.001f);
+            loadData();
         }
 
         string path = Application.persistentDataPath + "/settings.scps";
@@ -24,6 +24,11 @@ public class SaveLoad : MonoBehaviour
         {
             loadSettingsData();
         }
+    }
+
+    private void OnEnable()
+    {
+        
     }
 
     private void Start()
@@ -43,7 +48,7 @@ public class SaveLoad : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        saveData();
+        //saveData();
     }
 
     public void saveData()

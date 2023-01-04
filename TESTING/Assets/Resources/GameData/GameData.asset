@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   isResume: 0
-  position: {x: 0, y: 0, z: 0}
+  position: {x: 9.411794, y: 4.245001, z: 7.073819}
   rotation: 90
   playerName: 
   playerSexuality: 
@@ -235,8 +235,8 @@ MonoBehaviour:
   roadNPC: 0
   isWatched: 0
   cryptoDone: 0
-  isOpen: 0
-  isInside: 0
+  isOpen: 1
+  isInside: 1
   tutorial: 1
   wtd: 0
   basics: 0

@@ -15,10 +15,7 @@ public class TargetFPS : MonoBehaviour
         Application.targetFrameRate = 300;
         StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "Music", 4, 1));
         // Invoke("showFPS", 5);
-    }
 
-    private void OnEnable()
-    {
         if (gameData.tutorial)
         {
             tutorial.SetActive(true);
@@ -27,6 +24,11 @@ public class TargetFPS : MonoBehaviour
         {
             tutorial.SetActive(false);
         }
+    }
+
+    private void OnEnable()
+    {
+        
     }
 
     // public void showFPS()
